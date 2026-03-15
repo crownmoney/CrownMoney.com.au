@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import { Play, CheckCircle, ArrowRight, Star, Quote, TrendingUp, Calendar, ShieldCheck, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Newsletter } from '../components/Newsletter';
+
 const Hero = () => {
   return (
     <section className="relative bg-crown-lavender py-20 lg:py-32 overflow-hidden">
@@ -64,8 +66,8 @@ const Hero = () => {
         >
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
             <img 
-              src="https://picsum.photos/seed/finance/800/600" 
-              alt="Crown Money Team" 
+              src="https://storage.googleapis.com/crown_money/Website/About/Other/House.jpg" 
+              alt="Crown Money House" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"
             />
@@ -322,10 +324,6 @@ const Testimonials = () => {
             <p className="text-gray-600">
               Our strategy isn't just about numbers; it's about the freedom and peace of mind that comes with being debt-free.
             </p>
-            <Link to="/testimonials" className="inline-flex items-center text-primary font-bold hover:text-gold transition-colors group">
-              Read More Success Stories
-              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
         </div>
       </div>
@@ -400,6 +398,7 @@ export const Home = () => {
       <HowItWorksPreview />
       <TimelineVisual />
       <Testimonials />
+      <Newsletter />
       <WhyCrownMoney />
       <FinalCTA />
     </div>

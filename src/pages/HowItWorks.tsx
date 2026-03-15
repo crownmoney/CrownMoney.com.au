@@ -3,31 +3,37 @@ import { motion } from 'motion/react';
 import { Phone, FileText, Settings, TrendingUp, CheckCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Newsletter } from '../components/Newsletter';
+
 export const HowItWorks = () => {
   const steps = [
     {
       icon: <Phone />,
       title: "1. Discovery Call",
       desc: "We start with a deep dive into your current financial situation. We look at your income, expenses, current mortgage structure, and your long-term goals.",
-      details: ["Income analysis", "Expense audit", "Goal setting"]
+      details: ["Income analysis", "Expense audit", "Goal setting"],
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: <FileText />,
       title: "2. Financial Strategy",
       desc: "Our experts create a personalised debt reduction plan tailored to your life. We show you exactly how much time and interest you can save.",
-      details: ["Custom roadmap", "Interest saving projection", "Timeline mapping"]
+      details: ["Custom roadmap", "Interest saving projection", "Timeline mapping"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: <Settings />,
       title: "3. Implementation",
       desc: "We help you optimise your mortgage structure. This isn't just about a lower rate; it's about setting up your accounts to work for you, not the bank.",
-      details: ["Account restructuring", "Offset optimisation", "Lender negotiation"]
+      details: ["Account restructuring", "Offset optimisation", "Lender negotiation"],
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
     },
     {
       icon: <TrendingUp />,
       title: "4. Coaching & Tracking",
       desc: "Ongoing monthly financial coaching and access to our wealth tracking dashboard. We keep you accountable and adjust the plan as your life changes.",
-      details: ["Monthly check-ins", "Wealth dashboard", "Ongoing support"]
+      details: ["Monthly check-ins", "Wealth dashboard", "Ongoing support"],
+      image: "https://images.unsplash.com/photo-1551288049-bbdac8a28a1e?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -95,11 +101,11 @@ export const HowItWorks = () => {
                   </ul>
                 </div>
                 <div className="w-full md:w-1/2">
-                  <div className="bg-crown-lavender rounded-3xl p-8 aspect-square flex items-center justify-center">
+                  <div className="bg-crown-lavender rounded-3xl p-4 aspect-square flex items-center justify-center">
                     <img 
-                      src={`https://picsum.photos/seed/step${idx}/600/600`} 
+                      src={step.image} 
                       alt={step.title} 
-                      className="rounded-2xl shadow-xl w-full h-auto object-cover"
+                      className="rounded-2xl shadow-xl w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -159,6 +165,7 @@ export const HowItWorks = () => {
           </Link>
         </div>
       </section>
+      <Newsletter />
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Users, Target, History, Award, CheckCircle, Linkedin } from 'lucide-react';
 
+import { Newsletter } from '../components/Newsletter';
+
 export const About = () => {
   const stats = [
     { label: "Debt Reduced", value: "$50M+" },
@@ -10,11 +12,91 @@ export const About = () => {
     { label: "Success Rate", value: "98%" },
   ];
 
-  const team = [
-    { name: "Scott Parry", role: "Founder", image: "https://picsum.photos/seed/scott/400/400" },
-    { name: "Craig Parry", role: "Senior Finance Broker", image: "https://picsum.photos/seed/craig/400/400" },
-    { name: "Sarah Jenkins", role: "Client Success Manager", image: "https://picsum.photos/seed/sarah/400/400" },
-    { name: "Michael Chen", role: "Financial Strategist", image: "https://picsum.photos/seed/michael/400/400" },
+  const teamGroups = [
+    {
+      title: "Leadership",
+      members: [
+        { name: "Scott Parry", role: "Founder & CEO", image: "https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" },
+        { name: "Craig Parry", role: "Partner & Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/craig%20parry.png" },
+        { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg" },
+        { name: "Jessie Edge", role: "Operations", image: "https://storage.googleapis.com/crown_money/Website/About/People/jessie%20edge.png" },
+      ]
+    },
+    {
+      title: "Financial Strategists",
+      members: [
+        { name: "Michael Koole", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/MICHAEL%20KOOLE.jpeg" },
+        { name: "Reuben Dabrow", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/reuben%20dabrow.png" },
+        { name: "Joel Bate", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOEL%20BATE.jpeg" },
+        { name: "Hayley Wilson", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/HAYLEY%20WILSON.png" },
+        { name: "Emma Kelly", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/EMMA%20Kelly.jpg" },
+        { name: "Theo Collett", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/THEO%20COLLETT.jpg" },
+        { name: "Jenn Durling", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/JENN%20DURLING.jpeg" },
+        { name: "Tammie Bennett", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tammie%20Bennett.png" },
+        { name: "Ashlee Slarks", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/ASHLEE%20SLARKS.jpg" },
+        { name: "Ellie Pipkin", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ellie%20Pipkin.jpg" },
+        { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
+        { name: "Kat Daroczy", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
+        { name: "Chad Martin", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/CHAD%20MARTIN.jpg" },
+      ]
+    },
+    {
+      title: "Finance Brokers",
+      members: [
+        { name: "Richard Recordon", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/richard%20recordon.jpg" },
+        { name: "Mathew Wright", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Mat_BW.jpg" },
+        { name: "Richard Pollock", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Richard-Pollock-Headshot-2.0.jpg" },
+      ]
+    },
+    {
+      title: "Post Settlement Team",
+      members: [
+        { name: "Adam Santangelo", role: "Client Success Team Leader", image: "https://storage.googleapis.com/crown_money/Website/About/People/Adam_Santangelo_BW.png" },
+        { name: "Craig Butler", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Craig.png" },
+        { name: "Eden Robinson", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eden.jpg" },
+        { name: "Leigh Parmenter", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Leigh%20Parmenter.jpg" },
+        { name: "Bec Derksen", role: "Client Experience Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/bec%20derksen.png" },
+        { name: "Nikki Van De Scheur", role: "Client Care Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/nikki%20van%20de%20scheur.jpg" },
+        { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
+        { name: "Bianca Del Rosario", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca%20Del%20Rosario.jpg" },
+        { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
+        { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
+        { name: "Joyce Generale", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOYCE%20GENERALE.jpg" },
+      ]
+    },
+    {
+      title: "Pre Settlement Team",
+      members: [
+        { name: "Megan Dibenedetto", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
+        { name: "Jimmy Walker", role: "Sales Support Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
+        { name: "Gale Yabut", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/GALE%20YABUT.jpg" },
+        { name: "Kristine Enriquez", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/KRISTINE%20Enriquez.jpeg" },
+        { name: "Beth Caper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Beth%20Caper.png" },
+        { name: "Lyndel Amora", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Lyndel%20Amora.png" },
+        { name: "Klouie Gasper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Klouie%20Gasper.jpeg" },
+        { name: "Allona Mayol", role: "Settlements Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Allona%20Mayol.jpeg" },
+      ]
+    },
+    {
+      title: "Technology Team",
+      members: [
+        { name: "Che Mas", role: "Technology Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Che.jpg" },
+        { name: "Vincent Tabayag", role: "Digital Content & Graphic Design", image: "https://storage.googleapis.com/crown_money/Website/About/People/VINCENT%20TABAYAG.png" },
+        { name: "Emmanuel Estolas", role: "HubSpot Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Emmanuel%20Estolas.jpg" },
+        { name: "Nikino Pamintuan", role: "Video Editor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Nikino%20Pamintuan.jpg" },
+      ]
+    },
+    {
+      title: "Craig Parry Team",
+      members: [
+        { name: "Nicola Parry", role: "Office Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Nicola%20Parry.png" },
+        { name: "Jas Durdin", role: "Client Success Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jas%20Durdin.png" },
+        { name: "Brodie Statham", role: "Credit Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Brodie.png" },
+        { name: "Josie Carreon", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Josie.jpg" },
+        { name: "Roxanne Timbol", role: "Client Services Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/ROXANNE.jpeg" },
+        { name: "Eloisa Llaneta", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eloisa%20Llaneta.png" },
+      ]
+    }
   ];
 
   return (
@@ -35,8 +117,19 @@ export const About = () => {
         </div>
       </section>
 
+      {/* Awards Banner */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <img 
+            src="https://storage.googleapis.com/crown_money/Website/About/Other/The-Better-Business-Awards.png" 
+            alt="Better Business Awards" 
+            className="w-full h-auto rounded-3xl shadow-lg"
+          />
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="py-12 bg-white relative -mt-10 z-10 max-w-5xl mx-auto px-4">
+      <section className="py-12 bg-white relative z-10 max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, idx) => (
             <div key={idx} className="bg-white p-8 rounded-2xl shadow-xl text-center border border-gray-50">
@@ -52,8 +145,8 @@ export const About = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <img 
-              src="https://picsum.photos/seed/office/800/600" 
-              alt="Crown Money Office" 
+              src="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" 
+              alt="Scott Parry - Founder" 
               className="rounded-3xl shadow-2xl"
               referrerPolicy="no-referrer"
             />
@@ -113,29 +206,35 @@ export const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, idx) => (
-              <div key={idx} className="group">
-                <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <div className="flex space-x-3 text-white">
-                      <Linkedin size={20} className="cursor-pointer hover:text-gold" />
+          <div className="space-y-20">
+            {teamGroups.map((group, gIdx) => (
+              <div key={gIdx}>
+                <h3 className="text-2xl font-display font-bold text-primary mb-8 border-b border-gray-100 pb-4">{group.title}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {group.members.map((member, idx) => (
+                    <div key={idx} className="group">
+                      <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square bg-gray-100">
+                        <img 
+                          src={member.image} 
+                          alt={member.name} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${member.name}/400/400`;
+                          }}
+                        />
+                      </div>
+                      <h4 className="text-lg font-bold text-primary">{member.name}</h4>
+                      <p className="text-gray-500 text-sm">{member.role}</p>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                <h4 className="text-xl font-bold text-primary">{member.name}</h4>
-                <p className="text-gray-500 text-sm">{member.role}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+      <Newsletter />
     </div>
   );
 };
