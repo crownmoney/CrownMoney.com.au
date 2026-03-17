@@ -1,10 +1,18 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { Users, Target, History, Award, CheckCircle, Linkedin } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Users, Target, History, Award, CheckCircle, Linkedin, X } from 'lucide-react';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 import { Newsletter } from '../components/Newsletter';
 
 export const About = () => {
+  const [selectedMember, setSelectedMember] = React.useState<any>(null);
+
   const stats = [
     { label: "Debt Reduced", value: "$50M+" },
     { label: "Families Helped", value: "Thousands" },
@@ -16,10 +24,25 @@ export const About = () => {
     {
       title: "Leadership",
       members: [
-        { name: "Scott Parry", role: "Founder & CEO", image: "https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" },
-        { name: "Craig Parry", role: "Partner & Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/craig%20parry.png" },
+        { 
+          name: "Scott Parry", 
+          role: "Founder & CEO", 
+          image: "https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg",
+          bio: "Scott Parry is the visionary founder of Crown Money. With over 25 years in the finance industry, Scott has dedicated his career to challenging the traditional banking model. His passion for helping Australians achieve financial independence led to the creation of Crown's unique debt reduction strategy. Scott is a frequent commentator in financial media and a sought-after speaker on wealth creation."
+        },
+        { 
+          name: "Craig Parry", 
+          role: "Partner & Senior Finance Broker", 
+          image: "https://storage.googleapis.com/crown_money/Website/About/People/craig%20parry.png",
+          bio: "Craig Parry brings a wealth of experience in mortgage broking and financial strategy. As a partner at Crown Money, he oversees the brokerage operations and ensures that every client receives a mortgage structure optimized for their specific goals. Craig's expertise in complex lending scenarios makes him an invaluable asset to the team and our clients."
+        },
         { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg" },
-        { name: "Jessie Edge", role: "Operations", image: "https://storage.googleapis.com/crown_money/Website/About/People/jessie%20edge.png" },
+        { 
+          name: "Jessie Edge", 
+          role: "Operations", 
+          image: "https://storage.googleapis.com/crown_money/Website/About/People/jessie%20edge.png",
+          bio: "Jessie Edge is the engine room of Crown Money's operations. With a background in process optimization and client services, Jessie ensures that the Crown Money journey is seamless for every family we help. Her commitment to operational excellence and client success is at the heart of everything we do."
+        },
       ]
     },
     {
@@ -161,12 +184,17 @@ export const About = () => {
               <span>Our Story</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">Founded on a simple belief: Banks shouldn't keep you in debt.</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Founded in 2004 by Scott Parry, Crown Money was born out of a frustration with the traditional banking system. Scott saw that banks were designed to keep people in debt for as long as possible to maximise interest profits.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              He developed a unique financial strategy that allows homeowners to use their existing income more effectively, attacking the principal of their mortgage while still maintaining their lifestyle.
-            </p>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                Founded in 2004 by Scott Parry, Crown Money was born out of a frustration with the traditional banking system. Scott saw that banks were designed to keep people in debt for as long as possible to maximise interest profits.
+              </p>
+              <p>
+                He developed a unique financial strategy that allows homeowners to use their existing income more effectively, attacking the principal of their mortgage while still maintaining their lifestyle.
+              </p>
+              <p>
+                Over the last two decades, Crown Money has evolved from a small boutique firm into one of Australia's most respected money management specialists, helping thousands of families save millions in interest and shave decades off their mortgages.
+              </p>
+            </div>
             <div className="space-y-4 pt-4">
               <div className="flex items-start space-x-3">
                 <CheckCircle className="text-gold mt-1" size={20} />
@@ -185,13 +213,62 @@ export const About = () => {
         </div>
       </section>
 
+      {/* Why Crown Money */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Why Crown Money?</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We do things differently because we believe you deserve a better financial future.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
+                <Target size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-primary mb-4">We Are Strategy First</h3>
+              <p className="text-gray-600">
+                Most brokers focus on the interest rate. We focus on the strategy. A lower rate is good, but the right structure is what saves you hundreds of thousands.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
+                <Users size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-primary mb-4">Ongoing Coaching</h3>
+              <p className="text-gray-600">
+                A plan is only good if you stick to it. Our financial coaches provide the accountability and guidance you need to stay on track for the long term.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
+                <Award size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-primary mb-4">Proven Results</h3>
+              <p className="text-gray-600">
+                With over 20 years of experience and thousands of successful clients, our system is tried, tested, and proven to work in any market.
+              </p>
+            </div>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <img 
+              src="https://storage.googleapis.com/crown_money/Website/About/The-Better-Business-Awards.png" 
+              alt="The Better Business Awards" 
+              className="rounded-3xl shadow-2xl w-full"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Our Mission */}
       <section className="py-20 bg-crown-lavender">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Target className="text-primary mx-auto mb-6" size={48} />
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-6">Our Mission</h2>
           <p className="text-2xl text-gray-700 font-medium leading-relaxed italic">
-            "To empower 5,000 Australian families to become mortgage-free, providing them with the tools, knowledge, and coaching to build generational wealth."
+            "To empower 5,000 Australian families every year to become mortgage-free, providing them with the tools, knowledge, and coaching to build generational wealth."
           </p>
         </div>
       </section>
@@ -212,7 +289,11 @@ export const About = () => {
                 <h3 className="text-2xl font-display font-bold text-primary mb-8 border-b border-gray-100 pb-4">{group.title}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                   {group.members.map((member, idx) => (
-                    <div key={idx} className="group">
+                    <div 
+                      key={idx} 
+                      className={cn("group", member.bio && "cursor-pointer")}
+                      onClick={() => member.bio && setSelectedMember(member)}
+                    >
                       <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square bg-gray-100">
                         <img 
                           src={member.image} 
@@ -223,6 +304,11 @@ export const About = () => {
                             (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${member.name}/400/400`;
                           }}
                         />
+                        {member.bio && (
+                          <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold">View Bio</span>
+                          </div>
+                        )}
                       </div>
                       <h4 className="text-lg font-bold text-primary">{member.name}</h4>
                       <p className="text-gray-500 text-sm">{member.role}</p>
@@ -234,6 +320,62 @@ export const About = () => {
           </div>
         </div>
       </section>
+      {/* Bio Modal */}
+      <AnimatePresence>
+        {selectedMember && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-primary/80 backdrop-blur-sm"
+            onClick={() => setSelectedMember(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full relative shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors z-10"
+              >
+                <X size={24} />
+              </button>
+              <div className="flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 aspect-square md:aspect-auto">
+                  <img 
+                    src={selectedMember.image} 
+                    alt={selectedMember.name} 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="p-8 md:w-1/2 space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-display font-bold text-primary">{selectedMember.name}</h3>
+                    <p className="text-gold font-bold text-sm uppercase tracking-widest">{selectedMember.role}</p>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    {selectedMember.bio}
+                  </p>
+                  <div className="pt-4">
+                    <a 
+                      href="https://www.linkedin.com/company/crown-money" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 text-primary hover:text-gold transition-colors font-bold"
+                    >
+                      <Linkedin size={20} />
+                      <span>Connect on LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Newsletter />
     </div>
   );

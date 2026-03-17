@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Play, CheckCircle, ArrowRight, Star, Quote, TrendingUp, Calendar, ShieldCheck, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { Newsletter } from '../components/Newsletter';
+import { MortgageCalculator } from '../components/MortgageCalculator';
+import { AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -252,78 +255,84 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Jo & Luke",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jo-and-Luke.png",
-      quote: "Crown Money changed our lives. We're on track to pay our home off in 12 years instead of 30!",
-      result: "18 years saved"
+      story: "Crown Money changed our lives. We're on track to pay our home off in 12 years instead of 30!",
+      outcome: "18 years saved",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jo-and-Luke.png"
     },
     {
       name: "Matthew Anderson",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Matthew-Anderson-1.jpg",
-      quote: "The coaching is what makes the difference. Having someone keep you accountable is priceless.",
-      result: "$45k debt reduced in year 1"
+      story: "The coaching is what makes the difference. Having someone keep you accountable is priceless.",
+      outcome: "$45k debt reduced in year 1",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Matthew-Anderson-1.jpg"
     },
     {
       name: "Todd & Sarah",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Todd-and-Sarah.png",
-      quote: "We finally feel in control of our money. The dashboard shows us exactly where we are every day.",
-      result: "25% increase in savings"
+      story: "We finally feel in control of our money. The dashboard shows us exactly where we are every day.",
+      outcome: "25% increase in savings",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Todd-and-Sarah.png"
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   return (
-    <section className="py-20 bg-crown-lavender">
+    <section className="py-24 bg-crown-lavender overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Real Australians. Real Results.</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Join hundreds of families who have taken control of their financial future.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-4">Success Stories</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">Real results from real Australians who took control of their financial future.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((t, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-3xl shadow-xl hover:translate-y-[-5px] transition-all">
-              <div className="flex items-center space-x-4 mb-6">
-                <img 
-                  src={t.image} 
-                  alt={t.name} 
-                  className="w-16 h-16 rounded-full object-cover border-2 border-accent"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${t.name}/100/100`;
-                  }}
-                />
-                <div>
-                  <h4 className="font-bold text-primary">{t.name}</h4>
-                  <div className="flex text-gold">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+        <div className="relative max-w-4xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              className="bg-white rounded-[3rem] p-8 md:p-16 shadow-xl relative"
+            >
+              <Quote className="absolute top-8 left-8 text-gold/10" size={120} />
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                <div className="shrink-0">
+                  <img 
+                    src={testimonials[currentIndex].image} 
+                    alt={testimonials[currentIndex].name}
+                    className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-accent shadow-lg"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="text-center md:text-left">
+                  <p className="text-xl md:text-2xl text-gray-700 italic leading-relaxed mb-8">
+                    "{testimonials[currentIndex].story}"
+                  </p>
+                  <div>
+                    <h4 className="text-2xl font-display font-bold text-primary mb-2">{testimonials[currentIndex].name}</h4>
+                    <div className="inline-block bg-accent px-4 py-2 rounded-full text-primary font-bold text-sm">
+                      {testimonials[currentIndex].outcome}
+                    </div>
                   </div>
                 </div>
               </div>
-              <Quote className="text-accent mb-4" size={32} />
-              <p className="text-gray-600 italic mb-6">"{t.quote}"</p>
-              <div className="bg-accent/30 px-4 py-2 rounded-lg inline-block">
-                <span className="text-sm font-bold text-primary">{t.result}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+            </motion.div>
+          </AnimatePresence>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl">
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/W0MskR1vqJs" 
-              title="Client Testimonial" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            ></iframe>
-          </div>
-          <div className="space-y-6">
-            <h3 className="text-2xl font-display font-bold text-primary">Hear directly from our clients</h3>
-            <p className="text-gray-600">
-              Our strategy isn't just about numbers; it's about the freedom and peace of mind that comes with being debt-free.
-            </p>
+          <div className="flex justify-center mt-12 space-x-4">
+            <button 
+              onClick={prev}
+              className="bg-white p-4 rounded-full text-primary shadow-lg hover:bg-primary hover:text-white transition-all"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={next}
+              className="bg-white p-4 rounded-full text-primary shadow-lg hover:bg-primary hover:text-white transition-all"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
       </div>
@@ -332,33 +341,56 @@ const Testimonials = () => {
 };
 
 const WhyCrownMoney = () => {
-  const features = [
-    { icon: <Calendar />, title: "20+ Years Experience", desc: "Two decades of helping Australians navigate the finance world." },
-    { icon: <Users />, title: "Monthly Financial Coaching", desc: "Ongoing support to keep you on track towards your goals." },
-    { icon: <TrendingUp />, title: "Personalised Strategies", desc: "No cookie-cutter plans. We build a strategy for your specific life." },
-    { icon: <ShieldCheck />, title: "Wealth Tracking Software", desc: "Real-time visibility into your progress and net worth." },
-  ];
-
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Why Crown Money?</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We are more than just finance brokers. We are your partners in wealth creation.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((f, idx) => (
-            <div key={idx} className="p-8 rounded-3xl border border-gray-100 hover:border-gold/30 hover:shadow-xl transition-all group">
-              <div className="bg-accent text-primary w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                {React.cloneElement(f.icon as React.ReactElement, { size: 28 })}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight">
+              Why thousands of Australians choose <span className="text-gold">Crown Money</span>
+            </h2>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent p-3 rounded-2xl text-primary mt-1">
+                  <CheckCircle size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Strategy First, Rate Second</h3>
+                  <p className="text-gray-600">A low rate is good, but the right strategy is what actually pays off your mortgage. We focus on the structure that saves you the most interest.</p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-primary">{f.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent p-3 rounded-2xl text-primary mt-1">
+                  <CheckCircle size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Ongoing Financial Coaching</h3>
+                  <p className="text-gray-600">We don't just set it and forget it. Our coaches work with you monthly to ensure you're hitting your goals and staying on track.</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="bg-accent p-3 rounded-2xl text-primary mt-1">
+                  <CheckCircle size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Proprietary Technology</h3>
+                  <p className="text-gray-600">Access our wealth tracking dashboard to see your progress in real-time. Know exactly when you'll be mortgage-free.</p>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+          <div className="relative">
+            <img 
+              src="https://storage.googleapis.com/crown_money/Website/About/The-Better-Business-Awards.png" 
+              alt="Crown Money Team Awards" 
+              className="rounded-3xl shadow-2xl"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute -bottom-6 -left-6 bg-primary text-white p-8 rounded-2xl shadow-xl hidden md:block">
+              <p className="text-4xl font-display font-bold">20+</p>
+              <p className="text-sm font-medium">Years of Experience</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -395,6 +427,18 @@ export const Home = () => {
     <div>
       <Hero />
       <SocialProof />
+      
+      {/* Calculator Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-4">See Your Savings Potential</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Use our calculator to estimate your payments and see how much interest you could save with the right strategy.</p>
+          </div>
+          <MortgageCalculator />
+        </div>
+      </section>
+
       <HowItWorksPreview />
       <TimelineVisual />
       <Testimonials />

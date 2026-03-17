@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare } from 'lucide-react';
+import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -10,7 +10,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const Header = () => {
+const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBookToggle: () => void }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -28,13 +28,16 @@ const Header = () => {
     { name: 'About Us', path: '/about' },
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Success Stories', path: '/success-stories' },
+    { name: 'Tools', path: '/tools' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'Podcast', path: 'https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs', external: true },
+    { name: 'Chatbot', path: '#', onClick: onChatToggle },
     { name: 'Contact', path: '/contact' },
   ];
 
   const clientLogins = [
     { name: 'Origin', path: 'https://online.originmms.com.au/ib/crown' },
-    { name: 'Advantage', path: 'https://mortgage.advantedge.com.au/StarNet/UserAccount/Login' },
+    { name: 'Advantedge', path: 'https://mortgage.advantedge.com.au/StarNet/UserAccount/Login' },
     { name: 'Well Nigh', path: 'https://crownmoney.emms.net.au/security/login' },
     { name: 'Wealth Portal', path: 'https://myprosperity.com.au/accounts/signin?cobrand=crownmoney' },
   ];
@@ -91,6 +94,14 @@ const Header = () => {
                 >
                   {link.name}
                 </a>
+              ) : link.onClick ? (
+                <button
+                  key={link.name}
+                  onClick={link.onClick}
+                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </button>
               ) : (
                 <Link
                   key={link.name}
@@ -126,14 +137,12 @@ const Header = () => {
               </div>
             </div>
 
-            <a
-              href="https://go.oncehub.com/crown-money-welcome"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={onBookToggle}
               className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all shadow-md"
             >
               Book Meeting
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -163,6 +172,17 @@ const Header = () => {
                     >
                       {link.name}
                     </a>
+                  ) : link.onClick ? (
+                    <button
+                      key={link.name}
+                      onClick={() => {
+                        link.onClick?.();
+                        setIsMenuOpen(false);
+                      }}
+                      className="text-lg font-medium py-2 text-gray-600 text-left"
+                    >
+                      {link.name}
+                    </button>
                   ) : (
                     <Link
                       key={link.name}
@@ -195,14 +215,15 @@ const Header = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    onBookToggle();
+                    setIsMenuOpen(false);
+                  }}
                   className="bg-primary text-white px-6 py-3 rounded-xl text-center font-bold"
                 >
                   Book Meeting
-                </a>
+                </button>
               </div>
             </motion.div>
           )}
@@ -212,7 +233,7 @@ const Header = () => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ onBookToggle }: { onBookToggle: () => void }) => {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -237,6 +258,12 @@ const Footer = () => {
               admin@crown.money
             </a>
           </div>
+          <button
+            onClick={onBookToggle}
+            className="bg-gold text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-opacity-90 transition-all"
+          >
+            Book Meeting
+          </button>
         </div>
 
         <div>
@@ -245,6 +272,8 @@ const Footer = () => {
             <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
             <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
             <li><Link to="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+            <li><Link to="/tools" className="hover:text-white transition-colors">Calculators & Tools</Link></li>
+            <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             <li><Link to="/success-stories" className="hover:text-white transition-colors">Success Stories</Link></li>
             <li><a href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Podcast</a></li>
             <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
@@ -276,40 +305,57 @@ const Footer = () => {
   );
 };
 
-const FloatingCTA = () => {
+const FloatingCTA = ({ onBookToggle }: { onBookToggle: () => void }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="fixed bottom-8 right-8 z-50 hidden md:block"
     >
-      <a 
-        href="https://go.oncehub.com/crown-money-welcome"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button 
+        onClick={onBookToggle}
         className="bg-gold text-white px-8 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform flex items-center space-x-2"
       >
         <Phone size={20} />
         <span>Schedule Call</span>
-      </a>
+      </button>
     </motion.div>
   );
 };
 
-const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { text: "Hi! I'm the Crown Money AI assistant. How can I help you today?", isBot: true }
-  ]);
+const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: boolean) => void }) => {
+  const [messages, setMessages] = useState<{ text: string, isBot: boolean }[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Load history on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('crown_chat_history');
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch (e) {
+        setMessages([{ text: "Hi! I'm the Crown Money AI assistant. How can I help you today?", isBot: true }]);
+      }
+    } else {
+      setMessages([{ text: "Hi! I'm the Crown Money AI assistant. How can I help you today?", isBot: true }]);
+    }
+  }, []);
+
+  // Save history on change
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem('crown_chat_history', JSON.stringify(messages));
+    }
+  }, [messages]);
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
     const userMsg = input;
-    setMessages(prev => [...prev, { text: userMsg, isBot: false }]);
+    const newMessages = [...messages, { text: userMsg, isBot: false }];
+    setMessages(newMessages);
     setInput("");
     setIsLoading(true);
 
@@ -320,12 +366,39 @@ const Chatbot = () => {
       const chat = genAI.chats.create({
         model: model,
         config: {
-          systemInstruction: "You are a professional, helpful, and trustworthy AI assistant for Crown Money, an Australian financial strategy company. Your goal is to help homeowners understand how to pay off their mortgage faster and build wealth. You should encourage users to book a free strategy call. Be concise, professional, and friendly. If asked about specific rates or products, explain that a personalized strategy session is needed to provide accurate information for their situation.",
+          systemInstruction: `You are a professional, helpful, and trustworthy AI assistant for Crown Money, an Australian financial strategy company. 
+          Crown Money specializes in debt reduction and wealth building. 
+          Key services include:
+          - Mortgage reduction strategies that help homeowners pay off their 30-year mortgage in 10-15 years.
+          - Financial coaching and tracking through a proprietary dashboard.
+          - Optimizing mortgage structures to work for the homeowner, not the bank.
+          - Wealth building and investment property strategy.
+          
+          Your goal is to help homeowners understand these concepts and actively prompt them to book a free strategy call at https://go.oncehub.com/crown-money-welcome.
+          
+          Guidelines:
+          - Be concise, professional, and friendly.
+          - Avoid using markdown symbols like * or # in your answers. Use plain text or simple HTML-like structure if needed.
+          - If asked about specific rates or products, explain that a personalized strategy session is needed to provide accurate information for their situation.
+          - Always mention the free strategy call as the next logical step.`,
         },
       });
 
-      const result = await chat.sendMessage({ message: userMsg });
-      const responseText = result.text;
+      // Include history context (last 10 messages)
+      const history = messages.slice(-10).map(m => ({
+        role: m.isBot ? "model" : "user",
+        parts: [{ text: m.text }]
+      }));
+
+      const result = await genAI.models.generateContent({
+        model: model,
+        contents: [...history, { role: "user", parts: [{ text: userMsg }] }],
+        config: {
+          systemInstruction: "You are a professional AI assistant for Crown Money. Help homeowners pay off mortgages faster and build wealth. Prompt for a free strategy call. No * or # symbols."
+        }
+      });
+
+      const responseText = result.text?.replace(/[*#]/g, '') || "I'm sorry, I couldn't generate a response. Please try again or book a call with our team!";
       
       setMessages(prev => [...prev, { text: responseText, isBot: true }]);
     } catch (error) {
@@ -354,6 +427,9 @@ const Chatbot = () => {
               <button onClick={() => setIsOpen(false)}><X size={20} /></button>
             </div>
             <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50">
+              <div className="bg-amber-50 border border-amber-100 p-3 rounded-xl text-[10px] text-amber-800 leading-tight mb-2">
+                DISCLAIMER: This AI assistant provides general information only and is not a substitute for professional financial advice. For personalized guidance, please book a call with our experts.
+              </div>
               {messages.map((msg, idx) => (
                 <div key={idx} className={cn("flex", msg.isBot ? "justify-start" : "justify-end")}>
                   <div className={cn(
@@ -367,9 +443,10 @@ const Chatbot = () => {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-white text-gray-700 shadow-sm p-3 rounded-2xl text-sm flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:0.2s]"></div>
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                    <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                    <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                    <span className="text-[10px] text-gray-400 ml-2">Thinking...</span>
                   </div>
                 </div>
               )}
@@ -407,6 +484,8 @@ interface LayoutProps {
 const ExitPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
@@ -419,6 +498,26 @@ const ExitPopup = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShown]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    try {
+      await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
+        method: 'POST',
+        body: JSON.stringify({ email, source: 'exit_popup' }),
+      });
+      
+      setIsSubmitted(true);
+      setTimeout(() => {
+        window.open('https://storage.googleapis.com/crown_money/Website/Resources/20%20Minutes%20Financial%20Health%20Check.pdf', '_blank');
+        setIsVisible(false);
+      }, 2000);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -446,18 +545,27 @@ const ExitPopup = () => {
               </div>
               <h2 className="text-3xl font-display font-bold text-primary mb-4">Wait! Don't Miss Out</h2>
               <p className="text-gray-600 mb-8">
-                Download our <span className="font-bold text-primary">Free Mortgage Freedom Plan</span> and see how you can save $100k+ in interest.
+                Get access to our <span className="font-bold text-primary">20 Minutes Financial Health Check</span> and see how you can save $100k+ in interest.
               </p>
-              <form className="space-y-4">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="w-full px-6 py-4 rounded-xl border border-gray-200 outline-none focus:border-primary"
-                />
-                <button className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">
-                  Get My Free Plan
-                </button>
-              </form>
+              {isSubmitted ? (
+                <div className="text-green-600 font-bold py-4">
+                  Success! Opening your health check...
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email" 
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 outline-none focus:border-primary"
+                    required
+                  />
+                  <button className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">
+                    Get My Health Check
+                  </button>
+                </form>
+              )}
               <p className="mt-6 text-xs text-gray-400">
                 We respect your privacy. No spam, ever.
               </p>
@@ -469,17 +577,79 @@ const ExitPopup = () => {
   );
 };
 
+const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-primary/80 backdrop-blur-sm"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            className="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <div className="text-center space-y-6">
+              <h2 className="text-2xl font-display font-bold text-primary">Book Your Session</h2>
+              <p className="text-gray-600">Choose the option that best fits your needs.</p>
+              <div className="grid grid-cols-1 gap-4">
+                <a
+                  href="https://go.oncehub.com/crown-money-welcome"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-white py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2"
+                >
+                  <TrendingUp size={20} />
+                  <span>Book Strategy Call</span>
+                </a>
+                <a
+                  href="https://go.oncehub.com/crown-money-welcome"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-primary border-2 border-primary/10 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center space-x-2"
+                >
+                  <Phone size={20} />
+                  <span>Book Consultation</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 export const Layout = ({ children }: LayoutProps) => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header 
+        onChatToggle={() => setIsChatOpen(!isChatOpen)} 
+        onBookToggle={() => setIsBookModalOpen(true)}
+      />
       <main className="flex-grow">
         {children}
       </main>
-      <Footer />
-      <FloatingCTA />
-      <Chatbot />
+      <Footer onBookToggle={() => setIsBookModalOpen(true)} />
+      <FloatingCTA onBookToggle={() => setIsBookModalOpen(true)} />
+      <Chatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
       <ExitPopup />
+      <BookMeetingModal isOpen={isBookModalOpen} onClose={() => setIsBookModalOpen(false)} />
     </div>
   );
 };

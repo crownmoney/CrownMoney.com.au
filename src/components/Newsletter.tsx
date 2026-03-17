@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 
 export const Newsletter = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const resources = [
     { title: "20 Minutes Financial Health Check", url: "https://storage.googleapis.com/crown_money/Website/Resources/20%20Minutes%20Financial%20Health%20Check.pdf" },
     { title: "7 Easy Ways to Boost Your Cashflow", url: "https://storage.googleapis.com/crown_money/Website/Resources/Crown-Money-eBook_7-Easy-Ways-to-Boost-Cashflow.pdf" },
     { title: "Top 10 tips for Kids Savings", url: "https://storage.googleapis.com/crown_money/Website/Resources/Top%2010%20Tips%20for%20Kids%20Savings.pdf" },
   ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setIsLoading(true);
+    try {
+      const response = await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Redirect to PDF after a short delay
+        setTimeout(() => {
+          window.open('https://storage.googleapis.com/crown_money/Website/Resources/20%20Minutes%20Financial%20Health%20Check.pdf', '_blank');
+        }, 1500);
+      } else {
+        console.error('Newsletter signup failed');
+      }
+    } catch (error) {
+      console.error('Error signing up for newsletter:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -34,17 +65,37 @@ export const Newsletter = () => {
                   </a>
                 ))}
               </div>
-              <form className="flex flex-col sm:flex-row gap-4">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-grow px-6 py-4 rounded-full border-2 border-primary/5 focus:border-primary outline-none transition-all"
-                  required
-                />
-                <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg">
-                  Sign Up Now
-                </button>
-              </form>
+              
+              {isSubmitted ? (
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-green-100 flex items-center space-x-4">
+                  <div className="bg-green-100 p-2 rounded-full text-green-600">
+                    <CheckCircle size={24} />
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Thank you for signing up!</p>
+                    <p className="text-sm text-gray-600">Your resource is opening in a new tab.</p>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="flex-grow px-6 py-4 rounded-full border-2 border-primary/5 focus:border-primary outline-none transition-all"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={isLoading}
+                  />
+                  <button 
+                    type="submit"
+                    disabled={isLoading}
+                    className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg disabled:opacity-50"
+                  >
+                    {isLoading ? 'Signing Up...' : 'Sign Up Now'}
+                  </button>
+                </form>
+              )}
             </div>
             <div className="hidden lg:block">
               <img 

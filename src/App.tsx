@@ -6,6 +6,8 @@ import { About } from './pages/About';
 import { HowItWorks } from './pages/HowItWorks';
 import { SuccessStories } from './pages/SuccessStories';
 import { Contact } from './pages/Contact';
+import { Tools } from './pages/Tools';
+import { FAQ } from './pages/FAQ';
 import { Privacy } from './pages/Privacy';
 
 // Scroll to top on route change
@@ -28,6 +30,8 @@ export default function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/tools" element={<Tools />} />
           <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </Layout>
