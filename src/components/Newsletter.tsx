@@ -99,7 +99,7 @@ export const Newsletter = () => {
             </div>
             <div className="hidden lg:block">
               <img 
-                src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=800" 
+                src="https://storage.googleapis.com/crown_money/Website/About/Other/Newsletter%20Sign-up.jpeg" 
                 alt="Financial Planning" 
                 className="rounded-3xl shadow-2xl rotate-3"
                 referrerPolicy="no-referrer"

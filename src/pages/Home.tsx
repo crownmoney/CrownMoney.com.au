@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { Newsletter } from '../components/Newsletter';
 import { MortgageCalculator } from '../components/MortgageCalculator';
+import { TrustSignals } from '../components/TrustSignals';
+import { Awards } from '../components/Awards';
 import { AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -254,22 +256,40 @@ const TimelineVisual = () => {
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Jo & Luke",
-      story: "Crown Money changed our lives. We're on track to pay our home off in 12 years instead of 30!",
-      outcome: "18 years saved",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jo-and-Luke.png"
+      name: "Melanie and Jeffrey",
+      story: "We’ve been with Crown Money for just over 12 months and it’s been a real game-changer for us. Previously we were on track to pay our mortgage off in another 20 years but now it’s looking like we could get it done in 3!",
+      outcome: "17 Years Saved",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Melanie%20and%20Jeffrey%20.jpg"
     },
     {
-      name: "Matthew Anderson",
-      story: "The coaching is what makes the difference. Having someone keep you accountable is priceless.",
-      outcome: "$45k debt reduced in year 1",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Matthew-Anderson-1.jpg"
+      name: "Natalie",
+      story: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the program made me so disciplined and allowed me to actually enjoy life.",
+      outcome: "3x Faster Payoff",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Natalie.png"
     },
     {
-      name: "Todd & Sarah",
-      story: "We finally feel in control of our money. The dashboard shows us exactly where we are every day.",
-      outcome: "25% increase in savings",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Todd-and-Sarah.png"
+      name: "Jemima and Brad",
+      story: "Scott's guidance and advice has helped us progress to an amazing financial position where we are getting close to paying off our house mortgage. We wouldn't be where we are today without Scott and Crown.",
+      outcome: "Debt Free at 36",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jemima-and-Brad.png"
+    },
+    {
+      name: "Daniel and Carla",
+      story: "The program has taught us to think about what is really important for the family. This allows us to live life without some of the financial stresses that arise when bills pop out of nowhere.",
+      outcome: "10 Years Saved",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Daniel-and-Carla.png"
+    },
+    {
+      name: "Michael",
+      story: "The process is so simple and has given me far more discipline and accountability for my expenses which on a single income is a necessity. Results have surpassed any other of my wildest expectations.",
+      outcome: "Debt-free in 8 years",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Michael.png"
+    },
+    {
+      name: "Giovanni and Sarah",
+      story: "After making a massive dent in our home loan this past year, we are now planning our first family overseas holiday all thanks to Crown Money. We highly recommend Craig and the team.",
+      outcome: "12 Years Saved",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Giovanni-and-Sarah.png"
     }
   ];
 
@@ -426,6 +446,7 @@ export const Home = () => {
   return (
     <div>
       <Hero />
+      <TrustSignals />
       <SocialProof />
       
       {/* Calculator Section */}
@@ -441,6 +462,7 @@ export const Home = () => {
 
       <HowItWorksPreview />
       <TimelineVisual />
+      <Awards />
       <Testimonials />
       <Newsletter />
       <WhyCrownMoney />

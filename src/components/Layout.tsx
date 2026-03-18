@@ -31,7 +31,6 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
     { name: 'Tools', path: '/tools' },
     { name: 'FAQ', path: '/faq' },
     { name: 'Podcast', path: 'https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs', external: true },
-    { name: 'Chatbot', path: '#', onClick: onChatToggle },
     { name: 'Contact', path: '/contact' },
   ];
 

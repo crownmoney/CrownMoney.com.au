@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
@@ -166,9 +167,12 @@ export const FAQ = () => {
             <p className="text-gray-600 mb-8">
               Our team of experts is ready to help you understand how Crown Money can work for you.
             </p>
-            <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all">
+            <Link 
+              to="/contact"
+              className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all inline-block"
+            >
               Contact Our Team
-            </button>
+            </Link>
           </div>
         </div>
       </section>

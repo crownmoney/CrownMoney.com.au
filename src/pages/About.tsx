@@ -9,6 +9,8 @@ function cn(...inputs: ClassValue[]) {
 }
 
 import { Newsletter } from '../components/Newsletter';
+import { Awards } from '../components/Awards';
+import { TrustSignals } from '../components/TrustSignals';
 
 export const About = () => {
   const [selectedMember, setSelectedMember] = React.useState<any>(null);
@@ -139,6 +141,8 @@ export const About = () => {
           </p>
         </div>
       </section>
+
+      <TrustSignals />
 
       {/* Awards Banner */}
       <section className="py-12 bg-white">
@@ -376,6 +380,7 @@ export const About = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <Awards />
       <Newsletter />
     </div>
   );

@@ -6,46 +6,46 @@ import { Link } from 'react-router-dom';
 export const SuccessStories = () => {
   const stories = [
     {
-      name: "Jo & Luke",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jo-and-Luke.png",
-      result: "18 Years Saved",
-      summary: "Restructured their mortgage and implemented a cashflow strategy that cut their 30-year loan down to just 12 years.",
-      outcome: "$240k+ Interest Saved"
-    },
-    {
-      name: "Matthew Anderson",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Matthew-Anderson-1.jpg",
-      result: "$45k Debt Reduced",
-      summary: "In just 12 months, Matthew reduced his principal by $45,000 without changing his lifestyle, thanks to our coaching.",
-      outcome: "On track for freedom in 9 years"
-    },
-    {
-      name: "Todd & Sarah",
-      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Todd-and-Sarah.png",
-      result: "25% Savings Increase",
-      summary: "By optimizing their offset accounts and daily spending, Todd and Sarah found an extra $1,200 per month for their mortgage.",
-      outcome: "Paid off $120k in 3 years"
-    },
-    {
-      name: "Melanie & Jeffrey",
-      image: "https://picsum.photos/seed/melanie/400/400",
-      result: "15 Years Saved",
-      summary: "A young family who thought they were stuck with a 30-year loan. Now they'll be debt-free before their kids finish high school.",
-      outcome: "$180k Interest Saved"
+      name: "Melanie and Jeffrey",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Melanie%20and%20Jeffrey%20.jpg",
+      result: "17 Years Saved",
+      summary: "We’ve been with Crown Money for just over 12 months and it’s been a real game-changer for us. Previously we were on track to pay our mortgage off in another 20 years but now it’s looking like we could get it done in 3!",
+      outcome: "Investment Property Purchased"
     },
     {
       name: "Natalie",
-      image: "https://picsum.photos/seed/natalie/400/400",
-      result: "Single Income Success",
-      summary: "Natalie proved you don't need two incomes to pay off a home fast. She's attacking her principal with precision.",
-      outcome: "Debt-free in 11 years"
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Natalie.png",
+      result: "3x Faster Payoff",
+      summary: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the program made me so disciplined and allowed me to actually enjoy life.",
+      outcome: "Debt-free in next few years"
     },
     {
-      name: "Daniel & Carla",
-      image: "https://picsum.photos/seed/daniel/400/400",
-      result: "Investment Growth",
-      summary: "Used our strategy to pay off their home and then leveraged the equity to start their investment property portfolio.",
-      outcome: "Home paid + 1 Investment"
+      name: "Jemima and Brad",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Jemima-and-Brad.png",
+      result: "Debt Free at 36",
+      summary: "Brad has been with Crown for 17 years. Scott's guidance and advice has helped us progress to an amazing financial position where we are getting close to paying off our house mortgage.",
+      outcome: "Total Financial Freedom"
+    },
+    {
+      name: "Daniel and Carla",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Daniel-and-Carla.png",
+      result: "10 Years Saved",
+      summary: "Daniel and Carla are on track to save themselves 10 years of loan repayments, with a whopping 28% savings rate. The program has taught us to think about what is really important for the family.",
+      outcome: "28% Savings Rate"
+    },
+    {
+      name: "Michael",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Michael.png",
+      result: "Debt-free in 8 Years",
+      summary: "The process is so simple and has given me far more discipline and accountability for my expenses which on a single income is a necessity. Results have surpassed any of my wildest expectations.",
+      outcome: "On track for 8-year payoff"
+    },
+    {
+      name: "Giovanni and Sarah",
+      image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Giovanni-and-Sarah.png",
+      result: "12 Years Saved",
+      summary: "After making a massive dent in our home loan this past year, we are now planning our first family overseas holiday all thanks to Crown Money. We highly recommend Craig and the team.",
+      outcome: "12 Years Cut Off Loan"
     }
   ];
 

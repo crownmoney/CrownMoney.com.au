@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, TrendingUp, Home, DollarSign, Percent, PieChart, ArrowRight, Info, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PieChart as RePieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 // --- Helper Components ---
@@ -427,9 +428,12 @@ export const Tools = () => {
           <p className="text-lg text-gray-700 mb-10">
             Our calculators are a great start, but a personalized strategy call can find even more savings.
           </p>
-          <button className="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-xl">
+          <Link 
+            to="/contact"
+            className="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-xl inline-block"
+          >
             Book Free Strategy Session
-          </button>
+          </Link>
         </div>
       </section>
     </div>

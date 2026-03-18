@@ -33,7 +33,7 @@ export const HowItWorks = () => {
       title: "4. Coaching & Tracking",
       desc: "Ongoing monthly financial coaching and access to our wealth tracking dashboard. We keep you accountable and adjust the plan as your life changes.",
       details: ["Monthly check-ins", "Wealth dashboard", "Ongoing support"],
-      image: "https://storage.googleapis.com/crown_money/Website/How%20it%20Works/Coaching%20%26%20Tracking.png"
+      image: "https://storage.googleapis.com/crown_money/Website/About/Other/Financial%20Coach%20-%20Coaching.jpeg"
     }
   ];
 
@@ -121,16 +121,11 @@ export const HowItWorks = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 relative">
             <img 
-              src="https://storage.googleapis.com/crown_money/Website/How%20it%20Works/Dashboard.png" 
+              src="https://storage.googleapis.com/crown_money/Website/About/Other/Dashboard.jpeg" 
               alt="Wealth Tracking Dashboard" 
-              className="rounded-3xl shadow-2xl border-4 border-white/10 opacity-50 grayscale"
+              className="rounded-3xl shadow-2xl border-4 border-white/10"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-gold text-white px-8 py-4 rounded-2xl font-bold text-2xl shadow-2xl transform -rotate-3">
-                COMING SOON
-              </div>
-            </div>
           </div>
           <div className="order-1 lg:order-2 space-y-6">
             <h2 className="text-3xl md:text-4xl font-display font-bold">Wealth Tracking Dashboard</h2>
