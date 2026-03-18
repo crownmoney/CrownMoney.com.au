@@ -23,7 +23,7 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: { name: string; path: string; external?: boolean; onClick?: () => void }[] = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'How It Works', path: '/how-it-works' },
@@ -232,7 +232,7 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
   );
 };
 
-const Footer = ({ onBookToggle }: { onBookToggle: () => void }) => {
+const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onRatesToggle: () => void }) => {
   return (
     <footer className="bg-primary text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -283,6 +283,12 @@ const Footer = ({ onBookToggle }: { onBookToggle: () => void }) => {
           <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Legal</h4>
           <ul className="space-y-3 text-sm text-gray-300">
             <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+            <li>
+              <button onClick={onRatesToggle} className="hover:text-white transition-colors text-left">
+                Maximum Rates and Fees
+              </button>
+            </li>
+            <li><Link to="/target-market-determinations" className="hover:text-white transition-colors">Target Market Determinations</Link></li>
           </ul>
         </div>
 
@@ -295,10 +301,19 @@ const Footer = ({ onBookToggle }: { onBookToggle: () => void }) => {
             <a href="https://www.linkedin.com/company/crown-money" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Linkedin size={20} /></a>
             <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
           </div>
+          <p className="text-xs text-gray-400 mb-4">
+            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ABN – 23 389 248 852
+          </p>
           <p className="text-xs text-gray-400">
             © {new Date().getFullYear()} Crown Money. All rights reserved.
           </p>
         </div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10">
+        <p className="text-[10px] text-gray-400 leading-relaxed uppercase">
+          THIS INFORMATION IS GENERAL IN NATURE AND DOES NOT TAKE INTO ACCOUNT YOUR PERSONAL FINANCIAL SITUATION. IT IS FOR EDUCATIONAL PURPOSES ONLY, AND DOES NOT CONSTITUTE FORMAL FINANCIAL OR PERSONAL ADVICE. YOU SHOULD CONSIDER THE APPROPRIATENESS OF THE ADVICE TO YOUR OWN SITUATION AND NEEDS BEFORE TAKING ANY ACTION. IT SHOULD NOT BE RELIED UPON FOR THE PURPOSES OF ENTERING INTO ANY LEGAL OR FINANCIAL COMMITMENTS.
+        </p>
       </div>
     </footer>
   );
@@ -631,9 +646,83 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   );
 };
 
+const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-primary/80 backdrop-blur-sm"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            className="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-400 hover:text-primary transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <div className="space-y-6">
+              <div className="text-center">
+                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees</h2>
+                <p className="text-sm text-gray-500">Standard schedule of fees</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="border-b border-gray-100 pb-4">
+                  <h3 className="font-bold text-primary mb-3">Upfront Fees</h3>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Application Fee</span>
+                      <span className="font-bold text-primary">$660</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Legal Fee</span>
+                      <span className="font-bold text-primary">$500</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Valuation Fee</span>
+                      <span className="font-bold text-primary">$302.50</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Settlement Fee</span>
+                      <span className="font-bold text-primary">$150</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="font-bold text-primary mb-3">Ongoing Fees</h3>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Annual Fee</span>
+                    <span className="font-bold text-primary">$395/yr</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-xl text-[10px] text-gray-400 leading-tight">
+                Fees are subject to change and may vary based on specific product selection and individual circumstances.
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 export const Layout = ({ children }: LayoutProps) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+  const [isRatesModalOpen, setIsRatesModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -644,11 +733,15 @@ export const Layout = ({ children }: LayoutProps) => {
       <main className="flex-grow">
         {children}
       </main>
-      <Footer onBookToggle={() => setIsBookModalOpen(true)} />
+      <Footer 
+        onBookToggle={() => setIsBookModalOpen(true)} 
+        onRatesToggle={() => setIsRatesModalOpen(true)}
+      />
       <FloatingCTA onBookToggle={() => setIsBookModalOpen(true)} />
       <Chatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
       <ExitPopup />
       <BookMeetingModal isOpen={isBookModalOpen} onClose={() => setIsBookModalOpen(false)} />
+      <RatesAndFeesModal isOpen={isRatesModalOpen} onClose={() => setIsRatesModalOpen(false)} />
     </div>
   );
 };

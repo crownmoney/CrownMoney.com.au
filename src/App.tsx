@@ -9,6 +9,7 @@ import { Contact } from './pages/Contact';
 import { Tools } from './pages/Tools';
 import { FAQ } from './pages/FAQ';
 import { Privacy } from './pages/Privacy';
+import TargetMarketDeterminations from './pages/TargetMarketDeterminations';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/tools" element={<Tools />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/target-market-determinations" element={<TargetMarketDeterminations />} />
         </Routes>
       </Layout>
     </Router>
