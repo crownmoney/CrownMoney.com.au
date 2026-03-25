@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Star, ArrowRight, Quote, TrendingDown, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export const SuccessStories = () => {
   const stories = [
@@ -49,8 +50,41 @@ export const SuccessStories = () => {
     }
   ];
 
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": stories.map((story, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": story.name
+        },
+        "reviewBody": story.summary,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "Crown Money"
+        }
+      }
+    }))
+  };
+
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>Success Stories | Real Results from Crown Money Clients</title>
+        <meta name="description" content="Read real success stories from Crown Money clients who have saved years and hundreds of thousands of dollars on their mortgages." />
+        <meta name="keywords" content="mortgage success stories, debt reduction results, client testimonials Crown Money, financial freedom Australia" />
+        <script type="application/ld+json">
+          {JSON.stringify(reviewSchema)}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">

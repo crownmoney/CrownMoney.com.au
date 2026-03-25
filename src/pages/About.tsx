@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Users, Target, History, Award, CheckCircle, Linkedin, X } from 'lucide-react';
+import { Users, Target, History, Award, CheckCircle, Linkedin, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { Helmet } from 'react-helmet-async';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,12 +32,14 @@ export const About = () => {
           name: "Scott Parry", 
           role: "Founder & CEO", 
           image: "https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg",
+          slug: "scott-parry",
           bio: "Scott Parry is the visionary founder of Crown Money. With over 25 years in the finance industry, Scott has dedicated his career to challenging the traditional banking model. His passion for helping Australians achieve financial independence led to the creation of Crown's unique debt reduction strategy. Scott is a frequent commentator in financial media and a sought-after speaker on wealth creation."
         },
         { 
           name: "Craig Parry", 
           role: "Partner & Senior Finance Broker", 
           image: "https://storage.googleapis.com/crown_money/Website/About/People/craig%20parry.png",
+          slug: "craig-parry",
           bio: "Craig Parry brings a wealth of experience in mortgage broking and financial strategy. As a partner at Crown Money, he oversees the brokerage operations and ensures that every client receives a mortgage structure optimized for their specific goals. Craig's expertise in complex lending scenarios makes him an invaluable asset to the team and our clients."
         },
         { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg" },
@@ -124,8 +128,65 @@ export const About = () => {
     }
   ];
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Crown Money",
+        "url": "https://crown.money",
+        "logo": "https://crown.money/logo.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://crown.money"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About Us",
+            "item": "https://crown.money/about"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Scott Parry",
+        "jobTitle": "Founder & CEO",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Crown Money"
+        },
+        "description": "Visionary founder of Crown Money with over 25 years in the finance industry."
+      },
+      {
+        "@type": "Person",
+        "name": "Craig Parry",
+        "jobTitle": "Partner & Senior Finance Broker",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Crown Money"
+        },
+        "description": "Expert in mortgage broking and financial strategy at Crown Money."
+      }
+    ]
+  };
+
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>About Crown Money | Australia's Mortgage Reduction Experts</title>
+        <meta name="description" content="Meet the team at Crown Money Management. Founded in 2004, we've helped thousands of Australian families pay off their mortgages faster and build wealth." />
+        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts" />
+        <script type="application/ld+json">
+          {JSON.stringify(aboutSchema)}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary text-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -149,7 +210,7 @@ export const About = () => {
         <div className="max-w-7xl mx-auto px-4">
           <img 
             src="https://storage.googleapis.com/crown_money/Website/About/Other/The-Better-Business-Awards.png" 
-            alt="Better Business Awards" 
+            alt="Crown Money Team receiving the Better Business Awards for excellence in finance" 
             className="w-full h-auto rounded-3xl shadow-lg"
           />
         </div>
@@ -173,7 +234,7 @@ export const About = () => {
           <div className="relative">
             <img 
               src="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" 
-              alt="Scott Parry - Founder" 
+              alt="Scott Parry, Founder and CEO of Crown Money Management" 
               className="rounded-3xl shadow-2xl"
               referrerPolicy="no-referrer"
             />
@@ -363,7 +424,16 @@ export const About = () => {
                   <p className="text-gray-600 leading-relaxed">
                     {selectedMember.bio}
                   </p>
-                  <div className="pt-4">
+                  <div className="pt-4 flex flex-col space-y-3">
+                    {selectedMember.slug && (
+                      <Link 
+                        to={`/author/${selectedMember.slug}`}
+                        className="inline-flex items-center space-x-2 text-primary hover:text-gold transition-colors font-bold"
+                      >
+                        <ArrowRight size={20} className="text-gold" />
+                        <span>View Full Professional Profile</span>
+                      </Link>
+                    )}
                     <a 
                       href="https://www.linkedin.com/company/crown-money" 
                       target="_blank" 
@@ -380,6 +450,15 @@ export const About = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Brand Clarity Statement */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-sm text-gray-500 italic">
+            Crown Money Management is an Australian mortgage broker and debt reduction specialist. We are not affiliated with Crown Currency Exchange or any other foreign exchange services.
+          </p>
+        </div>
+      </section>
+
       <Awards />
       <Newsletter />
     </div>

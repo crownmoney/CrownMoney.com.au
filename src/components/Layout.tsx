@@ -28,10 +28,19 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
     { name: 'About Us', path: '/about' },
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Success Stories', path: '/success-stories' },
-    { name: 'Tools', path: '/tools' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Podcast', path: 'https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs', external: true },
+    { name: 'Podcast', path: '/podcast' },
     { name: 'Contact', path: '/contact' },
+  ];
+
+  const toolLinks = [
+    { name: 'All Calculators', path: '/tools' },
+    { name: 'Mortgage Reduction', path: '/mortgage-reduction-calculator' },
+    { name: 'Rent vs Buy', path: '/tools/rent-vs-buy' },
+    { name: 'Car Lease vs Buy', path: '/tools/car-lease-vs-buy' },
+    { name: 'Negative Gearing', path: '/tools/negative-gearing' },
+    { name: 'Net Worth', path: '/tools/net-worth' },
+    { name: 'Debt Recycling', path: '/tools/debt-recycling' },
+    { name: 'Wishlist Impact', path: '/tools/wishlist-impact' },
   ];
 
   const clientLogins = [
@@ -68,8 +77,8 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
 
       {/* Main Nav */}
       <nav className={cn(
-        "w-full z-50 transition-all duration-300",
-        isScrolled ? "fixed top-0 bg-white shadow-md py-3" : "relative bg-white py-5"
+        "w-full z-50 transition-all duration-300 fixed top-0 md:top-auto",
+        isScrolled ? "bg-white shadow-md py-3" : "bg-white py-5"
       )}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <Link to="/" className="flex items-center">
@@ -82,38 +91,42 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              link.external ? (
-                <a
-                  key={link.name}
-                  href={link.path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </a>
-              ) : link.onClick ? (
-                <button
-                  key={link.name}
-                  onClick={link.onClick}
-                  className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </button>
-              ) : (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={cn(
-                    "text-sm font-medium hover:text-primary transition-colors",
-                    location.pathname === link.path ? "text-primary border-b-2 border-primary" : "text-gray-600"
-                  )}
-                >
-                  {link.name}
-                </Link>
-              )
-            ))}
+            <Link to="/" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/" ? "text-primary" : "text-gray-600")}>Home</Link>
+            <Link to="/about" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/about" ? "text-primary" : "text-gray-600")}>About Us</Link>
+            <Link to="/how-it-works" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/how-it-works" ? "text-primary" : "text-gray-600")}>How It Works</Link>
+            
+            {/* Tools Dropdown */}
+            <div className="relative group">
+              <button className={cn(
+                "text-sm font-medium hover:text-primary transition-colors flex items-center",
+                location.pathname.startsWith('/tools') || location.pathname === '/mortgage-reduction-calculator' ? "text-primary" : "text-gray-600"
+              )}>
+                Tools
+                <ChevronRight size={14} className="ml-1 rotate-90" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-gray-100">
+                {toolLinks.map((tool) => (
+                  <Link
+                    key={tool.name}
+                    to={tool.path}
+                    className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary transition-colors"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link to="/success-stories" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/success-stories" ? "text-primary" : "text-gray-600")}>Success Stories</Link>
+            <a 
+              href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            >
+              Podcast
+            </a>
+            <Link to="/contact" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/contact" ? "text-primary" : "text-gray-600")}>Contact</Link>
             
             {/* Client Logins Dropdown */}
             <div className="relative group">
@@ -138,9 +151,9 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
 
             <button
               onClick={onBookToggle}
-              className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all shadow-md"
+              className="bg-gold text-primary px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all shadow-md whitespace-nowrap"
             >
-              Book Meeting
+              Book Free Session
             </button>
           </div>
 
@@ -160,42 +173,37 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
               className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
             >
               <div className="flex flex-col p-4 space-y-4">
-                {navLinks.map((link) => (
-                  link.external ? (
-                    <a
-                      key={link.name}
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg font-medium py-2 text-gray-600"
-                    >
-                      {link.name}
-                    </a>
-                  ) : link.onClick ? (
-                    <button
-                      key={link.name}
-                      onClick={() => {
-                        link.onClick?.();
-                        setIsMenuOpen(false);
-                      }}
-                      className="text-lg font-medium py-2 text-gray-600 text-left"
-                    >
-                      {link.name}
-                    </button>
-                  ) : (
-                    <Link
-                      key={link.name}
-                      to={link.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={cn(
-                        "text-lg font-medium py-2",
-                        location.pathname === link.path ? "text-primary" : "text-gray-600"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                ))}
+                <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">Home</Link>
+                <Link to="/about" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">About Us</Link>
+                <Link to="/how-it-works" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">How It Works</Link>
+                
+                <div className="py-2">
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Calculators & Tools</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {toolLinks.map((tool) => (
+                      <Link
+                        key={tool.name}
+                        to={tool.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-sm text-gray-600 py-1"
+                      >
+                        {tool.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <Link to="/success-stories" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">Success Stories</Link>
+                <a 
+                  href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-lg font-medium py-2 text-gray-600"
+                >
+                  Podcast
+                </a>
+                <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">Contact</Link>
                 
                 <div className="py-2 border-t border-gray-50">
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Client Logins</p>
@@ -219,9 +227,9 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
                     onBookToggle();
                     setIsMenuOpen(false);
                   }}
-                  className="bg-primary text-white px-6 py-3 rounded-xl text-center font-bold"
+                  className="bg-gold text-primary px-6 py-4 rounded-xl text-center font-bold shadow-lg"
                 >
-                  Book Meeting
+                  Book Your Free Strategy Session
                 </button>
               </div>
             </motion.div>
@@ -245,7 +253,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             />
           </Link>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Australia’s leading specialists in debt reduction and money management. Helping homeowners pay off mortgages faster and build wealth.
+            Crown Money Management is Australia’s leading specialist in debt reduction and money management. Helping homeowners pay off mortgages faster and build wealth.
           </p>
           <div className="space-y-3">
             <a href="tel:1300882981" className="flex items-center text-sm hover:text-accent transition-colors">
@@ -259,9 +267,9 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
           </div>
           <button
             onClick={onBookToggle}
-            className="bg-gold text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-opacity-90 transition-all"
+            className="bg-gold text-primary px-6 py-2 rounded-full text-xs font-bold hover:bg-opacity-90 transition-all shadow-lg"
           >
-            Book Meeting
+            Book Your Free Strategy Session
           </button>
         </div>
 
@@ -272,9 +280,17 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
             <li><Link to="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
             <li><Link to="/tools" className="hover:text-white transition-colors">Calculators & Tools</Link></li>
-            <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
             <li><Link to="/success-stories" className="hover:text-white transition-colors">Success Stories</Link></li>
-            <li><a href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Podcast</a></li>
+            <li>
+              <a 
+                href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors"
+              >
+                Podcast
+              </a>
+            </li>
             <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
           </ul>
         </div>
@@ -302,10 +318,10 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
           </div>
           <p className="text-xs text-gray-400 mb-4">
-            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ABN – 23 389 248 852
+            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ABN – 23 389 248 852 | FBAA Member
           </p>
           <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Crown Money. All rights reserved.
+            © {new Date().getFullYear()} Crown Money Management. All rights reserved.
           </p>
         </div>
       </div>
@@ -321,19 +337,33 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
 
 const FloatingCTA = ({ onBookToggle }: { onBookToggle: () => void }) => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-8 right-8 z-50 hidden md:block"
-    >
-      <button 
-        onClick={onBookToggle}
-        className="bg-gold text-white px-8 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform flex items-center space-x-2"
+    <>
+      {/* Desktop Floating CTA */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="fixed bottom-8 right-8 z-50 hidden md:block"
       >
-        <Phone size={20} />
-        <span>Schedule Call</span>
-      </button>
-    </motion.div>
+        <button 
+          onClick={onBookToggle}
+          className="bg-gold text-primary px-8 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform flex items-center space-x-2"
+        >
+          <Phone size={20} />
+          <span>Book Your Free Strategy Session</span>
+        </button>
+      </motion.div>
+
+      {/* Mobile Sticky Bottom CTA Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-white border-t border-gray-100 p-3 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+        <button 
+          onClick={onBookToggle}
+          className="w-full bg-gold text-primary py-4 rounded-xl font-bold shadow-lg flex items-center justify-center space-x-2"
+        >
+          <TrendingUp size={20} />
+          <span>Book Your Free Strategy Session</span>
+        </button>
+      </div>
+    </>
   );
 };
 
@@ -616,17 +646,17 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
               <X size={24} />
             </button>
             <div className="text-center space-y-6">
-              <h2 className="text-2xl font-display font-bold text-primary">Book Your Session</h2>
+              <h2 className="text-2xl font-display font-bold text-primary">Book Your Free Strategy Session</h2>
               <p className="text-gray-600">Choose the option that best fits your needs.</p>
               <div className="grid grid-cols-1 gap-4">
                 <a
                   href="https://go.oncehub.com/crown-money-welcome"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-white py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2"
+                  className="bg-gold text-primary py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2 shadow-lg"
                 >
                   <TrendingUp size={20} />
-                  <span>Book Strategy Call</span>
+                  <span>Book Strategy Session</span>
                 </a>
                 <a
                   href="https://go.oncehub.com/crown-money-welcome"
@@ -730,7 +760,7 @@ export const Layout = ({ children }: LayoutProps) => {
         onChatToggle={() => setIsChatOpen(!isChatOpen)} 
         onBookToggle={() => setIsBookModalOpen(true)}
       />
-      <main className="flex-grow">
+      <main className="flex-grow pt-16 md:pt-20">
         {children}
       </main>
       <Footer 

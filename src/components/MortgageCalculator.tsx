@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Calculator, DollarSign, Calendar, Percent, TrendingDown } from 'lucide-react';
 
 export const MortgageCalculator = () => {
@@ -132,9 +133,12 @@ export const MortgageCalculator = () => {
             </div>
           </div>
 
-          <button className="mt-12 w-full bg-gold text-white py-5 rounded-2xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl">
-            Get My Personalised Strategy
-          </button>
+          <Link 
+            to="/contact"
+            className="mt-12 w-full bg-gold text-primary py-5 rounded-2xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl text-center block"
+          >
+            Book Your Free Strategy Session
+          </Link>
         </div>
       </div>
     </div>

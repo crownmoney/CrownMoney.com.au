@@ -39,19 +39,22 @@ export const TrustSignals = () => {
           }}
         >
           {/* Double the logos for seamless loop */}
-          {[...logos, ...logos].map((logo, idx) => (
-            <div key={idx} className="mx-10 md:mx-14 flex items-center justify-center bg-white p-8 rounded-3xl shadow-sm border border-gray-100 min-w-[260px] h-36 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
-              <img 
-                src={logo} 
-                alt="Media Logo" 
-                className="max-h-full max-w-full object-contain"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${idx}/200/100?grayscale`;
-                }}
-              />
-            </div>
-          ))}
+          {[...logos, ...logos].map((logo, idx) => {
+            const logoName = logo.split('/').pop()?.replace(/%20/g, ' ').replace(/\.[^/.]+$/, '') || 'Media Logo';
+            return (
+              <div key={idx} className="mx-10 md:mx-14 flex items-center justify-center bg-white p-8 rounded-3xl shadow-sm border border-gray-100 min-w-[260px] h-36 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                <img 
+                  src={logo} 
+                  alt={`${logoName} - Featured in Crown Money Media`} 
+                  className="max-h-full max-w-full object-contain"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${idx}/200/100?grayscale`;
+                  }}
+                />
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

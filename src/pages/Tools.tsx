@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calculator, TrendingUp, Home, DollarSign, Percent, PieChart, ArrowRight, Info, CheckCircle } from 'lucide-react';
+import { Calculator, TrendingUp, Home, DollarSign, Percent, PieChart, ArrowRight, Info, CheckCircle, RefreshCw, Briefcase, Wallet, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PieChart as RePieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { Helmet } from 'react-helmet-async';
 
 // --- Helper Components ---
 
@@ -45,33 +46,38 @@ const MortgageRepaymentCalc = () => {
   const [loanAmount, setLoanAmount] = useState(600000);
   const [interestRate, setInterestRate] = useState(6.2);
   const [loanTerm, setLoanTerm] = useState(30);
+  const [annualFees, setAnnualFees] = useState(395);
   const [frequency, setFrequency] = useState('monthly');
 
   const results = useMemo(() => {
     const r = interestRate / 100 / 12;
     const n = loanTerm * 12;
-    const monthly = (loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const monthlyPrincipalInterest = (loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     
-    let repayment = monthly;
-    if (frequency === 'fortnightly') repayment = monthly / 2;
-    if (frequency === 'weekly') repayment = monthly / 4;
+    const monthlyFee = annualFees / 12;
+    const totalMonthly = monthlyPrincipalInterest + monthlyFee;
 
-    const totalRepayment = monthly * n;
-    const totalInterest = totalRepayment - loanAmount;
+    let repayment = totalMonthly;
+    if (frequency === 'fortnightly') repayment = totalMonthly / 2;
+    if (frequency === 'weekly') repayment = totalMonthly / 4;
+
+    const totalRepayment = totalMonthly * n;
+    const totalInterest = (monthlyPrincipalInterest * n) - loanAmount;
 
     return {
       repayment,
       totalRepayment,
       totalInterest
     };
-  }, [loanAmount, interestRate, loanTerm, frequency]);
+  }, [loanAmount, interestRate, loanTerm, annualFees, frequency]);
 
   const chartData = [
     { name: 'Principal', value: loanAmount },
     { name: 'Interest', value: results.totalInterest },
+    { name: 'Fees', value: annualFees * loanTerm },
   ];
 
-  const COLORS = ['#2A154B', '#F27D26'];
+  const COLORS = ['#2A154B', '#F27D26', '#D4AF37'];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -79,6 +85,7 @@ const MortgageRepaymentCalc = () => {
         <InputField label="Loan Amount" value={loanAmount} onChange={setLoanAmount} prefix="$" />
         <InputField label="Interest Rate" value={interestRate} onChange={setInterestRate} suffix="%" />
         <InputField label="Loan Term" value={loanTerm} onChange={setLoanTerm} suffix="Years" />
+        <InputField label="Annual Fees" value={annualFees} onChange={setAnnualFees} prefix="$" />
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">Repayment Frequency</label>
           <div className="grid grid-cols-3 gap-2">
@@ -332,6 +339,40 @@ const StampDutyCalc = () => {
 export const Tools = () => {
   const [activeTab, setActiveTab] = useState('mortgage');
 
+  const toolsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Crown Money",
+        "url": "https://crown.money",
+        "logo": "https://crown.money/logo.png"
+      },
+      {
+        "@type": "WebSite",
+        "name": "Crown Money",
+        "url": "https://crown.money"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://crown.money"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Financial Tools & Calculators",
+            "item": "https://crown.money/tools"
+          }
+        ]
+      }
+    ]
+  };
+
   const tools = [
     { id: 'mortgage', title: 'Mortgage Repayment', icon: Calculator, description: 'Calculate your repayments' },
     { id: 'extra', title: 'Extra Repayment', icon: TrendingUp, description: 'See how much time you save' },
@@ -339,17 +380,26 @@ export const Tools = () => {
     { id: 'stamp', title: 'Stamp Duty', icon: DollarSign, description: 'Estimate purchase costs' },
   ];
 
-  const comingSoonTools = [
-    "Loan Pre-Approval Estimator",
-    "Refinance Savings Calculator",
-    "Negative Gearing Calculator",
-    "Superannuation Growth Calculator",
-    "Net Worth Calculator",
-    "Rent vs Buy Comparison"
+  const advancedTools = [
+    { title: "Rent vs Buy", path: "/tools/rent-vs-buy", icon: Home, description: "Compare the long-term cost of renting vs buying." },
+    { title: "Car Lease vs Buy", path: "/tools/car-lease-vs-buy", icon: Briefcase, description: "Compare car loan vs lease costs." },
+    { title: "Negative Gearing", path: "/tools/negative-gearing", icon: TrendingUp, description: "Calculate tax benefits of investment property." },
+    { title: "Net Worth", path: "/tools/net-worth", icon: Wallet, description: "Track your total financial position." },
+    { title: "Debt Recycling", path: "/tools/debt-recycling", icon: RefreshCw, description: "Turn home debt into tax-deductible debt." },
+    { title: "Budget Planner", path: "/tools/budget", icon: Calculator, description: "Master your cash flow and find savings." },
+    { title: "Wishlist Impact", path: "/tools/wishlist-impact", icon: ShoppingCart, description: "See the true cost of lifestyle purchases on your mortgage." },
   ];
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Financial Calculators & Tools Australia | Crown Money</title>
+        <meta name="description" content="Explore our suite of financial tools and calculators designed for Australians. From mortgage reduction to debt recycling and budget planning, Crown Money helps you take control of your wealth." />
+        <meta name="keywords" content="mortgage calculator australia, rent vs buy calculator, negative gearing calculator, debt recycling calculator, net worth calculator" />
+        <script type="application/ld+json">
+          {JSON.stringify(toolsSchema)}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary text-white py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -401,21 +451,30 @@ export const Tools = () => {
         </div>
       </section>
 
-      {/* Coming Soon */}
+      {/* Advanced Tools */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-display font-bold text-primary mb-4">More Tools Coming Soon</h2>
-            <p className="text-gray-600">We're constantly building new tools to help you achieve financial freedom.</p>
+            <h2 className="text-3xl font-display font-bold text-primary mb-4">Advanced Financial Tools</h2>
+            <p className="text-gray-600">Deep-dive into specific financial strategies with our advanced calculators.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {comingSoonTools.map((tool, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 flex items-center space-x-4">
-                <div className="w-10 h-10 bg-accent/30 rounded-full flex items-center justify-center text-primary">
-                  <CheckCircle size={20} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {advancedTools.map((tool, idx) => (
+              <Link 
+                key={idx} 
+                to={tool.path}
+                className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-gold transition-all group"
+              >
+                <div className="w-14 h-14 bg-accent/30 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                  <tool.icon size={28} />
                 </div>
-                <span className="font-bold text-primary">{tool}</span>
-              </div>
+                <h3 className="text-xl font-bold text-primary mb-3">{tool.title}</h3>
+                <p className="text-gray-500 text-sm mb-6">{tool.description}</p>
+                <div className="flex items-center text-gold font-bold text-sm group-hover:translate-x-2 transition-transform">
+                  <span>Open Tool</span>
+                  <ArrowRight size={16} className="ml-2" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

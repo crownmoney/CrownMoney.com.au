@@ -21,23 +21,26 @@ export const Awards = () => {
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-center">
-          {awards.map((award, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="flex items-center justify-center"
-            >
-              <img 
-                src={award} 
-                alt="Award Seal" 
-                className="h-32 md:h-40 w-auto object-contain hover:scale-110 transition-transform duration-300"
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-          ))}
+          {awards.map((award, idx) => {
+            const awardName = award.split('/').pop()?.replace(/%20/g, ' ').replace(/\.[^/.]+$/, '') || 'Award Seal';
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex items-center justify-center"
+              >
+                <img 
+                  src={award} 
+                  alt={`${awardName} - Crown Money Excellence Award`} 
+                  className="h-32 md:h-40 w-auto object-contain hover:scale-110 transition-transform duration-300"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
       

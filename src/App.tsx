@@ -7,9 +7,17 @@ import { HowItWorks } from './pages/HowItWorks';
 import { SuccessStories } from './pages/SuccessStories';
 import { Contact } from './pages/Contact';
 import { Tools } from './pages/Tools';
-import { FAQ } from './pages/FAQ';
 import { Privacy } from './pages/Privacy';
 import TargetMarketDeterminations from './pages/TargetMarketDeterminations';
+import { CalculatorLanding } from './pages/CalculatorLanding';
+import { AuthorProfile } from './pages/AuthorProfile';
+import { RentVsBuy } from './pages/tools/RentVsBuy';
+import { CarLeaseVsBuy } from './pages/tools/CarLeaseVsBuy';
+import { NegativeGearing } from './pages/tools/NegativeGearing';
+import { NetWorth } from './pages/tools/NetWorth';
+import { DebtRecycling } from './pages/tools/DebtRecycling';
+import { Budget } from './pages/tools/Budget';
+import { WishlistImpact } from './pages/tools/WishlistImpact';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -31,10 +39,18 @@ export default function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/contact" element={<Contact />} />
-        <Route path="/faq" element={<FAQ />} />
         <Route path="/tools" element={<Tools />} />
+        <Route path="/tools/rent-vs-buy" element={<RentVsBuy />} />
+        <Route path="/tools/car-lease-vs-buy" element={<CarLeaseVsBuy />} />
+        <Route path="/tools/negative-gearing" element={<NegativeGearing />} />
+        <Route path="/tools/net-worth" element={<NetWorth />} />
+        <Route path="/tools/debt-recycling" element={<DebtRecycling />} />
+        <Route path="/tools/budget" element={<Budget />} />
+        <Route path="/tools/wishlist-impact" element={<WishlistImpact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/target-market-determinations" element={<TargetMarketDeterminations />} />
+          <Route path="/mortgage-reduction-calculator" element={<CalculatorLanding />} />
+          <Route path="/author/:slug" element={<AuthorProfile />} />
         </Routes>
       </Layout>
     </Router>

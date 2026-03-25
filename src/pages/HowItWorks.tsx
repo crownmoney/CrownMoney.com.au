@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Phone, FileText, Settings, TrendingUp, CheckCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 import { Newsletter } from '../components/Newsletter';
 
@@ -37,8 +38,30 @@ export const HowItWorks = () => {
     }
   ];
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Pay Off Your Mortgage Faster with Crown Money",
+    "description": "A 4-step process to achieve financial freedom and become mortgage-free faster.",
+    "step": steps.map((step, idx) => ({
+      "@type": "HowToStep",
+      "position": idx + 1,
+      "name": step.title,
+      "text": step.desc,
+      "image": step.image
+    }))
+  };
+
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>How It Works | Crown Money's Debt Reduction Strategy</title>
+        <meta name="description" content="Discover the Crown Money process. From discovery calls to custom financial strategies and ongoing coaching, we help you pay off your mortgage faster." />
+        <meta name="keywords" content="debt reduction process, mortgage strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process" />
+        <script type="application/ld+json">
+          {JSON.stringify(howToSchema)}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-crown-lavender py-20">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

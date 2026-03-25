@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Phone, Mail, MapPin, CheckCircle, MessageSquare, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export const Contact = () => {
   const [step, setStep] = useState(1);
@@ -8,15 +9,11 @@ export const Contact = () => {
     firstName: '',
     email: '',
     mobile: '',
-    state: '',
-    mortgageStatus: '',
-    message: ''
+    message: '',
+    _honeypot: '' // Honeypot field
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
-
-  const totalSteps = 3;
-  const progress = (step / totalSteps) * 100;
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,9 +23,14 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Honeypot check
+    if (formState._honeypot) {
+      console.log('Spam detected');
+      return;
+    }
+
     if (!validateEmail(formState.email)) {
       setEmailError('Please enter a valid email address');
-      setStep(1);
       return;
     }
 
@@ -48,18 +50,34 @@ export const Contact = () => {
     }
   };
 
-  const nextStep = () => {
-    if (step === 1 && !validateEmail(formState.email)) {
-      setEmailError('Please enter a valid email address');
-      return;
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Crown Money",
+    "description": "Get in touch with Crown Money Management for a free mortgage strategy session.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Crown Money",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "1300 882 981",
+        "contactType": "customer service",
+        "areaServed": "AU",
+        "availableLanguage": "English"
+      }
     }
-    setEmailError('');
-    setStep(s => Math.min(s + 1, totalSteps));
   };
-  const prevStep = () => setStep(s => Math.max(s - 1, 1));
 
   return (
     <div className="pt-10">
+      <Helmet>
+        <title>Contact Us | Book Your Free Strategy Call | Crown Money</title>
+        <meta name="description" content="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom." />
+        <meta name="keywords" content="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation" />
+        <script type="application/ld+json">
+          {JSON.stringify(contactSchema)}
+        </script>
+      </Helmet>
       {/* Hero */}
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -156,14 +174,12 @@ export const Contact = () => {
                     <button 
                       onClick={() => {
                         setIsSubmitted(false);
-                        setStep(1);
                         setFormState({
                           firstName: '',
                           email: '',
                           mobile: '',
-                          state: '',
-                          mortgageStatus: '',
-                          message: ''
+                          message: '',
+                          _honeypot: ''
                         });
                       }}
                       className="text-primary font-bold hover:text-gold transition-colors block mx-auto"
@@ -176,197 +192,88 @@ export const Contact = () => {
                         href="https://go.oncehub.com/crown-money-welcome"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
+                        className="inline-block bg-gold text-primary px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
                       >
-                        Book Strategy Call
+                        Book Your Free Strategy Session
                       </a>
                     </div>
                   </div>
                 </motion.div>
               ) : (
                 <div className="space-y-8">
-                  {/* Progress Bar */}
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-xs font-bold text-gray-400 uppercase tracking-widest">
-                      <span>Step {step} of {totalSteps}</span>
-                      <span>{Math.round(progress)}% Complete</span>
-                    </div>
-                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        animate={{ width: `${progress}%` }}
-                        className="h-full bg-gold"
+                  <h3 className="text-2xl font-display font-bold text-primary">Send an Enquiry</h3>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot field */}
+                    <div className="hidden">
+                      <input 
+                        type="text" 
+                        name="_honeypot" 
+                        value={formState._honeypot} 
+                        onChange={(e) => setFormState({...formState, _honeypot: e.target.value})} 
                       />
                     </div>
-                  </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <AnimatePresence mode="wait">
-                      {step === 1 && (
-                        <motion.div
-                          key="step1"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          className="space-y-6"
-                        >
-                          <h3 className="text-2xl font-display font-bold text-primary mb-6">Personal Details</h3>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">First Name</label>
-                            <input 
-                              type="text" 
-                              required
-                              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
-                              placeholder="Your name"
-                              value={formState.firstName}
-                              onChange={(e) => setFormState({...formState, firstName: e.target.value})}
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">Email</label>
-                            <input 
-                              type="email" 
-                              required
-                              className={`w-full px-5 py-4 rounded-xl border ${emailError ? 'border-red-500' : 'border-gray-200'} focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50`}
-                              placeholder="your@email.com"
-                              value={formState.email}
-                              onChange={(e) => {
-                                setFormState({...formState, email: e.target.value});
-                                if (emailError) setEmailError('');
-                              }}
-                            />
-                            {emailError && <p className="text-red-500 text-xs font-bold mt-1">{emailError}</p>}
-                          </div>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">Mobile</label>
-                            <input 
-                              type="tel" 
-                              required
-                              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
-                              placeholder="0400 000 000"
-                              value={formState.mobile}
-                              onChange={(e) => setFormState({...formState, mobile: e.target.value})}
-                            />
-                          </div>
-                          <button 
-                            type="button"
-                            onClick={nextStep}
-                            className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl flex items-center justify-center space-x-2 active:scale-95"
-                          >
-                            <span>Next Step</span>
-                            <ArrowRight size={18} />
-                          </button>
-                        </motion.div>
-                      )}
-
-                      {step === 2 && (
-                        <motion.div
-                          key="step2"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          className="space-y-6"
-                        >
-                          <h3 className="text-2xl font-display font-bold text-primary mb-6">Financial Status</h3>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">State</label>
-                            <select 
-                              required
-                              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
-                              value={formState.state}
-                              onChange={(e) => setFormState({...formState, state: e.target.value})}
-                            >
-                              <option value="">Select State</option>
-                              <option value="QLD">Queensland</option>
-                              <option value="NSW">New South Wales</option>
-                              <option value="VIC">Victoria</option>
-                              <option value="WA">Western Australia</option>
-                              <option value="SA">South Australia</option>
-                              <option value="TAS">Tasmania</option>
-                              <option value="ACT">ACT</option>
-                              <option value="NT">Northern Territory</option>
-                            </select>
-                          </div>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">Current Mortgage Status</label>
-                            <select 
-                              required
-                              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
-                              value={formState.mortgageStatus}
-                              onChange={(e) => setFormState({...formState, mortgageStatus: e.target.value})}
-                            >
-                              <option value="">Select Status</option>
-                              <option value="existing">I have an existing mortgage</option>
-                              <option value="looking">I'm looking to buy soon</option>
-                              <option value="refinance">I want to refinance</option>
-                              <option value="investor">I'm an investor</option>
-                            </select>
-                          </div>
-                          <div className="flex space-x-4">
-                            <button 
-                              type="button"
-                              onClick={prevStep}
-                              className="flex-1 bg-gray-100 text-primary py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-all active:scale-95"
-                            >
-                              Back
-                            </button>
-                            <button 
-                              type="button"
-                              onClick={nextStep}
-                              className="flex-2 bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl flex items-center justify-center space-x-2 px-8 active:scale-95"
-                            >
-                              <span>Next Step</span>
-                              <ArrowRight size={18} />
-                            </button>
-                          </div>
-                        </motion.div>
-                      )}
-
-                      {step === 3 && (
-                        <motion.div
-                          key="step3"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          className="space-y-6"
-                        >
-                          <h3 className="text-2xl font-display font-bold text-primary mb-6">Final Message</h3>
-                          <div className="space-y-2">
-                            <label className="text-sm font-bold text-gray-700">Message (Optional)</label>
-                            <textarea 
-                              rows={4}
-                              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none resize-none bg-gray-50/50"
-                              placeholder="How can we help?"
-                              value={formState.message}
-                              onChange={(e) => setFormState({...formState, message: e.target.value})}
-                            ></textarea>
-                          </div>
-                          <div className="flex space-x-4">
-                            <button 
-                              type="button"
-                              onClick={prevStep}
-                              className="flex-1 bg-gray-100 text-primary py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-all active:scale-95"
-                            >
-                              Back
-                            </button>
-                            <button 
-                              type="submit"
-                              className="flex-2 bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl flex items-center justify-center space-x-2 px-8 active:scale-95"
-                            >
-                              <span>Submit Enquiry</span>
-                              <Send size={18} />
-                            </button>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">First Name</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                        placeholder="Your name"
+                        value={formState.firstName}
+                        onChange={(e) => setFormState({...formState, firstName: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Email</label>
+                      <input 
+                        type="email" 
+                        required
+                        className={`w-full px-5 py-4 rounded-xl border ${emailError ? 'border-red-500' : 'border-gray-200'} focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50`}
+                        placeholder="your@email.com"
+                        value={formState.email}
+                        onChange={(e) => {
+                          setFormState({...formState, email: e.target.value});
+                          if (emailError) setEmailError('');
+                        }}
+                      />
+                      {emailError && <p className="text-red-500 text-xs font-bold mt-1">{emailError}</p>}
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Mobile</label>
+                      <input 
+                        type="tel" 
+                        required
+                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                        placeholder="0400 000 000"
+                        value={formState.mobile}
+                        onChange={(e) => setFormState({...formState, mobile: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Message (Optional)</label>
+                      <textarea 
+                        rows={4}
+                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none resize-none bg-gray-50/50"
+                        placeholder="How can we help?"
+                        value={formState.message}
+                        onChange={(e) => setFormState({...formState, message: e.target.value})}
+                      ></textarea>
+                    </div>
+                    <button 
+                      type="submit"
+                      className="w-full bg-gold text-primary py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl flex items-center justify-center space-x-2 active:scale-95"
+                    >
+                      <span>Submit Enquiry</span>
+                      <Send size={18} />
+                    </button>
                   </form>
                 </div>
               )}
             </div>
           </div>
 
-          {/* New Prominent CTA below the form */}
+          {/* New Prominent CTA below the form - Inline Calendar */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -376,18 +283,32 @@ export const Contact = () => {
             <div className="bg-primary rounded-[2.5rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-                  Want to skip the form and talk now?
+                  Book Your Free Strategy Session Directly
                 </h3>
                 <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                  Book your free 15-minute strategy call directly into our calendar and start your journey to mortgage freedom today.
+                  Skip the form and choose a time that works for you. Our experts are ready to help you save thousands.
                 </p>
+                
+                {/* Embedded OnceHub Calendar */}
+                <div className="bg-white rounded-3xl p-4 md:p-8 shadow-inner mb-10 overflow-hidden">
+                  <div className="w-full h-[600px] bg-gray-50 rounded-2xl overflow-hidden">
+                    <iframe 
+                      src="https://go.oncehub.com/crown-money-welcome" 
+                      width="100%" 
+                      height="100%" 
+                      frameBorder="0"
+                      title="OnceHub Booking Calendar"
+                    ></iframe>
+                  </div>
+                </div>
+
                 <a 
                   href="https://go.oncehub.com/crown-money-welcome"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-3 bg-gold text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-gold-hover hover:scale-105 transition-all shadow-xl active:scale-95"
+                  className="inline-flex items-center space-x-3 bg-gold text-primary px-10 py-5 rounded-full font-bold text-xl hover:bg-opacity-90 hover:scale-105 transition-all shadow-xl active:scale-95"
                 >
-                  <span>Book a Free Strategy Call</span>
+                  <span>Book Your Free Strategy Session</span>
                   <ArrowRight size={24} />
                 </a>
               </div>
