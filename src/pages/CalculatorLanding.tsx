@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { MortgageCalculator } from '../components/MortgageCalculator';
 import { ShieldCheck, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,27 @@ import { Link } from 'react-router-dom';
 export const CalculatorLanding = () => {
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Mortgage Reduction Calculator | Pay Off Your Home Faster | Crown Money</title>
+        <meta name="description" content="Use our advanced mortgage reduction calculator to see how much interest you can save and how many years you can shave off your home loan with Crown Money's Home Ownership Program." />
+        <meta name="keywords" content="mortgage reduction calculator, pay off home loan faster, mortgage savings calculator, interest reduction calculator, Crown Money HOP, home ownership program australia" />
+        <link rel="canonical" href="https://crown.money/mortgage-reduction-calculator" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Mortgage Reduction Calculator",
+            "description": "Advanced financial tool to calculate interest savings and loan term reduction for Australian homeowners.",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "author": {
+              "@type": "Organization",
+              "name": "Crown Money",
+              "url": "https://crown.money"
+            }
+          })}
+        </script>
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-primary text-white py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative z-10">

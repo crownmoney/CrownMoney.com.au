@@ -56,9 +56,10 @@ export const CarLeaseVsBuy = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Car Lease vs Buy Calculator Australia | Crown Money</title>
-        <meta name="description" content="Decide between leasing or buying your next car in Australia. Our calculator compares total ownership costs, novated lease tax benefits, and running expenses for smarter vehicle financing." />
-        <meta name="keywords" content="car lease vs buy calculator, novated lease vs car loan australia, car finance comparison australia, crown money tools" />
+        <title>Car Lease vs Buy Calculator Australia | Novated Lease Comparison | Crown Money</title>
+        <meta name="description" content="Decide between leasing or buying your next car in Australia. Our calculator compares total ownership costs, novated lease tax benefits, and running expenses for smarter vehicle financing and mortgage reduction." />
+        <meta name="keywords" content="car lease vs buy calculator, novated lease vs car loan australia, car finance comparison australia, crown money tools, vehicle financing australia, car loan calculator" />
+        <link rel="canonical" href="https://crown.money/tools/car-lease-vs-buy" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

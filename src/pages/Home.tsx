@@ -14,87 +14,87 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const faqs = [
   {
     question: "What is Crown Money?",
-    answer: "Crown Money is Australia's leading specialist in debt reduction and money management. We help homeowners pay off their mortgages years faster through strategic structure and active financial coaching."
+    answer: "Crown money is one of Australia’s leading financial coaching services where we have been helping clients pay off their houses in up to half the time, by helping them manage their money more effectively so that it works harder for them. When most people get a standard home loan, at the end of their 30 year loan term they end up paying back close to double the original loan amount to the bank, including all the interest payments. What we do at Crown Money is we help clients restructure their finances in a way that allows them to cut anywhere from 40 to 50% off the total amount that they will end up paying for their home, which allows them to be debt free up to twice as fast. We have a wide range of financial coaching services to help cater for Australians and their financial needs. For the past 20 years we have specialised in helping clients pay off their house much faster than what they’re currently tracking for. We have financial coaching programs for people who don’t have a mortgage and need help with their money management."
   },
   {
     question: "How much does it cost?",
-    answer: "Our initial Discovery Call is 100% free. If you choose to implement a strategy with us, there is a fee for the strategy design and ongoing management, which is typically offset by the massive interest savings we achieve for you."
+    answer: "The cost varies depending on the service level that our clients choose. We have bronze, silver and gold packages which allow our clients to decide how much financial coaching they require and how frequently they want our help and guidance."
   },
   {
     question: "I don't have a mortgage yet but I'm looking to buy. Can you help me?",
-    answer: "Absolutely! In fact, starting with the right structure before you buy is one of the best things you can do. We can help with pre-approvals and ensure your loan is set up for rapid payoff from day one."
+    answer: "If you have a deposit saved and you’re looking to purchase a property, we have a finance arm that helps you find the ideal finance structure and pre-approvals to enable you to purchase a property. If you don’t have a deposit, we will have to discuss with you a fee for service based on your specific circumstances."
   },
   {
     question: "I have an offset account, so I'm already saving interest, how is this different?",
-    answer: "Offset accounts are a great tool, but they are passive. Our strategy combines the right banking structure with active monthly coaching and proprietary tracking software to ensure every dollar is working as hard as possible."
+    answer: "The easiest way to describe the difference between an offset account and what we do as financial coaches is think of an offset account as a gym membership. What we do is different, because we’re a gym membership with a personal trainer built in. We all know that people with personal trainers get better results than those who just try and attempt to go to the gym themselves. Offset accounts are there to traditionally help ‘offset’ interest. However, they don’t accelerate the reduction in principal to be paid out in under 15 years due to the way the offset loans are structured. We deliberately structure our money management system so that it reduces principal rapidly and offsets interest at the same time. Getting a 2 prong attack of debt reduction and interest offset working in your favour. The other key difference we have seen with an offset account is they usually only save clients four or five years off a 30-year loan, compared to the vast majority of our clients using our Financial Coaching structure are out of debt and own their homes in under 15 years. The clients on the Crown money management system are outperforming what they were doing before they met us when they had an offset account, even though they have the same income and debt level. Most of our clients have come from an offset account and a ‘cheap rate’ with a bank as their offset account wasn’t working as well for them as they’d expected. Those clients are now saving 200% more and paying down their loans in 50% of the time. A big reason for this uplift in their performance is the financial coaching and software that allows us to coach you on your financial numbers such as your savings rate, your debt reduction speed, surplus cashflow position, what day you own your home, and how much equity you’ve created in your property. The guidance we provide clients around increasing your income, with scripts and strategies on how to get pay rises, as well as helping reduce their expenses with initiatives such as crown coins and auditing your fixed expenses are key reasons these clients make and save as much money as possible compared to an offset account."
   },
   {
     question: "I'm disciplined with my money and stick to a budget. Why would I need this?",
-    answer: "Even the most disciplined savers often have their loans structured in a way that favors the bank. We provide the expert strategy to optimize that structure and the accountability to ensure you're maximizing your wealth creation."
+    answer: "This money management system is designed to help accelerate your debt reduction as well as your net worth, and just because you’re disciplined and stick to a budget doesn’t mean that you’re outperforming financially. If you don’t know your numbers or measure them you aren’t in control financially. Do you know when you can make your next financial move such as buying your next property? Do you know how much you could afford, and when you can afford to do that? Do you know your savings rate? Your surplus cash flow position? Do you know exactly what day you’re going to pay your house off ? Just because you stick to a budget doesn’t mean that you’re financially secure and in the best position where your money is working the hardest for you and you’re making excellent financial progress. A lot of the time you won’t have a financial plan in place. We come in and help build that financial strategy and tailor it to you and your specific goals and dreams."
   },
   {
     question: "Do you control all my money and pay my bills for me?",
-    answer: "No. You maintain full control of your money. We provide the 'GPS' and the coaching, but you're always in the driver's seat."
+    answer: "No, we don’t control anyone’s money and we don’t pay anyone’s bills for them. We specifically help with the management of all cash flow and optimize it to make sure that your cash flow structure is running as efficiently as possible. We simply make sure that your funds are available for you when your bills and large expenses are due."
   },
   {
     question: "Do you hold my money or is it still sitting with a bank?",
-    answer: "Your money always sits with a regulated Australian lender or bank. Crown Money provides the strategy and management layer on top of your banking."
+    answer: "We don’t hold any money on behalf of any clients. Your loan is in your name, your bank accounts are in your name and so all your banking is with your bank or the new financial institution that you choose to take out your finances with. We do not hold any money on behalf of any clients at any time."
   },
   {
     question: "Why can't I achieve the same thing with my current bank?",
-    answer: "Banks are designed to keep you in debt for 30 years—that's how they make their profit. Our interests are aligned with yours: getting you out of debt as fast as humanly possible."
+    answer: "Most Australians think they can achieve great financial results as long as they’ve got a cheap rate and an offset account, but having seen over 6,500 Australian’s financial positions (with offset accounts and cheap rates), they’re unfortunately not outperforming the average Australian. Their savings rate is below 7%. Our average client savings rate is above 20%. Their annual debt reduction is close to $10,000pa and our average client’s annual debt reduction is over $30,000+. Your current bank is focused on keeping you in debt for as long as possible, they’re financially incentivised to make sure you’re paying interest for the longest period of time. We have designed loan structures and money management systems to help you reduce interest, cut down your loan term and make sure your money is working as hard as possible for you."
   },
   {
     question: "I hate paperwork, how long does it take to get set up?",
-    answer: "We handle the heavy lifting. Once we have your information, the setup process typically takes a few weeks, and we guide you through every step."
+    answer: "We all hate paperwork. This is similar to going on an overseas holiday. You’ve got the check-in, you’ve got the baggage check, and you’ve got customs and then you’ve got boarding of the plane… All of those frustrating hoops you’ve got to jump through to get to your final destination …. an amazing island holiday. It’s very similar to this process as there is paperwork required, being in the financial services industry we need to be compliant with all the rules and regulations. We have to comply with Anti Money Laundering, Know-Your-Client and Best Interest duty, it is an unavoidable part of this process. The time for the Money Management system to be implemented and setup usually takes four weeks to six weeks from our initial meeting."
   },
   {
     question: "How do we access our money if there's an emergency?",
-    answer: "Your funds remain accessible. Our strategies are designed to be flexible, ensuring you have liquidity for life's unexpected events."
+    answer: "Clients usually have a ‘float’ sitting in their spending account or their Visa debit account. This float, is usually $1000+, and is sitting there to cover any emergencies on the weekends. We are also able to help access funds for an emergency usually within a few hours. There are plenty ways to access money if there’s an emergency and we ensure that you’ll never be caught short."
   },
   {
     question: "What happens if I want out?",
-    answer: "There are no lock-in contracts for our management services. If your circumstances change and you want to stop, you can do so at any time."
+    answer: "There are no lock-in contracts, there are no handcuffs or penalties for leaving. You can come and go as you please. So if you want out, you can leave at any time. There’s no break costs. There’s no exit fees. Pure and simply you can pick and choose when you come and when you go."
   },
   {
     question: "What's the catch. Why isn't everyone doing this?",
-    answer: "There's no catch, but it does require a different way of thinking about banking. Most people just follow the standard 30-year path because that's what's advertised. We offer a specialized alternative for those who want to be mortgage-free faster."
+    answer: "Well, why weren’t you doing this before today? Probably because you didn’t know about it, it’s not something that your bank or your broker has discussed with you how you need a financial coach. We let our 20+ years of above average results, case studies, testimonials and happy google reviews speak for themselves."
   },
   {
     question: "What happens if the lender goes broke or closes down?",
-    answer: "Your mortgage is an asset to the lender. If they were to close, your loan would simply be sold to another institution under the same terms. Your deposits are also protected by the Australian Government's Financial Claims Scheme (up to $250k per person)."
+    answer: "Your loan and bank accounts are with Australian financial institutions. Obviously these are a large institutions with billions of dollars of lending under their management. In the event that your bank went broke or closes down your loan would be bought out by another bank who would then service that loan on behalf of you. Nothing changes in terms of your contract, and your rates. They all stay the same. Plus, you could also just refinance to another bank at any time."
   },
   {
     question: "Why do you need so much information during your application process?",
-    answer: "To build a strategy that actually works, we need a complete picture of your financial DNA. This allows us to find every possible efficiency and interest-saving opportunity."
+    answer: "When banks are looking to lend you half a million dollars or a million dollars, it’s a huge amount of money. So they go through these applications with a fine tooth comb to try and make sure that you’re a very high chance of paying these funds back, so unfortunately they need to dot their i’s and cross their t’s to gather as much information to make their decision as to whether or not to approve you for the specific loan structure and amount that you apply for."
   },
   {
     question: "What happens if I get given cash? How do I deposit it?",
-    answer: "You can deposit cash via any Australia Post outlet using Bank@Post, or at a physical branch of the underlying lender if they have one."
+    answer: "If you get any cash, I would highly recommend you bank that into your spending account. Your everyday visa debit account. So if you are are given cash deposit into your spending account and we can get those funds working for you."
   },
   {
     question: "I've never heard of this bank. Do we have access?",
-    answer: "We work with a range of lenders, from major banks to specialized wholesale lenders. You will have full online and mobile access to your accounts just like any other bank."
+    answer: "Yes, you have internet / phone access to all the financial institutions that we use. You have internet banking, you can see your balances. and you can log in as you normally would with your current bank."
   },
   {
     question: "Why haven't we heard of Crown?",
-    answer: "We've spent the last 20 years focusing on delivering results for our clients rather than spending millions on mass-market TV advertising. Most of our clients come to us via word-of-mouth."
+    answer: "Crown has been primarily just a referral based business over the past 20 years. We haven’t felt the need to advertise or the need to go on TV and spend millions of dollars on radio or newspaper. We just rely on our clients to tell their friends and family that they’ve been getting great results. They usually introduce us to family and friends once they’ve seen the effectiveness of the money management system. We are simply focused on getting amazing results for our clients and letting the results do the talking."
   },
   {
     question: "How do you get paid?",
-    answer: "We are transparent about our fees. We receive a management fee from our clients for our strategy and coaching, and in some cases, we may receive a commission from the lender."
+    answer: "We get paid like a mortgage broker gets paid if we are able to refinance your home loan. The bank that we refinance your home loan to will pay us an introduction fee as well as an ongoing management fee. We also have a Money Management system establishment cost, which is usually put on top of the loan. It is to set up the financial coaching system which allows us to manage and coach our clients on their finances going forward."
   },
   {
     question: "When will we be able to invest?",
-    answer: "Our first priority is usually building your equity and cashflow. Once your 'financial foundation' is solid, we can help you leverage that equity to start building an investment portfolio."
+    answer: "Everyone has got different risk appetites and it depends on what you want to invest into. If you’re wanting to invest in property we can tell you exactly what your borrowing capacity is, what property you would and could afford to purchase based on your surplus cash flow position. Everyone’s different. We’ve got clients who are able to invest within 90 days of joining our financial coaching program and we’ve got other clients who wait five years to invest. It’s going to come back down to what your current income and debt levels are and your appetite for risk."
   },
   {
     question: "What happens if one of us take a year off work, how will that affect our loan?",
-    answer: "This is where our coaching really shines. We simply adjust your strategy to accommodate the change in income, ensuring your mortgage remains manageable during that period."
+    answer: "Depends on the stage of your loan and how long you’ve been on the Money Management system. Obviously at the very start of the loan there may not be enough of a buffer or a redraw or emergency fund that you’ve built up to take a year off work. However, most of our clients after a few years have got really good buffers and safety nets and emergency funds built up. With our clients who take a year off for maternity leave, they can continue to run the system without their income going through and they’re still getting their living expenses, but we’ve got to make sure that we have built up enough redraw or emergency savings in the home loan account to be able to warrant that 12 months of no income coming through. It just slows down the progress for the debt reduction for that 12 month period as you obviously have the same amount of expenses but less income coming in."
   },
   {
     question: "Why is interest rate higher?",
-    answer: "Sometimes the specific loan features required for our rapid-payoff strategy come with a slightly different rate. However, the focus should be on the *total interest paid*. Our clients typically save hundreds of thousands in interest, which far outweighs a minor difference in the headline rate."
+    answer: "So banks price loans based on loan to value ratios as well as the size of the loan amounts. So every client is different. Obviously these banks they want you in debt for as long as possible, if you’re paying back a home loan for 30 years they’re going to make a huge amount of interest out of you. If you’re paying your loan off in 11 years for example, the amount of interest they’re going to make off you is close to half compared to a 30 year loan. Actually the cheapest loan is the loan with the shortest term."
   }
 ];
 
@@ -568,9 +568,10 @@ export const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Crown Money | Pay Off Your Mortgage in 12-15 Years, Not 30</title>
-        <meta name="description" content="Crown Money Management is Australia's leading specialist in mortgage reduction. Financial personal trainers helping you become debt-free in up to half the time." />
-        <meta name="keywords" content="mortgage reduction, debt reduction, money management, financial coach, pay off mortgage fast, australian mortgage broker" />
+        <title>Crown Money | Pay Off Your Mortgage in 12-15 Years | Australia's Leading Financial Coaching</title>
+        <meta name="description" content="Crown Money helps Australian families pay off their home loans in 12-15 years using advanced money management strategies. Save over $300,000 in interest and achieve financial freedom faster." />
+        <meta name="keywords" content="mortgage reduction, pay off mortgage fast, financial coaching Australia, debt reduction strategy, home loan savings, Crown Money Management, Scott Parry, mortgage freedom" />
+        <link rel="canonical" href="https://crown.money/" />
         <script type="application/ld+json">
           {JSON.stringify(homeSchema)}
         </script>

@@ -66,9 +66,10 @@ export const NegativeGearing = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Negative Gearing Calculator Australia | Crown Money</title>
-        <meta name="description" content="Calculate the tax benefits and cash flow of your investment property in Australia. Our negative gearing calculator includes depreciation and 2024-25 tax rates for precise financial planning." />
-        <meta name="keywords" content="negative gearing calculator australia, investment property tax benefits, property investment cash flow, crown money tools" />
+        <title>Negative Gearing Calculator Australia | Investment Property Tax Benefits | Crown Money</title>
+        <meta name="description" content="Calculate the tax benefits and cash flow of your investment property in Australia. Our negative gearing calculator includes depreciation and 2024-25 tax rates for precise financial planning and mortgage reduction." />
+        <meta name="keywords" content="negative gearing calculator australia, investment property tax benefits, property investment cash flow, crown money tools, property investment australia, tax deductible investment" />
+        <link rel="canonical" href="https://crown.money/tools/negative-gearing" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

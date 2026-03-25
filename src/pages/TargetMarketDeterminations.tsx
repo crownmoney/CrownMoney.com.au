@@ -57,9 +57,10 @@ const TargetMarketDeterminations = () => {
   return (
     <div className="bg-white">
       <Helmet>
-        <title>Target Market Determinations | Crown Money Management</title>
-        <meta name="description" content="Access Crown Money Management's Target Market Determinations (TMDs) to understand which of our financial products are appropriate for your needs." />
-        <meta name="keywords" content="Target Market Determinations, TMD, Crown Money products, financial product suitability Australia" />
+        <title>Target Market Determinations (TMD) | Crown Money Australia</title>
+        <meta name="description" content="Access Crown Money Management's Target Market Determinations (TMDs) to understand which of our financial products, including home loans and SMSF products, are appropriate for your needs." />
+        <meta name="keywords" content="Target Market Determinations, TMD, Crown Money products, financial product suitability Australia, mortgage TMD, SMSF TMD, financial compliance" />
+        <link rel="canonical" href="https://crown.money/target-market-determinations" />
       </Helmet>
       {/* Hero Section */}
       <section className="bg-primary py-20 text-white">

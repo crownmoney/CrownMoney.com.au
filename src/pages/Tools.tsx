@@ -387,15 +387,16 @@ export const Tools = () => {
     { title: "Net Worth", path: "/tools/net-worth", icon: Wallet, description: "Track your total financial position." },
     { title: "Debt Recycling", path: "/tools/debt-recycling", icon: RefreshCw, description: "Turn home debt into tax-deductible debt." },
     { title: "Budget Planner", path: "/tools/budget", icon: Calculator, description: "Master your cash flow and find savings." },
-    { title: "Wishlist Impact", path: "/tools/wishlist-impact", icon: ShoppingCart, description: "See the true cost of lifestyle purchases on your mortgage." },
+    { title: "Home Loan Withdrawal Impact", path: "/tools/wishlist-impact", icon: ShoppingCart, description: "See the true cost of lifestyle purchases on your mortgage." },
   ];
 
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Financial Calculators & Tools Australia | Crown Money</title>
-        <meta name="description" content="Explore our suite of financial tools and calculators designed for Australians. From mortgage reduction to debt recycling and budget planning, Crown Money helps you take control of your wealth." />
-        <meta name="keywords" content="mortgage calculator australia, rent vs buy calculator, negative gearing calculator, debt recycling calculator, net worth calculator" />
+        <title>Financial Calculators & Mortgage Tools Australia | Crown Money</title>
+        <meta name="description" content="Explore our suite of financial tools and calculators designed for Australians. From mortgage reduction to debt recycling, budget planning, and wishlist impact, Crown Money helps you take control of your wealth." />
+        <meta name="keywords" content="mortgage calculator australia, rent vs buy calculator, negative gearing calculator, debt recycling calculator, net worth calculator, mortgage reduction tools" />
+        <link rel="canonical" href="https://crown.money/tools" />
         <script type="application/ld+json">
           {JSON.stringify(toolsSchema)}
         </script>

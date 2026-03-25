@@ -55,9 +55,10 @@ export const HowItWorks = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>How It Works | Crown Money's Debt Reduction Strategy</title>
-        <meta name="description" content="Discover the Crown Money process. From discovery calls to custom financial strategies and ongoing coaching, we help you pay off your mortgage faster." />
-        <meta name="keywords" content="debt reduction process, mortgage strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process" />
+        <title>How It Works | Crown Money's 4-Step Mortgage Reduction Strategy</title>
+        <meta name="description" content="Discover the Crown Money process. From discovery calls to custom financial strategies and ongoing coaching, we help you pay off your mortgage faster and achieve financial freedom." />
+        <meta name="keywords" content="debt reduction process, mortgage strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard" />
+        <link rel="canonical" href="https://crown.money/how-it-works" />
         <script type="application/ld+json">
           {JSON.stringify(howToSchema)}
         </script>

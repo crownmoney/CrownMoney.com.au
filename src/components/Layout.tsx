@@ -749,6 +749,8 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
   );
 };
 
+import { Helmet } from 'react-helmet-async';
+
 export const Layout = ({ children }: LayoutProps) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
@@ -756,6 +758,9 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <link rel="icon" type="image/png" href="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/favicon.png" />
+      </Helmet>
       <Header 
         onChatToggle={() => setIsChatOpen(!isChatOpen)} 
         onBookToggle={() => setIsBookModalOpen(true)}

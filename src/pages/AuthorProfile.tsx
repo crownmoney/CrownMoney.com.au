@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Linkedin, Twitter, Mail, ArrowLeft, Award, BookOpen, MessageSquare } from 'lucide-react';
 
 const authors = {
@@ -47,6 +48,28 @@ export const AuthorProfile = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>{author.name} | {author.role} | Crown Money Australia</title>
+        <meta name="description" content={`${author.name} is the ${author.role} at Crown Money Management. ${author.bio.substring(0, 150)}...`} />
+        <meta name="keywords" content={`${author.name}, ${author.role}, Crown Money expert, mortgage reduction expert, financial strategy australia, ${author.expertise.join(', ')}`} />
+        <link rel="canonical" href={`https://crown.money/author/${slug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": author.name,
+            "jobTitle": author.role,
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Crown Money",
+              "url": "https://crown.money"
+            },
+            "description": author.bio,
+            "image": author.image,
+            "knowsAbout": author.expertise
+          })}
+        </script>
+      </Helmet>
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <Link to="/about" className="inline-flex items-center space-x-2 text-gray-400 hover:text-white mb-8 transition-colors">

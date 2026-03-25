@@ -180,9 +180,10 @@ export const About = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>About Crown Money | Australia's Mortgage Reduction Experts</title>
-        <meta name="description" content="Meet the team at Crown Money Management. Founded in 2004, we've helped thousands of Australian families pay off their mortgages faster and build wealth." />
-        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts" />
+        <title>About Crown Money | Australia's Mortgage Reduction & Debt Strategy Experts</title>
+        <meta name="description" content="Meet the team at Crown Money Management. Founded in 2004 by Scott Parry, we've helped thousands of Australian families pay off their mortgages faster and build wealth through strategic money management." />
+        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts, financial coaching Australia" />
+        <link rel="canonical" href="https://crown.money/about" />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
         </script>

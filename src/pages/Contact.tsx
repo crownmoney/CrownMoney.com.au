@@ -71,9 +71,10 @@ export const Contact = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>Contact Us | Book Your Free Strategy Call | Crown Money</title>
-        <meta name="description" content="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom." />
-        <meta name="keywords" content="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation" />
+        <title>Contact Us | Book Your Free Mortgage Strategy Call | Crown Money</title>
+        <meta name="description" content="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom and pay off your mortgage faster." />
+        <meta name="keywords" content="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation, mortgage reduction experts" />
+        <link rel="canonical" href="https://crown.money/contact" />
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>
