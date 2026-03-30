@@ -1,9 +1,11 @@
-export const fetch = globalThis.fetch;
-export const Request = globalThis.Request;
-export const Response = globalThis.Response;
-export const Headers = globalThis.Headers;
-export const FormData = globalThis.FormData;
-export const File = globalThis.File;
-export const Blob = globalThis.Blob;
+const g = (typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : self) as any;
 
-export default globalThis.fetch;
+export const fetch = g.fetch;
+export const Request = g.Request;
+export const Response = g.Response;
+export const Headers = g.Headers;
+export const FormData = g.FormData;
+export const File = g.File;
+export const Blob = g.Blob;
+
+export default g.fetch;
