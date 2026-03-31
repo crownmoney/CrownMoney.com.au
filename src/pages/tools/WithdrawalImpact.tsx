@@ -52,7 +52,7 @@ export const WithdrawalImpact = () => {
   // Load saved data
   useEffect(() => {
     const saved = localStorage.getItem('crown_withdrawal_calc_data');
-    if (saved) {
+    if (saved && saved !== "undefined") {
       try {
         const data = JSON.parse(saved);
         setPrincipal(data.principal || 450000);

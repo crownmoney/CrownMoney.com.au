@@ -18,6 +18,9 @@ export default defineConfig(({mode}) => {
         { find: /^fetch-blob(\/.*)?$/, replacement: path.resolve(__dirname, 'src/fetch-blob-browser.ts') },
       ],
     },
+    optimizeDeps: {
+      exclude: ['node-fetch', 'formdata-polyfill', 'fetch-blob'],
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.

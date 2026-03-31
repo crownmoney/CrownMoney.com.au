@@ -375,10 +375,11 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
   // Load history on mount
   useEffect(() => {
     const saved = localStorage.getItem('crown_chat_history');
-    if (saved) {
+    if (saved && saved !== "undefined") {
       try {
         setMessages(JSON.parse(saved));
       } catch (e) {
+        console.error("Failed to parse chat history:", e);
         setMessages([{ text: "Hi! I'm the Crown Money AI assistant. How can I help you today?", isBot: true }]);
       }
     } else {
@@ -404,7 +405,9 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
     setIsLoading(true);
 
     try {
-      const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+      const genAI = new GoogleGenAI({ 
+        apiKey: process.env.GEMINI_API_KEY || "",
+      });
       const model = "gemini-3-flash-preview";
       
       const chat = genAI.chats.create({
@@ -528,6 +531,7 @@ interface LayoutProps {
 const ExitPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -545,12 +549,12 @@ const ExitPopup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !firstName) return;
     
     try {
       await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
         method: 'POST',
-        body: JSON.stringify({ email, source: 'exit_popup' }),
+        body: JSON.stringify({ firstName, email, source: 'exit_popup' }),
       });
       
       setIsSubmitted(true);
@@ -597,6 +601,14 @@ const ExitPopup = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <input 
+                    type="text" 
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="First Name" 
+                    className="w-full px-6 py-4 rounded-xl border border-gray-200 outline-none focus:border-primary"
+                    required
+                  />
                   <input 
                     type="email" 
                     value={email}

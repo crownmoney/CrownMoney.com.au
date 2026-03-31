@@ -29,6 +29,10 @@ const ScrollToTop = () => {
 };
 
 export default function App() {
+  useEffect(() => {
+    // App initialization
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
