@@ -31,3 +31,11 @@
 .bg-crown-lavender {
   background-color: #F1EAF8;
 }
+
+.markdown-body a {
+  @apply text-blue-600 underline hover:text-blue-800 transition-colors;
+}
+
+.markdown-body p {
+  @apply mb-2 last:mb-0;
+}

@@ -111,7 +111,7 @@ export const HowItWorks = () => {
               >
                 <div className="w-full md:w-1/2">
                   <div className="bg-accent text-primary w-20 h-20 rounded-3xl flex items-center justify-center mb-6 shadow-sm">
-                    {React.cloneElement(step.icon as React.ReactElement, { size: 40 })}
+                    {React.cloneElement(step.icon as React.ReactElement<any>, { size: 40 })}
                   </div>
                   <h3 className="text-2xl font-display font-bold text-primary mb-4">{step.title}</h3>
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">{step.desc}</p>

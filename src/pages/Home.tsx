@@ -648,22 +648,18 @@ export const Home = () => {
             <h2 className="text-2xl font-display font-bold text-primary mb-8">Proprietary Performance Data</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="space-y-2">
-                <p className="text-xs font-bold text-gold uppercase tracking-widest">Metric</p>
                 <p className="text-sm text-gray-500">Average Annual Mortgage Reduction</p>
                 <p className="text-2xl font-display font-bold text-primary">$39,327 AUD</p>
               </div>
               <div className="space-y-2">
-                <p className="text-xs font-bold text-gold uppercase tracking-widest">Metric</p>
                 <p className="text-sm text-gray-500">Client Savings Rate (Avg)</p>
-                <p className="text-2xl font-display font-bold text-primary">21% - 24%</p>
+                <p className="text-2xl font-display font-bold text-primary">24%</p>
               </div>
               <div className="space-y-2">
-                <p className="text-xs font-bold text-gold uppercase tracking-widest">Metric</p>
                 <p className="text-sm text-gray-500">Debt-Free Milestone Frequency</p>
                 <p className="text-2xl font-display font-bold text-primary">Every 23 Days</p>
               </div>
               <div className="space-y-2">
-                <p className="text-xs font-bold text-gold uppercase tracking-widest">Metric</p>
                 <p className="text-sm text-gray-500">National Avg Savings Rate</p>
                 <p className="text-2xl font-display font-bold text-primary">3.7%</p>
               </div>

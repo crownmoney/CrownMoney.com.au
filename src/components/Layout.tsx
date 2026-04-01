@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { GoogleGenAI } from "@google/genai";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -434,6 +436,10 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           - Loan Discharge: Email discharge@crown.money. Process takes 3-4 weeks. Important: Redirect income and stop direct debits before discharge.
           - Change Redraw Account: Email clientcare@crown.money for a DDR form.
           - Employer Payments: Provide BSB and Account details from your settlement email.
+          - Redraw Requests: Use the new digital [Redraw Request Form](https://share-ap1.hsforms.com/1mytJWX7yTRm1UX14zx7qzw35dvz?utm_source=hs_email&utm_medium=email&_hsenc=p2ANqtz-9uYGRQK4ihl_3eu3gN8sBoob4VWgvvrqaVyssvXHDV1lvYsSO4Yd4TPAXXfq3X8LFycy0Z&__hstc=163423779.5aafa6ba179ddc334514772a1ed6dd7e.1775083658539.1775083658539.1775083658539.1&__hssc=163423779.1.1775083658540&__hsfp=d16f20985dd1fa1d4eb1884d25292ed8). Redraws are no longer via email. Watch this [step-by-step video](https://hello.crownmoneymanagement.com.au/share/hubspotvideo/312935213533?utm_source=hs_email&utm_medium=email&_hsenc=p2ANqtz-9uYGRQK4ihl_3eu3gN8sBoob4VWgvvrqaVyssvXHDV1lvYsSO4Yd4TPAXXfq3X8LFycy0Z&hsLang=en&__hstc=163423779.5aafa6ba179ddc334514772a1ed6dd7e.1775083658539.1775083658539.1775083658539.1&__hssc=163423779.1.1775083658540&__hsfp=d16f20985dd1fa1d4eb1884d25292ed8&_gl=1*1a00a9b*_gcl_au*MTExMjI1MDczNi4xNzc1MDgzNjU4) to see how it works.
+          - Adding Redraw Form to Home Screen:
+            - iPhone: Open form > Share icon > Add to Home Screen.
+            - Android: Open form > Three dots > Add to Home Screen / Install App.
           - Redraw Timing: Processed same day if before cutoff (Advantedge: 10:45am, Origin/Well Nigh: 12:45pm AEST). Funds usually available after 6pm.
           - Account Login: 
             - Origin: Call 1300 767 023 for access. Login: https://online.originmms.com.au/ib/crown
@@ -448,7 +454,8 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           
           Guidelines:
           - Be concise, professional, and friendly.
-          - Avoid using markdown symbols like * or # in your answers. Use plain text or simple HTML-like structure if needed.
+          - Use standard Markdown for links to make them clickable.
+          - Avoid using markdown symbols like * or # for headers or lists unless necessary for clarity.
           - If asked about specific rates or products, explain that a personalized strategy session is needed to provide accurate information for their situation.
           - Always mention the free strategy call as the next logical step.`;
 
@@ -473,7 +480,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
         }
       });
 
-      const responseText = result.text?.replace(/[*#]/g, '') || "I'm sorry, I couldn't generate a response. Please try again or book a call with our team!";
+      const responseText = result.text || "I'm sorry, I couldn't generate a response. Please try again or book a call with our team!";
       
       setMessages(prev => [...prev, { text: responseText, isBot: true }]);
     } catch (error) {
@@ -508,10 +515,18 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
               {messages.map((msg, idx) => (
                 <div key={idx} className={cn("flex", msg.isBot ? "justify-start" : "justify-end")}>
                   <div className={cn(
-                    "max-w-[80%] p-3 rounded-2xl text-sm",
+                    "max-w-[85%] p-3 rounded-2xl text-sm break-words [overflow-wrap:anywhere]",
                     msg.isBot ? "bg-white text-gray-700 shadow-sm" : "bg-primary text-white"
                   )}>
-                    {msg.text}
+                    {msg.isBot ? (
+                      <div className="markdown-body">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {msg.text}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      msg.text
+                    )}
                   </div>
                 </div>
               ))}
