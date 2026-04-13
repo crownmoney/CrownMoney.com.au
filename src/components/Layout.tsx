@@ -320,7 +320,17 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
           </div>
           <p className="text-xs text-gray-400 mb-4">
-            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ABN – 23 389 248 852 | FBAA Member
+            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ACN – 119 504 862 | FBAA Member
+          </p>
+          <p className="text-xs text-gray-400 mb-4">
+            <a 
+              href="https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-gold transition-colors underline underline-offset-4"
+            >
+              View Australian Credit License (ACL)
+            </a>
           </p>
           <p className="text-xs text-gray-400">
             © {new Date().getFullYear()} Crown Money Management. All rights reserved.
@@ -413,12 +423,12 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
       const model = "gemini-3-flash-preview";
       
       const systemPrompt = `You are a professional, helpful, and trustworthy AI assistant for Crown Money, an Australian financial strategy company. 
-          Crown Money specializes in debt reduction and wealth building. 
+          Crown Money specialises in debt reduction and wealth building. 
           
           Key Services & Concepts:
           - Mortgage reduction strategies that help homeowners pay off their 30-year mortgage in 10-15 years.
           - Financial coaching and tracking through a proprietary dashboard.
-          - Optimizing mortgage structures to work for the homeowner, not the bank.
+          - Optimising mortgage structures to work for the homeowner, not the bank.
           - Wealth building and investment property strategy.
           - The Passive Income Plan (PIP): Uses debt recycling to turn home equity into passive income, converting bad debt into tax-deductible good debt. Contact fsfl@crown.money for more.
           
@@ -430,6 +440,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           - Depositing Cash: Deposit into everyday account, then transfer to home loan BSB/Account OR email clientcare@crown.money to arrange direct debit.
           - Phone Banking (Origin): App available for iOS (App Store) and Android (Play Store). Search for "Origin Mortgages Mobile Access". Note: Redraws cannot be done via app; email redraws@crown.money.
           - Lost Superannuation: Log in to myGov, link to ATO, access "Super" section to search.
+          - Licensing: Crown Money holds an Australian Credit License (ACL). Operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. [View License PDF](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf).
           
           Support & Operations:
           - 90 Day Review: Speak to your Financial Strategist or email coaches@crown.money.
@@ -456,7 +467,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           - Be concise, professional, and friendly.
           - Use standard Markdown for links to make them clickable.
           - Avoid using markdown symbols like * or # for headers or lists unless necessary for clarity.
-          - If asked about specific rates or products, explain that a personalized strategy session is needed to provide accurate information for their situation.
+          - If asked about specific rates or products, explain that a personalised strategy session is needed to provide accurate information for their situation.
           - Always mention the free strategy call as the next logical step.`;
 
       const chat = genAI.chats.create({
@@ -510,7 +521,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
             </div>
             <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50">
               <div className="bg-amber-50 border border-amber-100 p-3 rounded-xl text-[10px] text-amber-800 leading-tight mb-2">
-                DISCLAIMER: This AI assistant provides general information only and is not a substitute for professional financial advice. For personalized guidance, please book a call with our experts.
+                DISCLAIMER: This AI assistant provides general information only and is not a substitute for professional financial advice. For personalised guidance, please book a call with our experts.
               </div>
               {messages.map((msg, idx) => (
                 <div key={idx} className={cn("flex", msg.isBot ? "justify-start" : "justify-end")}>
@@ -702,7 +713,7 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             </button>
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-display font-bold text-primary">Book Your Free Strategy Session</h2>
-              <p className="text-gray-600">Choose the option that best fits your needs.</p>
+              <p className="text-gray-600">Choose a time that works for you to speak with our experts.</p>
               <div className="grid grid-cols-1 gap-4">
                 <a
                   href="https://go.oncehub.com/crown-money-welcome"
@@ -711,16 +722,7 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   className="bg-gold text-primary py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2 shadow-lg"
                 >
                   <TrendingUp size={20} />
-                  <span>Book Strategy Session</span>
-                </a>
-                <a
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-primary border-2 border-primary/10 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center space-x-2"
-                >
-                  <Phone size={20} />
-                  <span>Book Consultation</span>
+                  <span>Book Your Free Strategy Session</span>
                 </a>
               </div>
             </div>

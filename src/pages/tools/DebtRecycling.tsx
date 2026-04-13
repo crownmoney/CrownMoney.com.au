@@ -211,7 +211,7 @@ export const DebtRecycling = () => {
 
                 <div className="mt-12 p-8 bg-primary rounded-3xl text-white text-center">
                   <h4 className="text-2xl font-display font-bold mb-4">Turn your home loan into a wealth machine.</h4>
-                  <p className="text-gray-300 mb-8">Crown Money specializes in debt recycling strategies that help you pay off your home faster while building a multi-million dollar portfolio.</p>
+                  <p className="text-gray-300 mb-8">Crown Money specialises in debt recycling strategies that help you pay off your home faster while building a multi-million dollar portfolio.</p>
                   <Link to="/contact" className="bg-gold text-primary px-10 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-xl inline-block">
                     Book Your Free Strategy Session
                   </Link>

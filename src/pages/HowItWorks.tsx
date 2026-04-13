@@ -81,7 +81,7 @@ export const HowItWorks = () => {
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/wK5j7XV17UQ" 
+                src="https://www.youtube.com/embed/vAKiVus_r7k" 
                 title="How Crown Money Works" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -167,7 +167,7 @@ export const HowItWorks = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <CheckCircle className="text-gold" size={20} />
-                <span>Net worth visualization</span>
+                <span>Net worth visualisation</span>
               </li>
             </ul>
             <div className="pt-6">

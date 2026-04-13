@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Play, CheckCircle, ArrowRight, Star, Quote, TrendingUp, Calendar, ShieldCheck, Users, ChevronDown, MessageCircle } from 'lucide-react';
+import { Play, CheckCircle, ArrowRight, Star, Quote, Calendar, ShieldCheck, Users, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import { Newsletter } from '../components/Newsletter';
 import { MortgageCalculator } from '../components/MortgageCalculator';
@@ -34,7 +36,7 @@ const faqs = [
   },
   {
     question: "Do you control all my money and pay my bills for me?",
-    answer: "No, we don’t control anyone’s money and we don’t pay anyone’s bills for them. We specifically help with the management of all cash flow and optimize it to make sure that your cash flow structure is running as efficiently as possible. We simply make sure that your funds are available for you when your bills and large expenses are due."
+    answer: "No, we don’t control anyone’s money and we don’t pay anyone’s bills for them. We specifically help with the management of all cash flow and optimise it to make sure that your cash flow structure is running as efficiently as possible. We simply make sure that your funds are available for you when your bills and large expenses are due."
   },
   {
     question: "Do you hold my money or is it still sitting with a bank?",
@@ -93,8 +95,8 @@ const faqs = [
     answer: "Depends on the stage of your loan and how long you’ve been on the Money Management system. Obviously at the very start of the loan there may not be enough of a buffer or a redraw or emergency fund that you’ve built up to take a year off work. However, most of our clients after a few years have got really good buffers and safety nets and emergency funds built up. With our clients who take a year off for maternity leave, they can continue to run the system without their income going through and they’re still getting their living expenses, but we’ve got to make sure that we have built up enough redraw or emergency savings in the home loan account to be able to warrant that 12 months of no income coming through. It just slows down the progress for the debt reduction for that 12 month period as you obviously have the same amount of expenses but less income coming in."
   },
   {
-    question: "Why is interest rate higher?",
-    answer: "So banks price loans based on loan to value ratios as well as the size of the loan amounts. So every client is different. Obviously these banks they want you in debt for as long as possible, if you’re paying back a home loan for 30 years they’re going to make a huge amount of interest out of you. If you’re paying your loan off in 11 years for example, the amount of interest they’re going to make off you is close to half compared to a 30 year loan. Actually the cheapest loan is the loan with the shortest term."
+    question: "Is Crown Money licensed?",
+    answer: "Yes, Crown Money holds an Australian Credit License (ACL). We are operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. You can view a copy of our license [here](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf)."
   }
 ];
 
@@ -128,9 +130,16 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-gray-600 leading-relaxed">
-              {answer}
-            </p>
+            <div className="pb-6 text-gray-600 leading-relaxed markdown-body">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" />
+                }}
+              >
+                {answer}
+              </ReactMarkdown>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -141,26 +150,37 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
 const Hero = () => {
   return (
     <section className="relative bg-crown-lavender py-20 lg:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      {/* Background Blended Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://storage.googleapis.com/crown_money/Website/Images/happy%20couple.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-20 mix-blend-multiply"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10 text-center flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="max-w-4xl"
         >
           <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full text-primary text-sm font-bold mb-6 shadow-sm">
             <ShieldCheck size={16} className="text-gold" />
-            <span>Australia's Leading Specialists</span>
+            <span>Australia's Leading Mortgage Reduction Specialists</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary leading-tight mb-6">
-            Australian Homeowners: Pay Off Your Mortgage in <span className="text-gold">12–15 Years</span>, Not 30.
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-primary leading-tight mb-6">
+            Helping Aussie Homeowners Pay Their Mortgage Off in 12-15 Years.
           </h1>
-          <p className="text-lg text-gray-600 mb-10 max-w-lg">
-            Crown Money Management is Australia’s leading specialist in mortgage reduction. We act as financial personal trainers to help you become debt-free in up to half the time.
+          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            Pay off twice your mortgage twice as fast as the average Aussie & retire debt-free using Crown Money’s proven Money Management System.
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center mb-10">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mb-10">
             <Link 
               to="/contact"
-              className="bg-gold text-primary px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all shadow-lg flex items-center justify-center"
+              className="bg-gold text-primary px-8 py-4 rounded-full font-bold text-center hover:bg-opacity-90 transition-all shadow-lg flex items-center justify-center min-w-[240px]"
             >
               Book Your Free Strategy Session
             </Link>
@@ -170,18 +190,16 @@ const Hero = () => {
               </div>
               <span className="text-sm font-bold text-primary whitespace-nowrap">12-Month Guarantee</span>
             </div>
-            <a 
-              href="https://www.youtube.com/watch?v=wK5j7XV17UQ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-center hover:bg-gray-50 transition-all flex items-center justify-center space-x-2"
+            <Link 
+              to="/how-it-works"
+              className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-center hover:bg-gray-50 transition-all flex items-center justify-center space-x-2 min-w-[240px]"
             >
               <Play size={18} fill="currentColor" />
               <span>Watch How It Works</span>
-            </a>
+            </Link>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-6">
+          <div className="mt-12 flex flex-wrap gap-6 justify-center">
             <div className="flex items-center space-x-2">
               <CheckCircle size={20} className="text-gold" />
               <span className="text-sm font-medium text-gray-700">20+ years experience</span>
@@ -196,44 +214,7 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
-        >
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-            <img 
-              src="https://storage.googleapis.com/crown_money/Website/About/Other/House.jpg" 
-              alt="Modern Australian home representing financial freedom through mortgage reduction" 
-              className="w-full h-auto"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
-          </div>
-          
-          {/* Floating Stats Card */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="bg-accent p-3 rounded-xl">
-                <TrendingUp className="text-primary" />
-              </div>
-              <div>
-                <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Avg. Reduction</p>
-                <p className="text-2xl font-display font-bold text-primary">$30,000+/yr</p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
       </div>
-
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform translate-x-1/2"></div>
     </section>
   );
 };
@@ -315,7 +296,7 @@ const HowItWorksPreview = () => {
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
               <iframe 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/wK5j7XV17UQ" 
+                src="https://www.youtube.com/embed/vAKiVus_r7k" 
                 title="How Crown Money Works" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -624,7 +605,7 @@ export const Home = () => {
             What is Crown Money?
           </h2>
           <p className="text-xl text-gray-700 font-bold leading-relaxed">
-            Crown Money Management is an Australian mortgage reduction specialist founded in 2004. Utilizing our proprietary Home Ownership Program (HOP) and cash-diet system, we act as financial personal trainers to help Australians become debt-free in up to half the time.
+            Crown Money Management is an Australian mortgage reduction specialist founded in 2004. Utilising our proprietary Home Ownership Program (HOP) and cash-diet system, we act as financial personal trainers to help Australians become debt-free in up to half the time.
           </p>
           <div className="mt-10">
             <Link 

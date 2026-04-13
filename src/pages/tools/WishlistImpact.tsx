@@ -166,7 +166,7 @@ export const WishlistImpact = () => {
               {
                 "@type": "Product",
                 "name": "Home Loan Withdrawal Impact Calculator",
-                "description": "An interactive tool to visualize the long-term financial consequences of using home loan equity for lifestyle purchases.",
+                "description": "An interactive tool to visualise the long-term financial consequences of using home loan equity for lifestyle purchases.",
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
@@ -549,7 +549,7 @@ export const WishlistImpact = () => {
                     <strong>Interest Rates:</strong> Calculations assume the interest rate remains constant at {interestRate}% for the entire remaining term. In reality, variable rates will fluctuate, which can significantly change the total interest paid.
                   </p>
                   <p>
-                    <strong>Amortization:</strong> This tool uses standard monthly compounding amortization formulas. It does not account for offset accounts, redraw fees, or specific bank calculation methods which may vary slightly.
+                    <strong>Amortisation:</strong> This tool uses standard monthly compounding amortisation formulas. It does not account for offset accounts, redraw fees, or specific bank calculation methods which may vary slightly.
                   </p>
                   <p>
                     <strong>Non-Essential Items:</strong> This tool is designed to highlight the cost of lifestyle assets (boats, cars, holidays) which typically depreciate in value. It does not account for the potential capital growth of the item purchased.

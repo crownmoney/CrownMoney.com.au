@@ -486,7 +486,7 @@ export const Tools = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-display font-bold text-primary mb-6">Need a more detailed analysis?</h2>
           <p className="text-lg text-gray-700 mb-10">
-            Our calculators are a great start, but a personalized strategy call can find even more savings.
+            Our calculators are a great start, but a personalised strategy call can find even more savings.
           </p>
           <Link 
             to="/contact"

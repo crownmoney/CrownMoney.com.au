@@ -17,7 +17,7 @@ export const Awards = () => {
       <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
         <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-4">Award Winning Service</h2>
         <p className="text-gray-600 mb-16 max-w-2xl mx-auto">
-          Our commitment to excellence has been recognized by the industry's most prestigious awards.
+          Our commitment to excellence has been recognised by the industry's most prestigious awards.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-center">

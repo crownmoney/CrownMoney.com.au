@@ -40,14 +40,14 @@ export const About = () => {
           role: "Partner & Senior Finance Broker", 
           image: "https://storage.googleapis.com/crown_money/Website/About/People/craig%20parry.png",
           slug: "craig-parry",
-          bio: "Craig Parry brings a wealth of experience in mortgage broking and financial strategy. As a partner at Crown Money, he oversees the brokerage operations and ensures that every client receives a mortgage structure optimized for their specific goals. Craig's expertise in complex lending scenarios makes him an invaluable asset to the team and our clients."
+          bio: "Craig Parry brings a wealth of experience in mortgage broking and financial strategy. As a partner at Crown Money, he oversees the brokerage operations and ensures that every client receives a mortgage structure optimised for their specific goals. Craig's expertise in complex lending scenarios makes him an invaluable asset to the team and our clients."
         },
         { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg" },
         { 
           name: "Jessie Edge", 
           role: "Operations", 
           image: "https://storage.googleapis.com/crown_money/Website/About/People/jessie%20edge.png",
-          bio: "Jessie Edge is the engine room of Crown Money's operations. With a background in process optimization and client services, Jessie ensures that the Crown Money journey is seamless for every family we help. Her commitment to operational excellence and client success is at the heart of everything we do."
+          bio: "Jessie Edge is the engine room of Crown Money's operations. With a background in process optimisation and client services, Jessie ensures that the Crown Money journey is seamless for every family we help. Her commitment to operational excellence and client success is at the heart of everything we do."
         },
       ]
     },
@@ -65,7 +65,7 @@ export const About = () => {
         { name: "Ashlee Slarks", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/ASHLEE%20SLARKS.jpg" },
         { name: "Ellie Pipkin", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ellie%20Pipkin.jpg" },
         { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
-        { name: "Kat Daroczy", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
+        { name: "Kat Daroczy", role: "Appointment Setter", image: "https://ui-avatars.com/api/?name=Kat+Daroczy&background=F1EAF8&color=2A154B" },
         { name: "Chad Martin", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/CHAD%20MARTIN.jpg" },
       ]
     },
@@ -74,7 +74,6 @@ export const About = () => {
       members: [
         { name: "Richard Recordon", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/richard%20recordon.jpg" },
         { name: "Mathew Wright", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Mat_BW.jpg" },
-        { name: "Richard Pollock", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Richard-Pollock-Headshot-2.0.jpg" },
       ]
     },
     {
@@ -97,6 +96,7 @@ export const About = () => {
       title: "Pre Settlement Team",
       members: [
         { name: "Megan Dibenedetto", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
+        { name: "Joel Hannan", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Joel%20H_Headshot_BW.jpeg" },
         { name: "Jimmy Walker", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
         { name: "Zu Rahman", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Zu_BW.jpg" },
         { name: "Gale Yabut", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/GALE%20YABUT.jpg" },
@@ -105,6 +105,7 @@ export const About = () => {
         { name: "Lyndel Amora", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Lyndel%20Amora.png" },
         { name: "Klouie Gasper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Klouie%20Gasper.jpeg" },
         { name: "Allona Mayol", role: "Settlements Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Allona%20Mayol.jpeg" },
+        { name: "Jade Wilson", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jade%20Wilson.jpeg" },
       ]
     },
     {
@@ -113,7 +114,6 @@ export const About = () => {
         { name: "Che Mas", role: "Technology Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Che.jpg" },
         { name: "Vincent Tabayag", role: "Digital Content & Graphic Design", image: "https://storage.googleapis.com/crown_money/Website/About/People/VINCENT%20TABAYAG.png" },
         { name: "Emmanuel Estolas", role: "HubSpot Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Emmanuel%20Estolas.jpg" },
-        { name: "Nikino Pamintuan", role: "Video Editor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Nikino%20Pamintuan.jpg" },
       ]
     },
     {
@@ -320,8 +320,8 @@ export const About = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <img 
-              src="https://storage.googleapis.com/crown_money/Website/About/The-Better-Business-Awards.png" 
-              alt="The Better Business Awards" 
+              src="https://storage.googleapis.com/crown_money/Awards/2026_Better_Business_Award.jpeg" 
+              alt="The Better Business Awards 2026" 
               className="rounded-3xl shadow-2xl w-full"
               referrerPolicy="no-referrer"
             />

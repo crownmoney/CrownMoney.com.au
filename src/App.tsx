@@ -30,7 +30,7 @@ const ScrollToTop = () => {
 
 export default function App() {
   useEffect(() => {
-    // App initialization
+    // App initialisation
   }, []);
 
   return (

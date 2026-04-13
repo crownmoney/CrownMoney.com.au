@@ -61,7 +61,7 @@ export const NetWorth = () => {
               {
                 "@type": "Product",
                 "name": "Net Worth Calculator",
-                "description": "Comprehensive financial tool to calculate total net worth and visualize asset allocation for Australian households.",
+                "description": "Comprehensive financial tool to calculate total net worth and visualise asset allocation for Australian households.",
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",

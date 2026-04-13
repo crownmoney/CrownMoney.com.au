@@ -10,7 +10,7 @@ const authors = {
     role: 'Founder & CEO',
     image: 'https://picsum.photos/seed/scott/400/400',
     bio: 'Scott Parry is the founder of Crown Money Management and a pioneer in the Australian mortgage reduction space. With over 20 years of experience, Scott has helped thousands of Australians pay off their mortgages in record time through his innovative Home Ownership Program (HOP).',
-    expertise: ['Mortgage Reduction', 'Debt Management', 'Financial Strategy', 'Cash Flow Optimization'],
+    expertise: ['Mortgage Reduction', 'Debt Management', 'Financial Strategy', 'Cash Flow Optimisation'],
     achievements: [
       'Founded Crown Money Management in 2004',
       'Developed the proprietary Home Ownership Program (HOP)',

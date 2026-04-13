@@ -66,7 +66,7 @@ export const CalculatorLanding = () => {
               </h2>
               <div className="prose prose-lg text-gray-600 mb-10">
                 <p>
-                  Most Australians are stuck in a 30-year mortgage cycle that costs them hundreds of thousands in unnecessary interest. Our calculator helps you visualize a different reality.
+                  Most Australians are stuck in a 30-year mortgage cycle that costs them hundreds of thousands in unnecessary interest. Our calculator helps you visualise a different reality.
                 </p>
                 <h3 className="text-xl font-bold text-primary mt-8 mb-4">How to use this calculator:</h3>
                 <ul className="space-y-4">

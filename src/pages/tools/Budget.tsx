@@ -248,7 +248,7 @@ export const Budget = () => {
                 </div>
 
                 <Link to="/contact" className="w-full bg-gold text-primary py-4 rounded-2xl font-bold text-center block hover:bg-opacity-90 transition-all shadow-xl">
-                  Optimize My Cash Flow
+                  Optimise My Cash Flow
                 </Link>
               </div>
 
