@@ -550,8 +550,14 @@ export const Home = () => {
     <div>
       <Helmet>
         <title>Crown Money | Pay Off Your Mortgage in 12-15 Years | Australia's Leading Financial Coaching</title>
-        <meta name="description" content="Crown Money helps Australian families pay off their home loans in 12-15 years using advanced money management strategies. Save over $300,000 in interest and achieve financial freedom faster." />
-        <meta name="keywords" content="mortgage reduction, pay off mortgage fast, financial coaching Australia, debt reduction strategy, home loan savings, Crown Money Management, Scott Parry, mortgage freedom" />
+        <meta name="description" content="Crown Money helps Australian families pay off their home loans in 12-15 years using advanced money management strategies. Save over $300,000 in interest and achieve financial freedom faster with our proven system." />
+        <meta name="keywords" content="mortgage reduction Australia, pay off mortgage fast, financial coaching Australia, debt reduction strategy, home loan interest savings, Crown Money Management, Scott Parry, mortgage freedom system, wealth tracking dashboard" />
+        <meta property="og:title" content="Crown Money | Australia's Leading Mortgage Reduction Specialists" />
+        <meta property="og:description" content="Pay off your mortgage in 12-15 years, not 30. Our proven money management system helps Aussie homeowners save hundreds of thousands in interest." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crown.money/" />
+        <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/Images/happy%20couple.png" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://crown.money/" />
         <script type="application/ld+json">
           {JSON.stringify(homeSchema)}

@@ -111,8 +111,8 @@ export const Newsletter = () => {
             </div>
             <div className="hidden lg:block">
               <img 
-                src="https://storage.googleapis.com/crown_money/Website/About/Other/Newsletter%20Sign-up.jpeg" 
-                alt="Financial Planning" 
+                src="https://storage.googleapis.com/crown_money/Website/Images/Newsletter_Crown.png" 
+                alt="Crown Money Financial Resources Newsletter - Get expert debt reduction and mortgage strategy tips" 
                 className="rounded-3xl shadow-2xl rotate-3"
                 referrerPolicy="no-referrer"
               />

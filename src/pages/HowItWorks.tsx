@@ -34,7 +34,7 @@ export const HowItWorks = () => {
       title: "4. Coaching & Tracking",
       desc: "Ongoing monthly financial coaching and access to our wealth tracking dashboard. We keep you accountable and adjust the plan as your life changes.",
       details: ["Monthly check-ins", "Wealth dashboard", "Ongoing support"],
-      image: "https://storage.googleapis.com/crown_money/Website/About/Other/Financial%20Coach%20-%20Coaching.jpeg"
+      image: "https://storage.googleapis.com/crown_money/Website/Images/Coaching%20and%20Tracking_Crown%20Money.png"
     }
   ];
 
@@ -56,8 +56,13 @@ export const HowItWorks = () => {
     <div className="pt-10">
       <Helmet>
         <title>How It Works | Crown Money's 4-Step Mortgage Reduction Strategy</title>
-        <meta name="description" content="Discover the Crown Money process. From discovery calls to custom financial strategies and ongoing coaching, we help you pay off your mortgage faster and achieve financial freedom." />
-        <meta name="keywords" content="debt reduction process, mortgage strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard" />
+        <meta name="description" content="Discover the Crown Money 4-step process to financial freedom. From discovery calls to custom mortgage strategies and ongoing coaching, we help you pay off your home loan faster." />
+        <meta name="keywords" content="debt reduction process, mortgage reduction strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard, mortgage structure optimisation" />
+        <meta property="og:title" content="How It Works | The Crown Money Mortgage Reduction Process" />
+        <meta property="og:description" content="Our proven 4-step system helps you pay off your mortgage in half the time. See how we combine strategy, implementation, and coaching." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crown.money/how-it-works" />
+        <meta name="twitter:card" content="summary" />
         <link rel="canonical" href="https://crown.money/how-it-works" />
         <script type="application/ld+json">
           {JSON.stringify(howToSchema)}
@@ -128,7 +133,7 @@ export const HowItWorks = () => {
                   <div className="bg-crown-lavender rounded-3xl p-4 aspect-square flex items-center justify-center">
                     <img 
                       src={step.image} 
-                      alt={step.title} 
+                      alt={`Crown Money Process Step: ${step.title} - ${step.desc.substring(0, 60)}...`} 
                       className="rounded-2xl shadow-xl w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
@@ -145,8 +150,8 @@ export const HowItWorks = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 relative">
             <img 
-              src="https://storage.googleapis.com/crown_money/Website/About/Other/Dashboard.jpeg" 
-              alt="Wealth Tracking Dashboard" 
+              src="https://storage.googleapis.com/crown_money/Website/Images/Wealth%20Tracking%20Dashboard_Crown%20Money.png" 
+              alt="Crown Money Wealth Tracking Dashboard - Real-time mortgage balance and net worth visualisation" 
               className="rounded-3xl shadow-2xl border-4 border-white/10"
               referrerPolicy="no-referrer"
             />

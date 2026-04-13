@@ -183,7 +183,13 @@ export const About = () => {
       <Helmet>
         <title>About Crown Money | Australia's Mortgage Reduction & Debt Strategy Experts</title>
         <meta name="description" content="Meet the team at Crown Money Management. Founded in 2004 by Scott Parry, we've helped thousands of Australian families pay off their mortgages faster and build wealth through strategic money management." />
-        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts, financial coaching Australia" />
+        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts, financial coaching Australia, mortgage freedom experts" />
+        <meta property="og:title" content="About Crown Money | Meet Our Mortgage Reduction Experts" />
+        <meta property="og:description" content="Founded in 2004, Crown Money is dedicated to helping Australians become mortgage-free faster. Meet the team behind our proven system." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://crown.money/about" />
+        <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" />
+        <meta name="twitter:card" content="summary" />
         <link rel="canonical" href="https://crown.money/about" />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
@@ -236,7 +242,7 @@ export const About = () => {
           <div className="relative">
             <img 
               src="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" 
-              alt="Scott Parry, Founder and CEO of Crown Money Management" 
+              alt="Scott Parry - Founder and CEO of Crown Money Management, Australian Mortgage Reduction Specialist" 
               className="rounded-3xl shadow-2xl"
               referrerPolicy="no-referrer"
             />
