@@ -1,5 +1,3 @@
-import 'whatwg-fetch';
-
 const g = (typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : self) as any;
 
 const fetch = g.fetch;
