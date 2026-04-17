@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer: "The cost varies depending on the service level that our clients choose. We have bronze, silver and gold packages which allow our clients to decide how much financial coaching they require and how frequently they want our help and guidance."
+    answer: "The cost of the services will vary greatly based on many factors, including your current situation and your goals. We have solutions that are free and go all the way up to custom pricing from there. Just like an accountant would need to understand your situation more before they can tell you how much it would be to help you achieve your accounting and tax goals, we are the same from a debt reduction and wealth creation point of view.\n\nSpeak to one of our experts and they will walk you through what your options are. Regardless of what you pick, we always leave clients better than we found them, even if they decide to do it themselves. If you do decide that one of our custom solutions is a good fit, for most clients, they are designed to pay for themselves very quickly through the savings and gains they provide."
   },
   {
     question: "I don't have a mortgage yet but I'm looking to buy. Can you help me?",

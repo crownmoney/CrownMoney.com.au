@@ -759,7 +759,7 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             </button>
             <div className="space-y-6">
               <div className="text-center">
-                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees</h2>
+                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees for Loans</h2>
                 <p className="text-sm text-gray-500">Standard schedule of fees</p>
               </div>
               
@@ -795,8 +795,9 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-4 rounded-xl text-[10px] text-gray-400 leading-tight">
-                Fees are subject to change and may vary based on specific product selection and individual circumstances.
+              <div className="bg-gray-50 p-4 rounded-xl text-[10px] text-gray-400 leading-tight space-y-2">
+                <p>Fees are subject to change and may vary based on specific product selection and individual circumstances.</p>
+                <p>We offer many different custom solutions to help clients achieve their goals. The above maximum rates and fees are applicable to the loans; however, there are many other services available that may be in addition to this rate card.</p>
               </div>
             </div>
           </motion.div>
