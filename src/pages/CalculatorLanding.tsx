@@ -37,7 +37,7 @@ export const CalculatorLanding = () => {
               Mortgage Reduction Calculator: See How Much You Can Save
             </h1>
             <p className="text-xl text-gray-300 mb-10">
-              Our advanced mortgage reduction calculator doesn't just show you interest; it shows you the path to total home ownership in 12–15 years.
+              Our advanced mortgage reduction calculator doesn't just show you interest; it shows you the path to total home ownership in half the time.
             </p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-full border border-white/20">
@@ -126,15 +126,15 @@ export const CalculatorLanding = () => {
           </h2>
           <div className="space-y-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-xl font-bold text-primary mb-4">How can I pay off my mortgage in 15 years?</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">How can I pay off my mortgage in half the time?</h3>
               <p className="text-gray-600 leading-relaxed">
-                Paying off a mortgage in 15 years instead of 30 requires a combination of a competitive interest rate and a structured cash-flow management system. Crown Money Management uses a "cash-diet" system and our proprietary Home Ownership Program (HOP) to help clients allocate more of their existing income toward the principal without sacrificing their lifestyle.
+                Paying off a mortgage in half the time instead of 30 requires a combination of a competitive interest rate and a structured cash-flow management system. Crown Money Management uses a "cash-diet" system and our proprietary Home Ownership Program (HOP) to help clients allocate more of their existing income toward the principal without sacrificing their lifestyle.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-primary mb-4">What is the "Crown Money Effect"?</h3>
               <p className="text-gray-600 leading-relaxed">
-                The "Crown Money Effect" refers to the significant reduction in loan term and interest paid when a homeowner switches from a standard bank-managed loan to a Crown Money managed strategy. On average, our clients pay off their homes in 12–15 years and save over $300,000 in interest.
+                The "Crown Money Effect" refers to the significant reduction in loan term and interest paid when a homeowner switches from a standard bank-managed loan to a Crown Money managed strategy. On average, our clients pay off their homes in half the time and save over $300,000 in interest.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">

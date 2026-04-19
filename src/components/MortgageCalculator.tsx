@@ -128,7 +128,7 @@ export const MortgageCalculator = () => {
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-start space-x-4">
               <TrendingDown className="text-gold shrink-0" size={24} />
               <p className="text-sm text-gray-300 leading-relaxed">
-                With Crown Money's strategy, you could potentially save over <span className="text-white font-bold">$150,000</span> in interest and pay off this loan <span className="text-white font-bold">10-15 years faster</span>.
+                With Crown Money's strategy, you could potentially save over <span className="text-white font-bold">$150,000</span> in interest and pay off this loan <span className="text-white font-bold">in half the time</span>.
               </p>
             </div>
           </div>

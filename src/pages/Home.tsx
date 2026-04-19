@@ -172,10 +172,10 @@ const Hero = () => {
             <span>Australia's Leading Mortgage Reduction Specialists</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-primary leading-tight mb-6">
-            Helping Aussie Homeowners Pay Their Mortgage Off in 12-15 Years.
+            Helping Aussie Homeowners Pay Their Mortgage Off in half the time.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Pay off twice your mortgage twice as fast as the average Aussie & retire debt-free using Crown Money’s proven Money Management System.
+            Pay off your mortgage twice as fast as the average Aussie and retire debt-free using Crown Money’s proven Money Management System.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center mb-10">
             <Link 
@@ -549,11 +549,11 @@ export const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Crown Money | Pay Off Your Mortgage in 12-15 Years | Australia's Leading Financial Coaching</title>
-        <meta name="description" content="Crown Money helps Australian families pay off their home loans in 12-15 years using advanced money management strategies. Save over $300,000 in interest and achieve financial freedom faster with our proven system." />
+        <title>Crown Money | Pay Off Your Mortgage in half the time | Australia's Leading Financial Coaching</title>
+        <meta name="description" content="Crown Money helps Australian families pay off their home loans in up to half the time using advanced money management strategies. Achieve financial freedom faster with our proven system." />
         <meta name="keywords" content="mortgage reduction Australia, pay off mortgage fast, financial coaching Australia, debt reduction strategy, home loan interest savings, Crown Money Management, Scott Parry, mortgage freedom system, wealth tracking dashboard" />
         <meta property="og:title" content="Crown Money | Australia's Leading Mortgage Reduction Specialists" />
-        <meta property="og:description" content="Pay off your mortgage in 12-15 years, not 30. Our proven money management system helps Aussie homeowners save hundreds of thousands in interest." />
+        <meta property="og:description" content="Pay off your mortgage in half the time, not 30 years. Our proven money management system helps Aussie homeowners save hundreds of thousands in interest." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://crown.money/" />
         <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/Images/happy%20couple.png" />

@@ -426,7 +426,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           Crown Money specialises in debt reduction and wealth building. 
           
           Key Services & Concepts:
-          - Mortgage reduction strategies that help homeowners pay off their 30-year mortgage in 10-15 years.
+          - Mortgage reduction strategies that help homeowners pay off their 30-year mortgage in half the time.
           - Financial coaching and tracking through a proprietary dashboard.
           - Optimising mortgage structures to work for the homeowner, not the bank.
           - Wealth building and investment property strategy.
