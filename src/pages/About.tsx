@@ -67,7 +67,6 @@ export const About = () => {
         { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
         { name: "Daniela Marambio", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Daniela.webp" },
         { name: "Kat Daroczy", role: "Appointment Setter", image: "https://ui-avatars.com/api/?name=Kat+Daroczy&background=F1EAF8&color=2A154B" },
-        { name: "Chad Martin", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/CHAD%20MARTIN.jpg" },
       ]
     },
     {
@@ -75,6 +74,8 @@ export const About = () => {
       members: [
         { name: "Richard Recordon", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/richard%20recordon.jpg" },
         { name: "Mathew Wright", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Mat_BW.jpg" },
+        { name: "Natalie Holloway", role: "Mortgage Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Natalie%20Holloway_BW.png" },
+        { name: "Megan Dibenedetto", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
       ]
     },
     {
@@ -96,7 +97,6 @@ export const About = () => {
     {
       title: "Pre Settlement Team",
       members: [
-        { name: "Megan Dibenedetto", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
         { name: "Joel Hannan", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Joel%20H_Headshot_BW.jpeg" },
         { name: "Jimmy Walker", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
         { name: "Zu Rahman", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Zu_BW.jpg" },
