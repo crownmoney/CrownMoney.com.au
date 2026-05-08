@@ -93,10 +93,9 @@ export const Privacy = () => {
             <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 mt-6">
               <p className="font-bold text-primary mb-2">The Privacy Officer</p>
               <p>Crown Lending Pty Ltd</p>
-              <p>Level 9, 390 St Kilda Road</p>
-              <p>Melbourne VIC 3004</p>
+              <p>PO Box 29, Taylors Lakes VIC 3038</p>
               <p className="mt-4">Telephone: 1300 882 981</p>
-              <p>Email: admin@crownfinance.com.au</p>
+              <p>Email: admin@crown.money</p>
             </div>
           </section>
         </div>
