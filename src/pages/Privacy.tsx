@@ -22,7 +22,7 @@ export const Privacy = () => {
             <Shield className="text-primary" size={32} />
           </div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">Privacy Policy</h1>
-          <p className="text-gray-500">Last updated: March 2024</p>
+          <p className="text-gray-500">Last updated: May 2024</p>
         </motion.div>
 
         <div className="prose prose-lg max-w-none text-gray-600 space-y-8">
