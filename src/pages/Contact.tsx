@@ -13,6 +13,8 @@ export const Contact = () => {
     message: '',
     howDidYouHear: '',
     referralSource: '',
+    otherSource: '',
+    existingClientDetails: '',
     _honeypot: '' // Honeypot field
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -217,6 +219,8 @@ export const Contact = () => {
                           message: '',
                           howDidYouHear: '',
                           referralSource: '',
+                          otherSource: '',
+                          existingClientDetails: '',
                           _honeypot: ''
                         });
                       }}
@@ -317,7 +321,9 @@ export const Contact = () => {
                           <option value="ChatGPT">ChatGPT</option>
                           <option value="Claude">Claude</option>
                           <option value="Referral">Referral</option>
+                          <option value="Existing Client">Existing Client</option>
                           <option value="Word of Mouth">Word of Mouth</option>
+                          <option value="Other">Other</option>
                         </select>
                         <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
                           <ArrowRight className="rotate-90" size={18} />
@@ -339,6 +345,42 @@ export const Contact = () => {
                           placeholder="Name of person who referred you"
                           value={formState.referralSource}
                           onChange={(e) => setFormState({...formState, referralSource: e.target.value})}
+                        />
+                      </motion.div>
+                    )}
+
+                    {formState.howDidYouHear === 'Other' && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="space-y-2"
+                      >
+                        <label className="text-sm font-bold text-gray-700">Please specify</label>
+                        <input 
+                          type="text" 
+                          required
+                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                          placeholder="How did you hear about us?"
+                          value={formState.otherSource}
+                          onChange={(e) => setFormState({...formState, otherSource: e.target.value})}
+                        />
+                      </motion.div>
+                    )}
+
+                    {formState.howDidYouHear === 'Existing Client' && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="space-y-2"
+                      >
+                        <label className="text-sm font-bold text-gray-700">Existing Client Details</label>
+                        <input 
+                          type="text" 
+                          required
+                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                          placeholder="Existing client's name and/or email"
+                          value={formState.existingClientDetails}
+                          onChange={(e) => setFormState({...formState, existingClientDetails: e.target.value})}
                         />
                       </motion.div>
                     )}
