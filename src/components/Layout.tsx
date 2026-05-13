@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
@@ -461,7 +461,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
             - Well Nigh: 037-842 (Westpac)
             - Origin: 636-380 (Indue/Columbus Capital)
           
-          Your goal is to help homeowners understand these concepts and actively prompt them to book a free strategy call at https://go.oncehub.com/crown-money-welcome.
+          Your goal is to help homeowners understand these concepts and actively prompt them to book a free strategy call by visiting the contact page at /contact. Once they submit their details, they will be redirected to the booking system.
           
           Guidelines:
           - Be concise, professional, and friendly.
@@ -713,17 +713,16 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             </button>
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-display font-bold text-primary">Book Your Free Strategy Session</h2>
-              <p className="text-gray-600">Choose a time that works for you to speak with our experts.</p>
+              <p className="text-gray-600 font-medium">Please fill out our enquiry form to get started. You'll be redirected to our booking calendar immediately after.</p>
               <div className="grid grid-cols-1 gap-4">
-                <a
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/contact"
+                  onClick={onClose}
                   className="bg-gold text-primary py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all flex items-center justify-center space-x-2 shadow-lg"
                 >
                   <TrendingUp size={20} />
-                  <span>Book Your Free Strategy Session</span>
-                </a>
+                  <span>Go to Contact Form</span>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -759,7 +758,7 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             </button>
             <div className="space-y-6">
               <div className="text-center">
-                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees for Loans</h2>
+                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees</h2>
                 <p className="text-sm text-gray-500">Standard schedule of fees</p>
               </div>
               
@@ -814,6 +813,8 @@ export const Layout = ({ children }: LayoutProps) => {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [isRatesModalOpen, setIsRatesModalOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -821,16 +822,16 @@ export const Layout = ({ children }: LayoutProps) => {
       </Helmet>
       <Header 
         onChatToggle={() => setIsChatOpen(!isChatOpen)} 
-        onBookToggle={() => setIsBookModalOpen(true)}
+        onBookToggle={() => navigate('/contact')}
       />
       <main className="flex-grow pt-16 md:pt-20">
         {children}
       </main>
       <Footer 
-        onBookToggle={() => setIsBookModalOpen(true)} 
+        onBookToggle={() => navigate('/contact')} 
         onRatesToggle={() => setIsRatesModalOpen(true)}
       />
-      <FloatingCTA onBookToggle={() => setIsBookModalOpen(true)} />
+      <FloatingCTA onBookToggle={() => navigate('/contact')} />
       <Chatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
       <ExitPopup />
       <BookMeetingModal isOpen={isBookModalOpen} onClose={() => setIsBookModalOpen(false)} />

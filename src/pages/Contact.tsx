@@ -9,11 +9,43 @@ export const Contact = () => {
     firstName: '',
     email: '',
     mobile: '',
+    state: '',
     message: '',
+    howDidYouHear: '',
+    referralSource: '',
     _honeypot: '' // Honeypot field
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+
+  // IP-based state detection
+  React.useEffect(() => {
+    const detectState = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (data.country === 'AU' && data.region_code) {
+          // Map region_code to full name or just use the code
+          const stateMap: {[key: string]: string} = {
+            'NSW': 'New South Wales (NSW)',
+            'VIC': 'Victoria (VIC)',
+            'QLD': 'Queensland (QLD)',
+            'SA': 'South Australia (SA)',
+            'WA': 'Western Australia (WA)',
+            'TAS': 'Tasmania (TAS)',
+            'ACT': 'Australian Capital Territory (ACT)',
+            'NT': 'Northern Territory (NT)'
+          };
+          if (stateMap[data.region_code]) {
+            setFormState(prev => ({ ...prev, state: stateMap[data.region_code] }));
+          }
+        }
+      } catch (error) {
+        console.error('Geolocation failed:', error);
+      }
+    };
+    detectState();
+  }, []);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,6 +74,19 @@ export const Contact = () => {
       
       if (response.ok) {
         setIsSubmitted(true);
+        // Build OnceHub URL with parameters
+        const baseUrl = 'https://go.oncehub.com/crown-money-welcome';
+        const params = new URLSearchParams({
+          name: formState.firstName,
+          email: formState.email,
+          phone: formState.mobile
+        });
+        
+        // Wait a bit to show the success message before redirecting, or redirect immediately
+        // Redirecting after 2 seconds to let user see success state
+        setTimeout(() => {
+          window.location.href = `${baseUrl}?${params.toString()}`;
+        }, 2000);
       } else {
         console.error('Submission failed');
       }
@@ -139,18 +184,7 @@ export const Contact = () => {
                 </ul>
               </div>
 
-              {/* New CTA Button */}
-              <div className="pt-8">
-                <a 
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-3 bg-gold text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-gold-hover transition-all shadow-xl group"
-                >
-                  <span>Book a Free Strategy Call</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
+              {/* Removed direct OnceHub link as per request to go through form first */}
             </div>
 
             {/* Form */}
@@ -169,7 +203,7 @@ export const Contact = () => {
                   </div>
                   <h3 className="text-3xl font-display font-bold text-primary mb-4">Enquiry Sent Successfully!</h3>
                   <p className="text-gray-600 text-lg max-w-sm mx-auto">
-                    Thank you for reaching out. One of our financial experts will review your details and contact you shortly.
+                    Thank you for reaching out. Redirecting you to our booking page now...
                   </p>
                   <div className="mt-12 space-y-4">
                     <button 
@@ -179,7 +213,10 @@ export const Contact = () => {
                           firstName: '',
                           email: '',
                           mobile: '',
+                          state: '',
                           message: '',
+                          howDidYouHear: '',
+                          referralSource: '',
                           _honeypot: ''
                         });
                       }}
@@ -187,17 +224,6 @@ export const Contact = () => {
                     >
                       Send another message
                     </button>
-                    <div className="pt-4">
-                      <p className="text-sm text-gray-400 mb-4">Or skip the wait and book now:</p>
-                      <a 
-                        href="https://go.oncehub.com/crown-money-welcome"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-gold text-primary px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all"
-                      >
-                        Book Your Free Strategy Session
-                      </a>
-                    </div>
                   </div>
                 </motion.div>
               ) : (
@@ -251,6 +277,72 @@ export const Contact = () => {
                         onChange={(e) => setFormState({...formState, mobile: e.target.value})}
                       />
                     </div>
+                    <div className="space-y-2 relative">
+                      <label className="text-sm font-bold text-gray-700">Select Your State</label>
+                      <div className="relative">
+                        <select 
+                          required
+                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50 appearance-none cursor-pointer"
+                          value={formState.state}
+                          onChange={(e) => setFormState({...formState, state: e.target.value})}
+                        >
+                          <option value="" disabled>Select Your State</option>
+                          <option value="New South Wales (NSW)">New South Wales (NSW)</option>
+                          <option value="Victoria (VIC)">Victoria (VIC)</option>
+                          <option value="Queensland (QLD)">Queensland (QLD)</option>
+                          <option value="South Australia (SA)">South Australia (SA)</option>
+                          <option value="Western Australia (WA)">Western Australia (WA)</option>
+                          <option value="Tasmania (TAS)">Tasmania (TAS)</option>
+                          <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
+                          <option value="Northern Territory (NT)">Northern Territory (NT)</option>
+                        </select>
+                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <ArrowRight className="rotate-90" size={18} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-2 relative">
+                      <label className="text-sm font-bold text-gray-700">How did you hear about us?</label>
+                      <div className="relative">
+                        <select 
+                          required
+                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50 appearance-none cursor-pointer"
+                          value={formState.howDidYouHear}
+                          onChange={(e) => setFormState({...formState, howDidYouHear: e.target.value})}
+                        >
+                          <option value="" disabled>Select an option</option>
+                          <option value="Google">Google</option>
+                          <option value="Facebook">Facebook</option>
+                          <option value="YouTube">YouTube</option>
+                          <option value="ChatGPT">ChatGPT</option>
+                          <option value="Claude">Claude</option>
+                          <option value="Referral">Referral</option>
+                          <option value="Word of Mouth">Word of Mouth</option>
+                        </select>
+                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <ArrowRight className="rotate-90" size={18} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {formState.howDidYouHear === 'Referral' && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="space-y-2"
+                      >
+                        <label className="text-sm font-bold text-gray-700">Who referred you?</label>
+                        <input 
+                          type="text" 
+                          required
+                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                          placeholder="Name of person who referred you"
+                          value={formState.referralSource}
+                          onChange={(e) => setFormState({...formState, referralSource: e.target.value})}
+                        />
+                      </motion.div>
+                    )}
+
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Message (Optional)</label>
                       <textarea 
@@ -273,52 +365,6 @@ export const Contact = () => {
               )}
             </div>
           </div>
-
-          {/* New Prominent CTA below the form - Inline Calendar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-primary rounded-[2.5rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
-                  Book Your Free Strategy Session Directly
-                </h3>
-                <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                  Skip the form and choose a time that works for you. Our experts are ready to help you save thousands.
-                </p>
-                
-                {/* Embedded OnceHub Calendar */}
-                <div className="bg-white rounded-3xl p-4 md:p-8 shadow-inner mb-10 overflow-hidden">
-                  <div className="w-full h-[600px] bg-gray-50 rounded-2xl overflow-hidden">
-                    <iframe 
-                      src="https://go.oncehub.com/crown-money-welcome" 
-                      width="100%" 
-                      height="100%" 
-                      frameBorder="0"
-                      title="OnceHub Booking Calendar"
-                    ></iframe>
-                  </div>
-                </div>
-
-                <a 
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-3 bg-gold text-primary px-10 py-5 rounded-full font-bold text-xl hover:bg-opacity-90 hover:scale-105 transition-all shadow-xl active:scale-95"
-                >
-                  <span>Book Your Free Strategy Session</span>
-                  <ArrowRight size={24} />
-                </a>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/10 rounded-full -translate-x-1/3 translate-y-1/3"></div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

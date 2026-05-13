@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FileText, Download, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Newsletter } from '../components/Newsletter';
 import { Testimonials } from '../components/Testimonials';
@@ -133,15 +134,13 @@ const TargetMarketDeterminations = () => {
                 <p className="text-gray-600 text-sm mb-6">
                   If you're unsure which product is right for you, our financial experts are here to help.
                 </p>
-                <a 
-                  href="https://go.oncehub.com/crown-money-welcome"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  to="/contact"
                   className="w-full bg-primary text-white py-4 rounded-xl font-bold flex items-center justify-center group"
                 >
                   <span>Book Strategy Call</span>
                   <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
