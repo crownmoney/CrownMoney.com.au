@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     question: "Why can't I achieve the same thing with my current bank?",
-    answer: "Most Australians think they can achieve great financial results as long as they’ve got a cheap rate and an offset account, but having seen over 6,500 Australian’s financial positions (with offset accounts and cheap rates), they’re unfortunately not outperforming the average Australian. Their savings rate is below 7%. Our average client savings rate is above 20%. Their annual debt reduction is close to $10,000pa and our average client’s annual debt reduction is over $30,000+. Your current bank is focused on keeping you in debt for as long as possible, they’re financially incentivised to make sure you’re paying interest for the longest period of time. We have designed loan structures and money management systems to help you reduce interest, cut down your loan term and make sure your money is working as hard as possible for you."
+    answer: "Most Australians think they can achieve great financial results as long as they’ve got a cheap rate and an offset account, but having seen over 6,500 Australian’s financial positions (with offset accounts and cheap rates), they’re unfortunately not outperforming the average Australian. Their savings rate is below 7%. Our average client savings rate is above 24%. Their annual debt reduction is close to $12,000pa and our average client’s annual debt reduction is over $29,327+. Your current bank is focused on keeping you in debt for as long as possible, they’re financially incentivised to make sure you’re paying interest for the longest period of time. We have designed loan structures and money management systems to help you reduce interest, cut down your loan term and make sure your money is working as hard as possible for you."
   },
   {
     question: "I hate paperwork, how long does it take to get set up?",
@@ -148,6 +148,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
 };
 
 const Hero = () => {
+  const [isGuaranteeModalOpen, setIsGuaranteeModalOpen] = useState(false);
+
   return (
     <section className="relative bg-crown-lavender py-20 lg:py-32 overflow-hidden">
       {/* Background Blended Image */}
@@ -184,12 +186,26 @@ const Hero = () => {
             >
               Book Your Free Strategy Session
             </Link>
-            <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/20 shadow-sm">
-              <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center text-primary">
-                <ShieldCheck size={18} />
+            
+            {/* 12-Month Guarantee Badge with Tooltip and Click Modal */}
+            <div className="relative group">
+              <button 
+                onClick={() => setIsGuaranteeModalOpen(true)}
+                className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/20 shadow-sm hover:bg-white transition-all cursor-pointer"
+              >
+                <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center text-primary">
+                  <ShieldCheck size={18} />
+                </div>
+                <span className="text-sm font-bold text-primary whitespace-nowrap">12-Month Guarantee</span>
+              </button>
+              
+              {/* Tooltip */}
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 p-3 bg-primary text-white text-xs rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20 shadow-xl pointer-events-none">
+                We guarantee to beat their current debt reduction results within 12 months or we refund them. No risk, just reward.
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-primary"></div>
               </div>
-              <span className="text-sm font-bold text-primary whitespace-nowrap">12-Month Guarantee</span>
             </div>
+
             <Link 
               to="/how-it-works"
               className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-center hover:bg-gray-50 transition-all flex items-center justify-center space-x-2 min-w-[240px]"
@@ -215,14 +231,66 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Guarantee Modal */}
+      <AnimatePresence>
+        {isGuaranteeModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsGuaranteeModalOpen(false)}
+              className="absolute inset-0 bg-primary/40 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full shadow-2xl overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 p-6">
+                <button 
+                  onClick={() => setIsGuaranteeModalOpen(false)}
+                  className="text-gray-400 hover:text-primary transition-colors"
+                >
+                  <ChevronDown className="rotate-180" size={32} />
+                </button>
+              </div>
+              <div className="text-center">
+                <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-8">
+                  <ShieldCheck size={40} className="text-gold" />
+                </div>
+                <h2 className="text-3xl font-display font-bold text-primary mb-6">Our 12-Month Guarantee</h2>
+                <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+                  <p>
+                    We guarantee to beat their current debt reduction results within 12 months or we refund them.
+                  </p>
+                  <p className="font-bold text-primary">
+                    No risk, just reward.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => setIsGuaranteeModalOpen(false)}
+                  className="mt-10 bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg"
+                >
+                  Got it, thanks!
+                </button>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
 
 const SocialProof = () => {
   const stats = [
-    { label: "Mortgage reduction per year", value: "$30,000+" },
-    { label: "Average savings rate", value: "20%+" },
+    { label: "Mortgage reduction per year", value: "$29,327" },
+    { label: "Average savings rate", value: "24%" },
     { label: "Mortgage paid off in", value: "< 15 years" },
   ];
 
@@ -538,9 +606,9 @@ export const Home = () => {
     "areaServed": "Australia",
     "knowsAbout": ["Mortgage Reduction", "Debt Consolidation", "Wealth Management"],
     "stats": {
-      "averageAnnualMortgageReduction": "39327",
+      "averageAnnualMortgageReduction": "29327",
       "currency": "AUD",
-      "averageSavingsRate": "21-24%",
+      "averageSavingsRate": "24%",
       "nationalAverageSavingsRate": "3.7%",
       "debtFreeFrequency": "Every 23 days"
     }
@@ -587,12 +655,12 @@ export const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100">
               <p className="text-lg font-medium text-gray-800">
-                Crown Money clients pay an average of <span className="font-bold text-primary">$39,327</span> off their home loan each year.
+                Crown Money clients pay an average of <span className="font-bold text-primary">$29,327</span> off their home loan each year, compared to the AU national average of just $12,000.
               </p>
             </div>
             <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100">
               <p className="text-lg font-medium text-gray-800">
-                The average Crown Money client saves <span className="font-bold text-primary">21% to 24%</span> of their income, compared to the national average of 3.7%.
+                The average Crown Money client saves <span className="font-bold text-primary">24%</span> of their income, compared to the national average of 3.7%.
               </p>
             </div>
             <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100">
@@ -632,28 +700,52 @@ export const Home = () => {
       <section className="py-16 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
-            <h2 className="text-2xl font-display font-bold text-primary mb-8">Proprietary Performance Data</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="space-y-2">
-                <p className="text-sm text-gray-500">Average Annual Mortgage Reduction</p>
-                <p className="text-2xl font-display font-bold text-primary">$39,327 AUD</p>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-12">Proprietary Performance Data</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {/* Average Annual Mortgage Reduction */}
+              <div className="space-y-6">
+                <p className="text-sm font-bold uppercase tracking-wider text-gray-500">Average Annual Mortgage Reduction</p>
+                <div className="space-y-4">
+                  <div className="bg-gold/10 p-4 rounded-2xl border border-gold/20">
+                    <p className="text-2xl font-display font-bold text-primary">$29,327</p>
+                    <p className="text-xs font-bold text-primary uppercase">Crown Money Clients</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                    <p className="text-xl font-display font-bold text-gray-700">$12,000</p>
+                    <p className="text-xs font-bold text-gray-600 uppercase">Australian National Average</p>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-sm text-gray-500">Client Savings Rate (Avg)</p>
-                <p className="text-2xl font-display font-bold text-primary">24%</p>
+
+              {/* Debt-Free Milestone Frequency */}
+              <div className="space-y-6">
+                <p className="text-sm font-bold uppercase tracking-wider text-gray-600">Debt-Free Milestone Frequency</p>
+                <div className="h-full flex flex-col justify-center">
+                  <div className="bg-primary p-6 rounded-2xl shadow-xl">
+                    <p className="text-3xl font-display font-bold text-white mb-2">Every 23 Days</p>
+                    <p className="text-sm font-medium text-gray-100 italic">A Crown Money client becomes 100% mortgage free.</p>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-sm text-gray-500">Debt-Free Milestone Frequency</p>
-                <p className="text-2xl font-display font-bold text-primary">Every 23 Days</p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-gray-500">National Avg Savings Rate</p>
-                <p className="text-2xl font-display font-bold text-primary">3.7%</p>
+
+              {/* Average Savings Rate */}
+              <div className="space-y-6">
+                <p className="text-sm font-bold uppercase tracking-wider text-gray-600">Average Savings Rate</p>
+                <div className="space-y-4">
+                  <div className="bg-gold/10 p-4 rounded-2xl border border-gold/20">
+                    <p className="text-2xl font-display font-bold text-primary">24%</p>
+                    <p className="text-xs font-bold text-primary uppercase">Crown Money Clients</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                    <p className="text-xl font-display font-bold text-gray-700">3.7%</p>
+                    <p className="text-xs font-bold text-gray-600 uppercase">Australian National Average</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="mt-12 pt-8 border-t border-gray-50">
               <p className="text-xs text-gray-400 italic">
-                Data source: Crown Money Internal Audit (2023). These statistics represent the average performance of active Crown Money clients following the proprietary debt reduction system.
+                Data source: Crown Money Internal Audit (2026). These statistics represent the average performance of active Crown Money clients following the proprietary debt reduction system.
               </p>
             </div>
           </div>
