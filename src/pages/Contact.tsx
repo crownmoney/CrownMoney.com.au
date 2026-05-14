@@ -9,7 +9,7 @@ export const Contact = () => {
     firstName: '',
     email: '',
     mobile: '',
-    state: '',
+    postcode: '',
     message: '',
     howDidYouHear: '',
     referralSource: '',
@@ -19,35 +19,6 @@ export const Contact = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
-
-  // IP-based state detection
-  React.useEffect(() => {
-    const detectState = async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        if (data.country === 'AU' && data.region_code) {
-          // Map region_code to full name or just use the code
-          const stateMap: {[key: string]: string} = {
-            'NSW': 'New South Wales (NSW)',
-            'VIC': 'Victoria (VIC)',
-            'QLD': 'Queensland (QLD)',
-            'SA': 'South Australia (SA)',
-            'WA': 'Western Australia (WA)',
-            'TAS': 'Tasmania (TAS)',
-            'ACT': 'Australian Capital Territory (ACT)',
-            'NT': 'Northern Territory (NT)'
-          };
-          if (stateMap[data.region_code]) {
-            setFormState(prev => ({ ...prev, state: stateMap[data.region_code] }));
-          }
-        }
-      } catch (error) {
-        console.error('Geolocation failed:', error);
-      }
-    };
-    detectState();
-  }, []);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -215,7 +186,7 @@ export const Contact = () => {
                           firstName: '',
                           email: '',
                           mobile: '',
-                          state: '',
+                          postcode: '',
                           message: '',
                           howDidYouHear: '',
                           referralSource: '',
@@ -281,29 +252,16 @@ export const Contact = () => {
                         onChange={(e) => setFormState({...formState, mobile: e.target.value})}
                       />
                     </div>
-                    <div className="space-y-2 relative">
-                      <label className="text-sm font-bold text-gray-700">Select Your State</label>
-                      <div className="relative">
-                        <select 
-                          required
-                          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50 appearance-none cursor-pointer"
-                          value={formState.state}
-                          onChange={(e) => setFormState({...formState, state: e.target.value})}
-                        >
-                          <option value="" disabled>Select Your State</option>
-                          <option value="New South Wales (NSW)">New South Wales (NSW)</option>
-                          <option value="Victoria (VIC)">Victoria (VIC)</option>
-                          <option value="Queensland (QLD)">Queensland (QLD)</option>
-                          <option value="South Australia (SA)">South Australia (SA)</option>
-                          <option value="Western Australia (WA)">Western Australia (WA)</option>
-                          <option value="Tasmania (TAS)">Tasmania (TAS)</option>
-                          <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
-                          <option value="Northern Territory (NT)">Northern Territory (NT)</option>
-                        </select>
-                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                          <ArrowRight className="rotate-90" size={18} />
-                        </div>
-                      </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-700">Postcode</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
+                        placeholder="e.g. 2000"
+                        value={formState.postcode}
+                        onChange={(e) => setFormState({...formState, postcode: e.target.value})}
+                      />
                     </div>
                     <div className="space-y-2 relative">
                       <label className="text-sm font-bold text-gray-700">How did you hear about us?</label>
