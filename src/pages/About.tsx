@@ -57,6 +57,7 @@ export const About = () => {
         { name: "Michael Koole", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/MICHAEL%20KOOLE.jpeg" },
         { name: "Reuben Dabrow", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/reuben%20dabrow.png" },
         { name: "Joel Bate", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOEL%20BATE.jpeg" },
+        { name: "Jessica McMath", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jessica%20McMath_Profile%20Picture_BW.png" },
         { name: "Hayley Wilson", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/HAYLEY%20WILSON.png" },
         { name: "Emma Kelly", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/EMMA%20Kelly.jpg" },
         { name: "Theo Collett", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/THEO%20COLLETT.jpg" },
@@ -90,6 +91,7 @@ export const About = () => {
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
         { name: "Bianca Del Rosario", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca%20Del%20Rosario.jpg" },
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
+        { name: "Dinana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
         { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
         { name: "Joyce Generale", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOYCE%20GENERALE.jpg" },
       ]
@@ -104,6 +106,7 @@ export const About = () => {
         { name: "Kristine Enriquez", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/KRISTINE%20Enriquez.jpeg" },
         { name: "Beth Caper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Beth%20Caper.png" },
         { name: "Lyndel Amora", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Lyndel%20Amora.png" },
+        { name: "Cess Son", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Cess%20Headshot_BW.jpg" },
         { name: "Klouie Gasper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Klouie%20Gasper.jpeg" },
         { name: "Allona Mayol", role: "Settlements Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Allona%20Mayol.jpeg" },
         { name: "Jade Wilson", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jade%20Wilson.jpeg" },
@@ -121,10 +124,9 @@ export const About = () => {
       title: "Craig Parry Team",
       members: [
         { name: "Nicola Parry", role: "Office Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Nicola%20Parry.png" },
+        { name: "Celeen Ibañez", role: "Executive Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Celeen%20Iban%CC%83ez_B%26W.png" },
         { name: "Jas Durdin", role: "Client Success Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jas%20Durdin.png" },
-        { name: "Brodie Statham", role: "Credit Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Brodie.png" },
         { name: "Josie Carreon", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Josie.jpg" },
-        { name: "Roxanne Timbol", role: "Client Services Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/ROXANNE.jpeg" },
         { name: "Eloisa Llaneta", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eloisa%20Llaneta.png" },
       ]
     }
