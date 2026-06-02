@@ -320,7 +320,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
           </div>
           <p className="text-xs text-gray-400 mb-4">
-            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ACN – 119 504 862 | FBAA Member
+            Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ACN – 119 504 862 | MFAA Member
           </p>
           <p className="text-xs text-gray-400 mb-4">
             <a 
