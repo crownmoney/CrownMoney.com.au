@@ -18,6 +18,8 @@ import { DebtRecycling } from './pages/tools/DebtRecycling';
 import { Budget } from './pages/tools/Budget';
 import { WishlistImpact } from './pages/tools/WishlistImpact';
 import { WithdrawalImpact } from './pages/tools/WithdrawalImpact';
+import { PayOffMortgage } from './pages/PayOffMortgage';
+import { initUrlTracker } from './utils/urlTracker';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -30,7 +32,7 @@ const ScrollToTop = () => {
 
 export default function App() {
   useEffect(() => {
-    // App initialisation
+    initUrlTracker();
   }, []);
 
   return (
@@ -43,14 +45,15 @@ export default function App() {
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/contact" element={<Contact />} />
-        <Route path="/tools" element={<Tools />} />
-        <Route path="/tools/rent-vs-buy" element={<RentVsBuy />} />
-        <Route path="/tools/car-lease-vs-buy" element={<CarLeaseVsBuy />} />
-        <Route path="/tools/net-worth" element={<NetWorth />} />
-        <Route path="/tools/debt-recycling" element={<DebtRecycling />} />
-        <Route path="/tools/budget" element={<Budget />} />
-        <Route path="/tools/wishlist-impact" element={<WishlistImpact />} />
-        <Route path="/tools/withdrawal-impact" element={<WithdrawalImpact />} />
+          <Route path="/pay-off-mortgage" element={<PayOffMortgage />} />
+          <Route path="/tools" element={<Tools />} />
+          <Route path="/tools/rent-vs-buy" element={<RentVsBuy />} />
+          <Route path="/tools/car-lease-vs-buy" element={<CarLeaseVsBuy />} />
+          <Route path="/tools/net-worth" element={<NetWorth />} />
+          <Route path="/tools/debt-recycling" element={<DebtRecycling />} />
+          <Route path="/tools/budget" element={<Budget />} />
+          <Route path="/tools/wishlist-impact" element={<WishlistImpact />} />
+          <Route path="/tools/withdrawal-impact" element={<WithdrawalImpact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/target-market-determinations" element={<TargetMarketDeterminations />} />
           <Route path="/mortgage-reduction-calculator" element={<CalculatorLanding />} />

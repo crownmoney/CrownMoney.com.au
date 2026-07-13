@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
+import { getLeadSourceData } from '../utils/urlTracker';
 
 export const Newsletter = () => {
   const [firstName, setFirstName] = useState('');
@@ -19,9 +20,14 @@ export const Newsletter = () => {
     
     setIsLoading(true);
     try {
+      const sourceData = getLeadSourceData();
       const response = await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
         method: 'POST',
-        body: JSON.stringify({ firstName, email }),
+        body: JSON.stringify({ 
+          firstName, 
+          email,
+          ...sourceData
+        }),
       });
 
       if (response.ok) {

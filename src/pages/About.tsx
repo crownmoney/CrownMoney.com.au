@@ -128,6 +128,7 @@ export const About = () => {
         { name: "Jas Durdin", role: "Client Success Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jas%20Durdin.png" },
         { name: "Josie Carreon", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Josie.jpg" },
         { name: "Eloisa Llaneta", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eloisa%20Llaneta.png" },
+        { name: "Shiena Saballa", role: "Credit & Settlements Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Shiena%20Saballa.png" },
       ]
     }
   ];

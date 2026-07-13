@@ -7,6 +7,7 @@ import { twMerge } from 'tailwind-merge';
 import { GoogleGenAI } from "@google/genai";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { getLeadSourceData } from '../utils/urlTracker';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -384,7 +385,15 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Load history on mount
+  // Lead capture state
+  const [hasSentWebhook, setHasSentWebhook] = useState(false);
+  const [showDirectForm, setShowDirectForm] = useState(false);
+  const [directName, setDirectName] = useState("");
+  const [directEmail, setDirectEmail] = useState("");
+  const [directPhone, setDirectPhone] = useState("");
+  const [directSubmitted, setDirectSubmitted] = useState(false);
+
+  // Load history & webhook status on mount
   useEffect(() => {
     const saved = localStorage.getItem('crown_chat_history');
     if (saved && saved !== "undefined") {
@@ -397,6 +406,11 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
     } else {
       setMessages([{ text: "Hi! I'm the Crown Money AI assistant. How can I help you today?", isBot: true }]);
     }
+
+    const webhookSent = localStorage.getItem('crown_chat_webhook_sent');
+    if (webhookSent === 'true') {
+      setHasSentWebhook(true);
+    }
   }, []);
 
   // Save history on change
@@ -405,6 +419,148 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
       localStorage.setItem('crown_chat_history', JSON.stringify(messages));
     }
   }, [messages]);
+
+  // Extract contact details from chat messages
+  const extractContactDetails = (msgs: { text: string; isBot: boolean }[]) => {
+    let email = '';
+    let phone = '';
+    let name = '';
+
+    const userMessages = msgs.filter(m => !m.isBot).map(m => m.text);
+    const combinedText = userMessages.join(' ');
+
+    // 1. Extract Email
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+    const emailMatch = combinedText.match(emailRegex);
+    if (emailMatch) {
+      email = emailMatch[0];
+    }
+
+    // 2. Extract Phone (Australian formats and general 10 digit)
+    const phoneRegex = /(?:\+?61|0)[2-478](?:[ -]?\d){8}\b/;
+    const phoneMatch = combinedText.match(phoneRegex);
+    if (phoneMatch) {
+      phone = phoneMatch[0].replace(/[^0-9+]/g, '');
+    } else {
+      const generalPhoneRegex = /\b0\d{9}\b|\b\d{10}\b/;
+      const genMatch = combinedText.match(generalPhoneRegex);
+      if (genMatch) {
+        phone = genMatch[0];
+      }
+    }
+
+    // 3. Extract Name using patterns
+    const namePatterns = [
+      /my name is\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /i am\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /this is\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /call me\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /names\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /i'm\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i,
+      /im\s+([A-Za-z]{2,}(?:\s+[A-Za-z]{2,})?)/i
+    ];
+
+    for (const pattern of namePatterns) {
+      const match = combinedText.match(pattern);
+      if (match && match[1]) {
+        const candidate = match[1].trim();
+        const firstWord = candidate.split(' ')[0].toLowerCase();
+        const stopWords = ['a', 'the', 'an', 'looking', 'interested', 'here', 'just', 'not', 'very', 'happy', 'ready', 'eager', 'fine', 'good', 'well', 'new', 'trying', 'seeking', 'working', 'sure', 'ok', 'yes', 'no', 'hi', 'hello', 'please', 'thanks', 'thank'];
+        if (!stopWords.includes(firstWord)) {
+          name = candidate;
+          break;
+        }
+      }
+    }
+
+    if (!name && email && phone) {
+      name = "Interested Client";
+    }
+
+    return { email, phone, name };
+  };
+
+  // Send lead details to Zapier Webhook
+  const sendLeadToZapier = async (leadName: string, leadEmail: string, leadPhone: string, currentMsgs: { text: string; isBot: boolean }[]) => {
+    try {
+      const formattedChat = currentMsgs.map(m => `${m.isBot ? 'Bot' : 'User'}: ${m.text}`).join('\n');
+      const sourceData = getLeadSourceData();
+      
+      const payload = {
+        name: leadName,
+        email: leadEmail,
+        phone: leadPhone,
+        message: formattedChat,
+        ...sourceData
+      };
+
+      await fetch('https://hooks.zapier.com/hooks/catch/24598887/42ljmvx/', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      setHasSentWebhook(true);
+      localStorage.setItem('crown_chat_webhook_sent', 'true');
+    } catch (err) {
+      console.error('Error sending chatbot webhook to Zapier:', err);
+    }
+  };
+
+  // Monitor messages for auto-extraction
+  useEffect(() => {
+    if (messages.length === 0 || hasSentWebhook) return;
+
+    const { name, email, phone } = extractContactDetails(messages);
+    if (name && email && phone) {
+      sendLeadToZapier(name, email, phone, messages);
+      
+      // Post system confirmation to user
+      setMessages(prev => [...prev, {
+        text: `✨ **System Notification:** Thank you, ${name}! I've successfully sent your details (Email: ${email}, Phone: ${phone}) to our strategy specialists, along with our discussion context. We will be in touch shortly!`,
+        isBot: true
+      }]);
+    }
+  }, [messages, hasSentWebhook]);
+
+  // Handle manual callback request submission
+  const handleDirectFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!directName || !directEmail || !directPhone) return;
+
+    try {
+      const formattedChat = messages.map(m => `${m.isBot ? 'Bot' : 'User'}: ${m.text}`).join('\n');
+      const sourceData = getLeadSourceData();
+      const payload = {
+        name: directName,
+        email: directEmail,
+        phone: directPhone,
+        message: formattedChat || "Form request without prior chat history.",
+        ...sourceData
+      };
+
+      await fetch('https://hooks.zapier.com/hooks/catch/24598887/42ljmvx/', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      setDirectSubmitted(true);
+      setHasSentWebhook(true);
+      localStorage.setItem('crown_chat_webhook_sent', 'true');
+
+      // Add bot message
+      setMessages(prev => [...prev, {
+        text: `✨ **System Notification:** Thanks ${directName}! Your callback request has been logged successfully. One of our Senior Debt Strategy Specialists will call you shortly on **${directPhone}**!`,
+        isBot: true
+      }]);
+
+      setTimeout(() => {
+        setShowDirectForm(false);
+        setDirectSubmitted(false);
+      }, 4000);
+    } catch (err) {
+      console.error("Error submitting manual callback request:", err);
+    }
+  };
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -462,6 +618,8 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
             - Origin: 636-380 (Indue/Columbus Capital)
           
           Your goal is to help homeowners understand these concepts and actively prompt them to book a free strategy call by visiting the contact page at /contact. Once they submit their details, they will be redirected to the booking system.
+
+          If the user shares their name, email, or phone number in the chat, acknowledge them warmly and mention that we have received them and our specialists will be in touch shortly. If any of these are missing (e.g. they only gave an email but no phone number), kindly ask them for the missing details so we can connect with them.
           
           Guidelines:
           - Be concise, professional, and friendly.
@@ -519,6 +677,63 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
               </div>
               <button onClick={() => setIsOpen(false)}><X size={20} /></button>
             </div>
+
+            {/* Callback Request Form Area */}
+            {showDirectForm ? (
+              <div className="bg-gradient-to-br from-[#1D093B] to-[#2A154B] p-4 text-white border-b border-white/10 transition-all duration-300">
+                <div className="flex justify-between items-center mb-3">
+                  <h4 className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">Request Specialist Callback</h4>
+                  <button onClick={() => setShowDirectForm(false)} className="text-gray-300 hover:text-white text-xs">Close</button>
+                </div>
+                {directSubmitted ? (
+                  <div className="text-xs text-center text-emerald-400 py-3 font-medium">
+                    ✓ Thank you! Your callback request has been sent to our team.
+                  </div>
+                ) : (
+                  <form onSubmit={handleDirectFormSubmit} className="space-y-2">
+                    <input 
+                      type="text" 
+                      placeholder="Your Name" 
+                      value={directName}
+                      onChange={(e) => setDirectName(e.target.value)}
+                      required
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    <input 
+                      type="email" 
+                      placeholder="Your Email" 
+                      value={directEmail}
+                      onChange={(e) => setDirectEmail(e.target.value)}
+                      required
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    <input 
+                      type="tel" 
+                      placeholder="Your Phone Number" 
+                      value={directPhone}
+                      onChange={(e) => setDirectPhone(e.target.value)}
+                      required
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#D4AF37]"
+                    />
+                    <button 
+                      type="submit" 
+                      className="w-full bg-[#D4AF37] hover:bg-amber-500 text-[#2A154B] font-bold py-1.5 rounded-lg text-xs transition-colors"
+                    >
+                      Submit Callback Request
+                    </button>
+                  </form>
+                )}
+              </div>
+            ) : (
+              <button 
+                onClick={() => setShowDirectForm(true)}
+                className="w-full bg-[#F1EAF8] hover:bg-amber-100 border-b border-gray-100 py-2.5 text-center text-xs text-primary font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                Prefer a callback? Leave details here
+              </button>
+            )}
+
             <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50">
               <div className="bg-amber-50 border border-amber-100 p-3 rounded-xl text-[10px] text-amber-800 leading-tight mb-2">
                 DISCLAIMER: This AI assistant provides general information only and is not a substitute for professional financial advice. For personalised guidance, please book a call with our experts.
@@ -532,7 +747,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
                     {msg.isBot ? (
                       <div className="markdown-body">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                          {msg.text}
+                           {msg.text}
                         </ReactMarkdown>
                       </div>
                     ) : (
@@ -606,9 +821,15 @@ const ExitPopup = () => {
     if (!email || !firstName) return;
     
     try {
+      const sourceData = getLeadSourceData();
       await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
         method: 'POST',
-        body: JSON.stringify({ firstName, email, source: 'exit_popup' }),
+        body: JSON.stringify({ 
+          firstName, 
+          email, 
+          source: 'exit_popup',
+          ...sourceData 
+        }),
       });
       
       setIsSubmitted(true);
@@ -814,6 +1035,22 @@ export const Layout = ({ children }: LayoutProps) => {
   const [isRatesModalOpen, setIsRatesModalOpen] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isLandingPage = location.pathname === '/pay-off-mortgage';
+
+  if (isLandingPage) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white">
+        <Helmet>
+          <link rel="icon" type="image/png" href="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/favicon.png" />
+        </Helmet>
+        <main className="flex-grow">
+          {children}
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">

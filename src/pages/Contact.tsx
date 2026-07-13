@@ -2,6 +2,36 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Phone, Mail, MapPin, CheckCircle, MessageSquare, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { getLeadSourceData } from '../utils/urlTracker';
+
+const formatPhoneForOnceHub = (phone: string): string => {
+  if (!phone) return '';
+  // Remove all non-digit characters except '+'
+  const cleaned = phone.replace(/[^\d+]/g, '');
+  
+  // If it's an Australian mobile number starting with 04 and has 10 digits
+  if (cleaned.startsWith('04') && cleaned.length === 10) {
+    return '+61' + cleaned.substring(1);
+  }
+  if (cleaned.startsWith('05') && cleaned.length === 10) {
+    return '+61' + cleaned.substring(1);
+  }
+  
+  // If user entered 4 or 5 directly (Australian mobile without national prefix) and has length 9
+  if (cleaned.startsWith('4') && cleaned.length === 9) {
+    return '+61' + cleaned;
+  }
+  if (cleaned.startsWith('5') && cleaned.length === 9) {
+    return '+61' + cleaned;
+  }
+
+  // If starts with '61' (Australia without +) and has 11 digits (e.g. 61412345678)
+  if (cleaned.startsWith('61') && cleaned.length === 11) {
+    return '+' + cleaned;
+  }
+
+  return cleaned;
+};
 
 export const Contact = () => {
   const [step, setStep] = useState(1);
@@ -40,19 +70,33 @@ export const Contact = () => {
     }
 
     try {
+      const sourceData = getLeadSourceData();
       const response = await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2kqpo/', {
         method: 'POST',
-        body: JSON.stringify(formState),
+        body: JSON.stringify({
+          ...formState,
+          ...sourceData
+        }),
       });
       
       if (response.ok) {
         setIsSubmitted(true);
         // Build OnceHub URL with parameters
         const baseUrl = 'https://go.oncehub.com/crown-money-welcome';
+        const formattedPhone = formatPhoneForOnceHub(formState.mobile);
+        
         const params = new URLSearchParams({
           name: formState.firstName,
           email: formState.email,
-          phone: formState.mobile
+          
+          // Primary OnceHub mobile phone mappings
+          your_mobile_phone: formattedPhone || formState.mobile,
+          'your-mobile-phone': formattedPhone || formState.mobile,
+          mobile_phone: formattedPhone || formState.mobile,
+          
+          // Backups / general phone mappings
+          phone: formattedPhone || formState.mobile,
+          mobile: formattedPhone || formState.mobile
         });
         
         // Wait a bit to show the success message before redirecting, or redirect immediately
