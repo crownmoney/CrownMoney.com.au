@@ -2,34 +2,27 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Phone, Mail, MapPin, CheckCircle, MessageSquare, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { getLeadSourceData } from '../utils/urlTracker';
 
 const formatPhoneForOnceHub = (phone: string): string => {
   if (!phone) return '';
-  // Remove all non-digit characters except '+'
-  const cleaned = phone.replace(/[^\d+]/g, '');
+  // Remove all spaces, hyphens, parenthesis and non-digits
+  let cleaned = phone.replace(/[^\d+]/g, '');
   
-  // If it's an Australian mobile number starting with 04 and has 10 digits
-  if (cleaned.startsWith('04') && cleaned.length === 10) {
-    return '+61' + cleaned.substring(1);
-  }
-  if (cleaned.startsWith('05') && cleaned.length === 10) {
-    return '+61' + cleaned.substring(1);
+  // Strip '+61' if present
+  if (cleaned.startsWith('+61')) {
+    cleaned = cleaned.substring(3);
+  } else if (cleaned.startsWith('61') && cleaned.length > 9) {
+    // Strip '61' if it looks like a country code (length > 9 to avoid local numbers starting with 61)
+    cleaned = cleaned.substring(2);
   }
   
-  // If user entered 4 or 5 directly (Australian mobile without national prefix) and has length 9
-  if (cleaned.startsWith('4') && cleaned.length === 9) {
-    return '+61' + cleaned;
+  // Strip leading '0' (e.g. from 0412345678 -> 412345678)
+  if (cleaned.startsWith('0')) {
+    cleaned = cleaned.substring(1);
   }
-  if (cleaned.startsWith('5') && cleaned.length === 9) {
-    return '+61' + cleaned;
-  }
-
-  // If starts with '61' (Australia without +) and has 11 digits (e.g. 61412345678)
-  if (cleaned.startsWith('61') && cleaned.length === 11) {
-    return '+' + cleaned;
-  }
-
+  
   return cleaned;
 };
 
@@ -132,11 +125,12 @@ export const Contact = () => {
 
   return (
     <div className="pt-10">
+      <SEO
+        title="Contact Us | Book Your Free Mortgage Strategy Call"
+        description="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom and pay off your mortgage faster."
+        keywords="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation, mortgage reduction experts"
+      />
       <Helmet>
-        <title>Contact Us | Book Your Free Mortgage Strategy Call | Crown Money</title>
-        <meta name="description" content="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom and pay off your mortgage faster." />
-        <meta name="keywords" content="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation, mortgage reduction experts" />
-        <link rel="canonical" href="https://crown.money/contact" />
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
         </script>

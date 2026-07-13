@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Play, CheckCircle, ArrowRight, Star, Quote, Calendar, ShieldCheck, Users, ChevronDown, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -616,17 +617,8 @@ export const Home = () => {
 
   return (
     <div>
+      <SEO />
       <Helmet>
-        <title>Crown Money | Pay Off Your Mortgage in half the time | Australia's Leading Financial Coaching</title>
-        <meta name="description" content="Crown Money helps Australian families pay off their home loans in up to half the time using advanced money management strategies. Achieve financial freedom faster with our proven system." />
-        <meta name="keywords" content="mortgage reduction Australia, pay off mortgage fast, financial coaching Australia, debt reduction strategy, home loan interest savings, Crown Money Management, Scott Parry, mortgage freedom system, wealth tracking dashboard" />
-        <meta property="og:title" content="Crown Money | Australia's Leading Mortgage Reduction Specialists" />
-        <meta property="og:description" content="Pay off your mortgage in half the time, not 30 years. Our proven money management system helps Aussie homeowners save hundreds of thousands in interest." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crown.money/" />
-        <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/Images/happy%20couple.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://crown.money/" />
         <script type="application/ld+json">
           {JSON.stringify(homeSchema)}
         </script>

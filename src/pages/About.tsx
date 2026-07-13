@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -184,17 +185,15 @@ export const About = () => {
 
   return (
     <div className="pt-10">
+      <SEO
+        title="About Crown Money | Australia's Mortgage Reduction & Debt Strategy Experts"
+        description="Meet the team at Crown Money Management. Founded in 2004 by Scott Parry, we've helped thousands of Australian families pay off their mortgages faster and build wealth through strategic money management."
+        keywords="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts, financial coaching Australia, mortgage freedom experts"
+        ogTitle="About Crown Money | Meet Our Mortgage Reduction Experts"
+        ogDescription="Founded in 2004, Crown Money is dedicated to helping Australians become mortgage-free faster. Meet the team behind our proven system."
+        ogImage="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg"
+      />
       <Helmet>
-        <title>About Crown Money | Australia's Mortgage Reduction & Debt Strategy Experts</title>
-        <meta name="description" content="Meet the team at Crown Money Management. Founded in 2004 by Scott Parry, we've helped thousands of Australian families pay off their mortgages faster and build wealth through strategic money management." />
-        <meta name="keywords" content="Scott Parry, Craig Parry, Crown Money team, mortgage reduction specialists, Australian finance experts, debt reduction experts, financial coaching Australia, mortgage freedom experts" />
-        <meta property="og:title" content="About Crown Money | Meet Our Mortgage Reduction Experts" />
-        <meta property="og:description" content="Founded in 2004, Crown Money is dedicated to helping Australians become mortgage-free faster. Meet the team behind our proven system." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crown.money/about" />
-        <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" />
-        <meta name="twitter:card" content="summary" />
-        <link rel="canonical" href="https://crown.money/about" />
         <script type="application/ld+json">
           {JSON.stringify(aboutSchema)}
         </script>

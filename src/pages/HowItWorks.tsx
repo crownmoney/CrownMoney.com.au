@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Phone, FileText, Settings, TrendingUp, CheckCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 
 import { Newsletter } from '../components/Newsletter';
 
@@ -54,16 +55,14 @@ export const HowItWorks = () => {
 
   return (
     <div className="pt-10">
+      <SEO
+        title="How It Works | Crown Money's 4-Step Mortgage Reduction Strategy"
+        description="Discover the Crown Money 4-step process to financial freedom. From discovery calls to custom mortgage strategies and ongoing coaching, we help you pay off your home loan faster."
+        keywords="debt reduction process, mortgage reduction strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard, mortgage structure optimisation"
+        ogTitle="How It Works | The Crown Money Mortgage Reduction Process"
+        ogDescription="Our proven 4-step system helps you pay off your mortgage in half the time. See how we combine strategy, implementation, and coaching."
+      />
       <Helmet>
-        <title>How It Works | Crown Money's 4-Step Mortgage Reduction Strategy</title>
-        <meta name="description" content="Discover the Crown Money 4-step process to financial freedom. From discovery calls to custom mortgage strategies and ongoing coaching, we help you pay off your home loan faster." />
-        <meta name="keywords" content="debt reduction process, mortgage reduction strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard, mortgage structure optimisation" />
-        <meta property="og:title" content="How It Works | The Crown Money Mortgage Reduction Process" />
-        <meta property="og:description" content="Our proven 4-step system helps you pay off your mortgage in half the time. See how we combine strategy, implementation, and coaching." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crown.money/how-it-works" />
-        <meta name="twitter:card" content="summary" />
-        <link rel="canonical" href="https://crown.money/how-it-works" />
         <script type="application/ld+json">
           {JSON.stringify(howToSchema)}
         </script>
