@@ -48,6 +48,46 @@ export const Contact = () => {
     return re.test(email);
   };
 
+  React.useEffect(() => {
+    if (isSubmitted) {
+      // Build OnceHub URL with parameters
+      const formattedPhone = formatPhoneForOnceHub(formState.mobile);
+      
+      const params = new URLSearchParams({
+        name: formState.firstName,
+        email: formState.email,
+        
+        // Primary OnceHub mobile phone mappings
+        your_mobile_phone: formattedPhone,
+        'your-mobile-phone': formattedPhone,
+        mobile_phone: formattedPhone,
+        
+        // Backups / general phone mappings
+        phone: formattedPhone,
+        mobile: formattedPhone
+      });
+      
+      // Update browser URL query string without reloading so OnceHub can read the parameters
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState(null, '', newUrl);
+
+      // Load OnceHub embed script dynamically
+      const scriptId = 'oncehub-embed-script';
+      let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+      
+      if (script) {
+        script.remove();
+      }
+      
+      script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://cdn.oncehub.com/cal/embed.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [isSubmitted]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -74,29 +114,6 @@ export const Contact = () => {
       
       if (response.ok) {
         setIsSubmitted(true);
-        // Build OnceHub URL with parameters
-        const baseUrl = 'https://go.oncehub.com/crown-money-welcome';
-        const formattedPhone = formatPhoneForOnceHub(formState.mobile);
-        
-        const params = new URLSearchParams({
-          name: formState.firstName,
-          email: formState.email,
-          
-          // Primary OnceHub mobile phone mappings
-          your_mobile_phone: formattedPhone || formState.mobile,
-          'your-mobile-phone': formattedPhone || formState.mobile,
-          mobile_phone: formattedPhone || formState.mobile,
-          
-          // Backups / general phone mappings
-          phone: formattedPhone || formState.mobile,
-          mobile: formattedPhone || formState.mobile
-        });
-        
-        // Wait a bit to show the success message before redirecting, or redirect immediately
-        // Redirecting after 2 seconds to let user see success state
-        setTimeout(() => {
-          window.location.href = `${baseUrl}?${params.toString()}`;
-        }, 2000);
       } else {
         console.error('Submission failed');
       }
@@ -199,7 +216,7 @@ export const Contact = () => {
             </div>
 
             {/* Form */}
-            <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
+            <div className={`bg-white rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden transition-all duration-300 ${isSubmitted ? 'p-4 md:p-6 lg:p-8' : 'p-8 md:p-12'}`}>
               {/* Decorative background element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2" />
               
@@ -207,19 +224,33 @@ export const Contact = () => {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-20"
+                  className="space-y-6"
                 >
-                  <div className="bg-green-100 text-green-600 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
-                    <CheckCircle size={48} />
+                  <div className="text-center">
+                    <div className="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                      <CheckCircle size={32} />
+                    </div>
+                    <h3 className="text-2xl font-display font-bold text-primary mb-2">Enquiry Sent Successfully!</h3>
+                    <p className="text-gray-600 text-sm max-w-md mx-auto">
+                      Please select a convenient date and time below to schedule your free mortgage strategy call directly on our booking calendar.
+                    </p>
                   </div>
-                  <h3 className="text-3xl font-display font-bold text-primary mb-4">Enquiry Sent Successfully!</h3>
-                  <p className="text-gray-600 text-lg max-w-sm mx-auto">
-                    Thank you for reaching out. Redirecting you to our booking page now...
-                  </p>
-                  <div className="mt-12 space-y-4">
+
+                  {/* Inline OnceHub booking calendar widget */}
+                  <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-inner mt-4">
+                    <div 
+                      data-oh-booking-calendar-id="BKC-Q46L799P62" 
+                      style={{ minWidth: '320px', height: '700px' }}
+                      className="w-full"
+                    />
+                  </div>
+
+                  <div className="text-center pt-2">
                     <button 
                       onClick={() => {
                         setIsSubmitted(false);
+                        // Clear the query params from browser URL on resetting
+                        window.history.replaceState(null, '', window.location.pathname);
                         setFormState({
                           firstName: '',
                           email: '',
@@ -233,9 +264,9 @@ export const Contact = () => {
                           _honeypot: ''
                         });
                       }}
-                      className="text-primary font-bold hover:text-gold transition-colors block mx-auto"
+                      className="text-primary/70 hover:text-gold text-sm font-bold transition-colors inline-flex items-center space-x-1"
                     >
-                      Send another message
+                      <span>← Send another enquiry</span>
                     </button>
                   </div>
                 </motion.div>

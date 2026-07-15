@@ -80,8 +80,8 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
 
       {/* Main Nav */}
       <nav className={cn(
-        "w-full z-50 transition-all duration-300 fixed top-0 md:top-auto",
-        isScrolled ? "bg-white shadow-md py-3" : "bg-white py-5"
+        "w-full z-50 transition-all duration-300 fixed",
+        isScrolled ? "top-0 bg-white shadow-md py-3" : "top-0 md:top-10 bg-white py-5"
       )}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <Link to="/" className="flex items-center">
@@ -934,7 +934,7 @@ const BookMeetingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             </button>
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-display font-bold text-primary">Book Your Free Strategy Session</h2>
-              <p className="text-gray-600 font-medium">Please fill out our enquiry form to get started. You'll be redirected to our booking calendar immediately after.</p>
+              <p className="text-gray-600 font-medium">Please fill out our enquiry form to get started. You can book your calendar time directly on our website immediately after.</p>
               <div className="grid grid-cols-1 gap-4">
                 <Link
                   to="/contact"

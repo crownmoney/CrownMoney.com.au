@@ -34,7 +34,8 @@ export const About = () => {
           role: "Founder & CEO", 
           image: "https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg",
           slug: "scott-parry",
-          bio: "Scott Parry is the visionary founder of Crown Money. With over 25 years in the finance industry, Scott has dedicated his career to challenging the traditional banking model. His passion for helping Australians achieve financial independence led to the creation of Crown's unique debt reduction strategy. Scott is a frequent commentator in financial media and a sought-after speaker on wealth creation."
+          bio: "Scott Parry is the visionary founder of Crown Money. With over 25 years in the finance industry, Scott has dedicated his career to challenging the traditional banking model. His passion for helping Australians achieve financial independence led to the creation of Crown's unique debt reduction strategy. Scott is a frequent commentator in financial media and a sought-after speaker on wealth creation.",
+          objectPosition: "object-top"
         },
         { 
           name: "Craig Parry", 
@@ -43,7 +44,7 @@ export const About = () => {
           slug: "craig-parry",
           bio: "Craig Parry brings a wealth of experience in mortgage broking and financial strategy. As a partner at Crown Money, he oversees the brokerage operations and ensures that every client receives a mortgage structure optimised for their specific goals. Craig's expertise in complex lending scenarios makes him an invaluable asset to the team and our clients."
         },
-        { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg" },
+        { name: "Chelsea Burton", role: "General Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/chelsea%20burton.jpg", objectPosition: "object-top" },
         { 
           name: "Jessie Edge", 
           role: "Operations", 
@@ -61,14 +62,17 @@ export const About = () => {
         { name: "Jessica McMath", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jessica%20McMath_Profile%20Picture_BW.png" },
         { name: "Hayley Wilson", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/HAYLEY%20WILSON.png" },
         { name: "Emma Kelly", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/EMMA%20Kelly.jpg" },
-        { name: "Theo Collett", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/THEO%20COLLETT.jpg" },
-        { name: "Jenn Durling", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/JENN%20DURLING.jpeg" },
+        { name: "Jenn Durling", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/jenn%20headshot%20(new).png" },
         { name: "Tammie Bennett", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tammie%20Bennett.png" },
         { name: "Ashlee Slarks", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/ASHLEE%20SLARKS.jpg" },
         { name: "Ellie Pipkin", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ellie%20Pipkin.jpg" },
         { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
         { name: "Daniela Marambio", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Daniela.webp" },
         { name: "Kat Daroczy", role: "Appointment Setter", image: "https://ui-avatars.com/api/?name=Kat+Daroczy&background=F1EAF8&color=2A154B" },
+        { name: "Julia Bouy", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julia%20Bouy_BW.png" },
+        { name: "Julius", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julius_BW.png" },
+        { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
+        { name: "Jess Muir", role: "Financial Strategist", image: "https://ui-avatars.com/api/?name=Jess+Muir&background=F1EAF8&color=2A154B" },
       ]
     },
     {
@@ -88,9 +92,10 @@ export const About = () => {
         { name: "Eden Robinson", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eden.jpg" },
         { name: "Leigh Parmenter", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Leigh%20Corporate%20Square_BW.png" },
         { name: "Bec Derksen", role: "Client Experience Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/bec%20derksen.png" },
+        { name: "Bianca Del Rosario", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca_BW_2.jpeg" },
         { name: "Nikki Van De Scheur", role: "Client Care Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/nikki%20van%20de%20scheur.jpg" },
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
-        { name: "Bianca Del Rosario", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca%20Del%20Rosario.jpg" },
+        { name: "Jeanne Horman", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanne%20Horman_BW3.png" },
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
         { name: "Dinana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
         { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
@@ -126,7 +131,7 @@ export const About = () => {
       members: [
         { name: "Nicola Parry", role: "Office Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Nicola%20Parry.png" },
         { name: "Celeen Ibañez", role: "Executive Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Celeen%20Iban%CC%83ez_B%26W.png" },
-        { name: "Jas Durdin", role: "Client Success Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jas%20Durdin.png" },
+        { name: "Jas Durdin", role: "Client Services Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jas%20Durdin.png" },
         { name: "Josie Carreon", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Josie.jpg" },
         { name: "Eloisa Llaneta", role: "Credit & Settlement Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eloisa%20Llaneta.png" },
         { name: "Shiena Saballa", role: "Credit & Settlements Support Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Shiena%20Saballa.png" },
@@ -289,8 +294,56 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Why Crown Money */}
+      {/* Team */}
       <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Meet Our Experts</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              A dedicated team of finance professionals committed to your success.
+            </p>
+          </div>
+
+          <div className="space-y-20">
+            {teamGroups.map((group, gIdx) => (
+              <div key={gIdx}>
+                <h3 className="text-2xl font-display font-bold text-primary mb-8 border-b border-gray-100 pb-4">{group.title}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {group.members.map((member, idx) => (
+                    <div 
+                      key={idx} 
+                      className={cn("group", member.bio && "cursor-pointer")}
+                      onClick={() => member.bio && setSelectedMember(member)}
+                    >
+                      <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square bg-gray-100">
+                        <img 
+                          src={member.image} 
+                          alt={member.name} 
+                          className={cn("w-full h-full object-cover transition-transform duration-500 group-hover:scale-110", member.objectPosition || "object-center")}
+                          referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${member.name}/400/400`;
+                          }}
+                        />
+                        {member.bio && (
+                          <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold">View Bio</span>
+                          </div>
+                        )}
+                      </div>
+                      <h4 className="text-lg font-bold text-primary">{member.name}</h4>
+                      <p className="text-gray-500 text-sm">{member.role}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Crown Money */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Why Crown Money?</h2>
@@ -299,7 +352,7 @@ export const About = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <div className="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
               <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
                 <Target size={24} />
               </div>
@@ -308,7 +361,7 @@ export const About = () => {
                 Most brokers focus on the interest rate. We focus on the strategy. A lower rate is good, but the right structure is what saves you hundreds of thousands.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <div className="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
               <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
                 <Users size={24} />
               </div>
@@ -317,7 +370,7 @@ export const About = () => {
                 A plan is only good if you stick to it. Our financial coaches provide the accountability and guidance you need to stay on track for the long term.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+            <div className="bg-gray-50 p-8 rounded-3xl shadow-sm border border-gray-100">
               <div className="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center text-primary mb-6">
                 <Award size={24} />
               </div>
@@ -348,54 +401,6 @@ export const About = () => {
           </p>
         </div>
       </section>
-
-      {/* Team */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Meet Our Experts</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              A dedicated team of finance professionals committed to your success.
-            </p>
-          </div>
-
-          <div className="space-y-20">
-            {teamGroups.map((group, gIdx) => (
-              <div key={gIdx}>
-                <h3 className="text-2xl font-display font-bold text-primary mb-8 border-b border-gray-100 pb-4">{group.title}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {group.members.map((member, idx) => (
-                    <div 
-                      key={idx} 
-                      className={cn("group", member.bio && "cursor-pointer")}
-                      onClick={() => member.bio && setSelectedMember(member)}
-                    >
-                      <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square bg-gray-100">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          referrerPolicy="no-referrer"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${member.name}/400/400`;
-                          }}
-                        />
-                        {member.bio && (
-                          <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="bg-white text-primary px-4 py-2 rounded-full text-xs font-bold">View Bio</span>
-                          </div>
-                        )}
-                      </div>
-                      <h4 className="text-lg font-bold text-primary">{member.name}</h4>
-                      <p className="text-gray-500 text-sm">{member.role}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* Bio Modal */}
       <AnimatePresence>
         {selectedMember && (
@@ -423,7 +428,7 @@ export const About = () => {
                   <img 
                     src={selectedMember.image} 
                     alt={selectedMember.name} 
-                    className="w-full h-full object-cover"
+                    className={cn("w-full h-full object-cover", selectedMember.objectPosition || "object-center")}
                     referrerPolicy="no-referrer"
                   />
                 </div>
