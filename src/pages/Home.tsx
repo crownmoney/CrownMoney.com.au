@@ -17,7 +17,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const faqs = [
   {
     question: "What is Crown Money?",
-    answer: "Crown money is one of Australia’s leading financial coaching services where we have been helping clients pay off their houses in up to half the time, by helping them manage their money more effectively so that it works harder for them. When most people get a standard home loan, at the end of their 30 year loan term they end up paying back close to double the original loan amount to the bank, including all the interest payments. What we do at Crown Money is we help clients restructure their finances in a way that allows them to cut anywhere from 40 to 50% off the total amount that they will end up paying for their home, which allows them to be debt free up to twice as fast. We have a wide range of financial coaching services to help cater for Australians and their financial needs. For the past 20 years we have specialised in helping clients pay off their house much faster than what they’re currently tracking for. We have financial coaching programs for people who don’t have a mortgage and need help with their money management."
+    answer: "Crown money is one of Australia’s leading financial coaching services where we have been helping clients pay off their houses in up to half the time, by helping them manage their money more effectively so that it works harder for them. When most people get a standard home loan, at the end of their 30 year loan term they end up paying back close to double the original loan amount to the bank, including all the interest payments. What we do at Crown Money is we help clients restructure their finances in a way that allows them to cut anywhere from 40 to 50% off the total amount that they will end up paying for their home, which allows them to be debt free up to twice as fast. We have a wide range of financial coaching services to help cater for Australians and their financial needs. For the past 20 years we have specialised in helping clients pay off their house much faster than what they’re currently tracking for. We have financial coaching programmes for people who don’t have a mortgage and need help with their money management."
   },
   {
     question: "How much does it cost?",
@@ -89,7 +89,7 @@ const faqs = [
   },
   {
     question: "When will we be able to invest?",
-    answer: "Everyone has got different risk appetites and it depends on what you want to invest into. If you’re wanting to invest in property we can tell you exactly what your borrowing capacity is, what property you would and could afford to purchase based on your surplus cash flow position. Everyone’s different. We’ve got clients who are able to invest within 90 days of joining our financial coaching program and we’ve got other clients who wait five years to invest. It’s going to come back down to what your current income and debt levels are and your appetite for risk."
+    answer: "Everyone has got different risk appetites and it depends on what you want to invest into. If you’re wanting to invest in property we can tell you exactly what your borrowing capacity is, what property you would and could afford to purchase based on your surplus cash flow position. Everyone’s different. We’ve got clients who are able to invest within 90 days of joining our financial coaching programme and we’ve got other clients who wait five years to invest. It’s going to come back down to what your current income and debt levels are and your appetite for risk."
   },
   {
     question: "What happens if one of us take a year off work, how will that affect our loan?",
@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     question: "Is Crown Money licensed?",
-    answer: "Yes, Crown Money holds an Australian Credit License (ACL). We are operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. You can view a copy of our license [here](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf)."
+    answer: "Yes, Crown Money holds an Australian Credit Licence (ACL). We are operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. You can view a copy of our licence [here](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf)."
   }
 ];
 
@@ -671,7 +671,7 @@ export const Home = () => {
             What is Crown Money?
           </h2>
           <p className="text-xl text-gray-700 font-bold leading-relaxed">
-            Crown Money Management is an Australian mortgage reduction specialist founded in 2004. Utilising our proprietary Home Ownership Program (HOP) and cash-diet system, we act as financial personal trainers to help Australians become debt-free in up to half the time.
+            Crown Money Management is an Australian mortgage reduction specialist founded in 2004. Utilising our proprietary Home Ownership Programme (HOP) and cash-diet system, we act as financial personal trainers to help Australians become debt-free in up to half the time.
           </p>
           <div className="mt-10">
             <Link 

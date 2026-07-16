@@ -30,7 +30,7 @@ export const SuccessStories = () => {
       name: "Natalie",
       image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Natalie.png",
       result: "3x Faster Payoff",
-      summary: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the program made me so disciplined and allowed me to actually enjoy life.",
+      summary: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the programme made me so disciplined and allowed me to actually enjoy life.",
       outcome: "Debt-free in next few years"
     },
     {
@@ -44,7 +44,7 @@ export const SuccessStories = () => {
       name: "Daniel and Carla",
       image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Daniel-and-Carla.png",
       result: "10 Years Saved",
-      summary: "Daniel and Carla are on track to save themselves 10 years of loan repayments, with a whopping 28% savings rate. The program has taught us to think about what is really important for the family.",
+      summary: "Daniel and Carla are on track to save themselves 10 years of loan repayments, with a whopping 28% savings rate. The programme has taught us to think about what is really important for the family.",
       outcome: "28% Savings Rate"
     },
     {
@@ -77,7 +77,7 @@ export const SuccessStories = () => {
     {
       title: "Dominic & Elisabeth",
       url: "https://storage.googleapis.com/crown_money/Video%20Testimonials/dominic_%26_elisabeth_lobosso_v1%20(720p).mp4",
-      description: "Working with Craig and team to optimize their loan and pay it down years sooner."
+      description: "Working with Craig and team to optimise their loan and pay it down years sooner."
     },
     {
       title: "Ella",
@@ -102,7 +102,7 @@ export const SuccessStories = () => {
     {
       title: "Accelerated Savings Success",
       url: "https://storage.googleapis.com/crown_money/Video%20Testimonials/mccolley_testimonial_(k)_v1%20(720p)_vocals_only.mp4",
-      description: "Client success story focusing on home loan optimization and coaching support."
+      description: "Client success story focusing on home loan optimisation and coaching support."
     },
     {
       title: "Mortgage-Free Success",

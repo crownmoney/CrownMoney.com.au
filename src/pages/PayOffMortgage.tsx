@@ -51,7 +51,7 @@ export const PayOffMortgage = () => {
   const faqList = [
     {
       question: "What is Crown Money?",
-      answer: "Crown money is one of Australia’s leading financial coaching services where we have been helping clients pay off their houses in up to half the time, by helping them manage their money more effectively so that it works harder for them. When most people get a standard home loan, at the end of their 30 year loan term they end up paying back close to double the original loan amount to the bank, including all the interest payments. What we do at Crown Money is we help clients restructure their finances in a way that allows them to cut anywhere from 40 to 50% off the total amount that they will end up paying for their home, which allows them to be debt free up to twice as fast. We have a wide range of financial coaching services to help cater for Australians and their financial needs. For the past 20 years we have specialised in helping clients pay off their house much faster than what they’re currently tracking for. We have financial coaching programs for people who don’t have a mortgage and need help with their money management."
+      answer: "Crown money is one of Australia’s leading financial coaching services where we have been helping clients pay off their houses in up to half the time, by helping them manage their money more effectively so that it works harder for them. When most people get a standard home loan, at the end of their 30 year loan term they end up paying back close to double the original loan amount to the bank, including all the interest payments. What we do at Crown Money is we help clients restructure their finances in a way that allows them to cut anywhere from 40 to 50% off the total amount that they will end up paying for their home, which allows them to be debt free up to twice as fast. We have a wide range of financial coaching services to help cater for Australians and their financial needs. For the past 20 years we have specialised in helping clients pay off their house much faster than what they’re currently tracking for. We have financial coaching programmes for people who don’t have a mortgage and need help with their money management."
     },
     {
       question: "How much does it cost?",
@@ -95,7 +95,7 @@ export const PayOffMortgage = () => {
     },
     {
       question: "Is Crown Money licensed?",
-      answer: "Yes, Crown Money holds an Australian Credit License (ACL). We are operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. You can view a copy of our license [here](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf)."
+      answer: "Yes, Crown Money holds an Australian Credit Licence (ACL). We are operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. You can view a copy of our licence [here](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf)."
     },
     {
       question: "How do you get paid?",
@@ -163,7 +163,7 @@ export const PayOffMortgage = () => {
           />
         </header>
 
-        {/* Hero Responsive Split Container with optimized padding for high fold alignment */}
+        {/* Hero Responsive Split Container with optimised padding for high fold alignment */}
         <div className="max-w-7xl mx-auto px-4 pt-4 pb-8 md:pt-6 md:pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
@@ -271,7 +271,7 @@ export const PayOffMortgage = () => {
               Multi-Award Winning Authority
             </h2>
             <p className="text-gray-600 text-sm md:text-base">
-              Proudly recognized by Australia's premier independent mortgage panels, fintech organizations, and broker alliances for trailblazing debt structuring excellence and customer execution.
+              Proudly recognised by Australia's premier independent mortgage panels, fintech organisations, and broker alliances for trailblazing debt structuring excellence and customer execution.
             </p>
           </div>
 

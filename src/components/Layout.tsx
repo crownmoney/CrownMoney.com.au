@@ -330,7 +330,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors underline underline-offset-4"
             >
-              View Australian Credit License (ACL)
+              View Australian Credit Licence (ACL)
             </a>
           </p>
           <p className="text-xs text-gray-400">
@@ -596,7 +596,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
           - Depositing Cash: Deposit into everyday account, then transfer to home loan BSB/Account OR email clientcare@crown.money to arrange direct debit.
           - Phone Banking (Origin): App available for iOS (App Store) and Android (Play Store). Search for "Origin Mortgages Mobile Access". Note: Redraws cannot be done via app; email redraws@crown.money.
           - Lost Superannuation: Log in to myGov, link to ATO, access "Super" section to search.
-          - Licensing: Crown Money holds an Australian Credit License (ACL). Operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. [View License PDF](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf).
+          - Licensing: Crown Money holds an Australian Credit Licence (ACL). Operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. [View Licence PDF](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf).
           
           Support & Operations:
           - 90 Day Review: Speak to your Financial Strategist or email coaches@crown.money.

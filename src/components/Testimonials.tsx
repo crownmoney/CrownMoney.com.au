@@ -11,7 +11,7 @@ const testimonials = [
   },
   {
     name: "Natalie",
-    story: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the program made me so disciplined and allowed me to actually enjoy life.",
+    story: "When I joined Crown I paid off in my first year as much as I had in the previous 3 years!! I was amazed how the programme made me so disciplined and allowed me to actually enjoy life.",
     outcome: "3x Faster Payoff",
     image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Natalie.png"
   },
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     name: "Daniel and Carla",
-    story: "The program has taught us to think about what is really important for the family. This allows us to live life without some of the financial stresses that arise when bills pop out of nowhere.",
+    story: "The programme has taught us to think about what is really important for the family. This allows us to live life without some of the financial stresses that arise when bills pop out of nowhere.",
     outcome: "10 Years Saved",
     image: "https://storage.googleapis.com/crown_money/Website/About/Testimonials/Daniel-and-Carla.png"
   },

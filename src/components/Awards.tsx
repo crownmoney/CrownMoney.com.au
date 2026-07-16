@@ -37,7 +37,7 @@ export const Awards = () => {
         <div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-4">Award-Winning Excellence</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Our unwavering commitment to delivering exceptional customer service and innovative finance strategies is consistently recognized by the industry's most prestigious organizations.
+            Our unwavering commitment to delivering exceptional customer service and innovative finance strategies is consistently recognised by the industry's most prestigious organisations.
           </p>
         </div>
 

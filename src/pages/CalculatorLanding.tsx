@@ -10,8 +10,8 @@ export const CalculatorLanding = () => {
     <div className="pt-20">
       <Helmet>
         <title>Mortgage Reduction Calculator | Pay Off Your Home Faster | Crown Money</title>
-        <meta name="description" content="Use our advanced mortgage reduction calculator to see how much interest you can save and how many years you can shave off your home loan with Crown Money's Home Ownership Program." />
-        <meta name="keywords" content="mortgage reduction calculator, pay off home loan faster, mortgage savings calculator, interest reduction calculator, Crown Money HOP, home ownership program australia" />
+        <meta name="description" content="Use our advanced mortgage reduction calculator to see how much interest you can save and how many years you can shave off your home loan with Crown Money's Home Ownership Programme." />
+        <meta name="keywords" content="mortgage reduction calculator, pay off home loan faster, mortgage savings calculator, interest reduction calculator, Crown Money HOP, home ownership programme australia" />
         <link rel="canonical" href="https://crown.money/mortgage-reduction-calculator" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -80,7 +80,7 @@ export const CalculatorLanding = () => {
                   </li>
                   <li className="flex items-start space-x-3">
                     <CheckCircle className="text-gold mt-1 flex-shrink-0" size={20} />
-                    <span>See the "Crown Money Effect"—how much time and money you could save with our Home Ownership Program (HOP).</span>
+                    <span>See the "Crown Money Effect"—how much time and money you could save with our Home Ownership Programme (HOP).</span>
                   </li>
                 </ul>
               </div>
@@ -128,7 +128,7 @@ export const CalculatorLanding = () => {
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="text-xl font-bold text-primary mb-4">How can I pay off my mortgage in half the time?</h3>
               <p className="text-gray-600 leading-relaxed">
-                Paying off a mortgage in half the time instead of 30 requires a combination of a competitive interest rate and a structured cash-flow management system. Crown Money Management uses a "cash-diet" system and our proprietary Home Ownership Program (HOP) to help clients allocate more of their existing income toward the principal without sacrificing their lifestyle.
+                Paying off a mortgage in half the time instead of 30 requires a combination of a competitive interest rate and a structured cash-flow management system. Crown Money Management uses a "cash-diet" system and our proprietary Home Ownership Programme (HOP) to help clients allocate more of their existing income toward the principal without sacrificing their lifestyle.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
