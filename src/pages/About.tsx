@@ -68,7 +68,7 @@ export const About = () => {
         { name: "Ellie Pipkin", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ellie%20Pipkin.jpg" },
         { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
         { name: "Daniela Marambio", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Daniela.webp" },
-        { name: "Kat Daroczy", role: "Appointment Setter", image: "https://ui-avatars.com/api/?name=Kat+Daroczy&background=F1EAF8&color=2A154B" },
+        { name: "Kat Daroczy", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kat_BW.png" },
         { name: "Julia Bouy", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julia%20Bouy_BW.png" },
         { name: "Julius", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julius_BW.png" },
         { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
