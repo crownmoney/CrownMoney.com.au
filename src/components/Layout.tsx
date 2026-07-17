@@ -39,7 +39,6 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
     { name: 'All Calculators', path: '/tools' },
     { name: 'Mortgage Reduction', path: '/mortgage-reduction-calculator' },
     { name: 'Rent vs Buy', path: '/tools/rent-vs-buy' },
-    { name: 'Car Lease vs Buy', path: '/tools/car-lease-vs-buy' },
     { name: 'Net Worth', path: '/tools/net-worth' },
     { name: 'Debt Recycling', path: '/tools/debt-recycling' },
     { name: 'Withdrawal Impact', path: '/tools/withdrawal-impact' },

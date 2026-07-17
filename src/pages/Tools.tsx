@@ -382,7 +382,6 @@ export const Tools = () => {
 
   const advancedTools = [
     { title: "Rent vs Buy", path: "/tools/rent-vs-buy", icon: Home, description: "Compare the long-term cost of renting vs buying." },
-    { title: "Car Lease vs Buy", path: "/tools/car-lease-vs-buy", icon: Briefcase, description: "Compare car loan vs lease costs." },
     { title: "Net Worth", path: "/tools/net-worth", icon: Wallet, description: "Track your total financial position." },
     { title: "Debt Recycling", path: "/tools/debt-recycling", icon: RefreshCw, description: "Turn home debt into tax-deductible debt." },
     { title: "Budget Planner", path: "/tools/budget", icon: Calculator, description: "Master your cash flow and find savings." },

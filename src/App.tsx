@@ -12,7 +12,6 @@ import TargetMarketDeterminations from './pages/TargetMarketDeterminations';
 import { CalculatorLanding } from './pages/CalculatorLanding';
 import { AuthorProfile } from './pages/AuthorProfile';
 import { RentVsBuy } from './pages/tools/RentVsBuy';
-import { CarLeaseVsBuy } from './pages/tools/CarLeaseVsBuy';
 import { NetWorth } from './pages/tools/NetWorth';
 import { DebtRecycling } from './pages/tools/DebtRecycling';
 import { Budget } from './pages/tools/Budget';
@@ -48,7 +47,6 @@ export default function App() {
           <Route path="/pay-off-mortgage" element={<PayOffMortgage />} />
           <Route path="/tools" element={<Tools />} />
           <Route path="/tools/rent-vs-buy" element={<RentVsBuy />} />
-          <Route path="/tools/car-lease-vs-buy" element={<CarLeaseVsBuy />} />
           <Route path="/tools/net-worth" element={<NetWorth />} />
           <Route path="/tools/debt-recycling" element={<DebtRecycling />} />
           <Route path="/tools/budget" element={<Budget />} />
