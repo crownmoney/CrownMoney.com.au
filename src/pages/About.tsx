@@ -115,7 +115,6 @@ export const About = () => {
         { name: "Cess Son", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Cess%20Headshot_BW.jpg" },
         { name: "Klouie Gasper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Klouie%20Gasper.jpeg" },
         { name: "Allona Mayol", role: "Settlements Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Allona%20Mayol.jpeg" },
-        { name: "Jade Wilson", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jade%20Wilson.jpeg" },
       ]
     },
     {
@@ -124,6 +123,12 @@ export const About = () => {
         { name: "Che Mas", role: "Technology Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Che.jpg" },
         { name: "Vincent Tabayag", role: "Digital Content & Graphic Design", image: "https://storage.googleapis.com/crown_money/Website/About/People/VINCENT%20TABAYAG.png" },
         { name: "Emmanuel Estolas", role: "HubSpot Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Emmanuel%20Estolas.jpg" },
+      ]
+    },
+    {
+      title: "Recruitment & HR",
+      members: [
+        { name: "Victoria Wray", role: "Recruitment & HR", image: "https://storage.googleapis.com/crown_money/Website/About/People/Victoria%20Wray_BW.png" },
       ]
     },
     {

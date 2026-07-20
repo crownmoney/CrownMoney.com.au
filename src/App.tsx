@@ -18,6 +18,8 @@ import { Budget } from './pages/tools/Budget';
 import { WishlistImpact } from './pages/tools/WishlistImpact';
 import { WithdrawalImpact } from './pages/tools/WithdrawalImpact';
 import { PayOffMortgage } from './pages/PayOffMortgage';
+import { Completed } from './pages/Completed';
+import { ErrorPage } from './pages/ErrorPage';
 import { initUrlTracker } from './utils/urlTracker';
 
 // Scroll to top on route change
@@ -56,6 +58,8 @@ export default function App() {
           <Route path="/target-market-determinations" element={<TargetMarketDeterminations />} />
           <Route path="/mortgage-reduction-calculator" element={<CalculatorLanding />} />
           <Route path="/author/:slug" element={<AuthorProfile />} />
+          <Route path="/completed" element={<Completed />} />
+          <Route path="/error" element={<ErrorPage />} />
         </Routes>
       </Layout>
     </Router>
