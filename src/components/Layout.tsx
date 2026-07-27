@@ -120,6 +120,7 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
             </div>
 
             <Link to="/success-stories" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/success-stories" ? "text-primary" : "text-gray-600")}>Success Stories</Link>
+            <Link to="/reviews" className={cn("text-sm font-medium hover:text-primary transition-colors", location.pathname === "/reviews" ? "text-primary" : "text-gray-600")}>Reviews</Link>
             <a 
               href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 
               target="_blank" 
@@ -196,6 +197,7 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
                 </div>
 
                 <Link to="/success-stories" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">Success Stories</Link>
+                <Link to="/reviews" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium py-2 text-gray-600">Reviews</Link>
                 <a 
                   href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 
                   target="_blank" 
@@ -283,6 +285,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
             <li><Link to="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
             <li><Link to="/tools" className="hover:text-white transition-colors">Calculators & Tools</Link></li>
             <li><Link to="/success-stories" className="hover:text-white transition-colors">Success Stories</Link></li>
+            <li><Link to="/reviews" className="hover:text-white transition-colors">Client Reviews</Link></li>
             <li>
               <a 
                 href="https://open.spotify.com/show/56u7gA4oHUb9h47iyd8uLs" 

@@ -20,6 +20,8 @@ import { WithdrawalImpact } from './pages/tools/WithdrawalImpact';
 import { PayOffMortgage } from './pages/PayOffMortgage';
 import { Completed } from './pages/Completed';
 import { ErrorPage } from './pages/ErrorPage';
+import { Reviews } from './pages/Reviews';
+import { NotFound } from './pages/NotFound';
 import { initUrlTracker } from './utils/urlTracker';
 
 // Scroll to top on route change
@@ -60,6 +62,8 @@ export default function App() {
           <Route path="/author/:slug" element={<AuthorProfile />} />
           <Route path="/completed" element={<Completed />} />
           <Route path="/error" element={<ErrorPage />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
