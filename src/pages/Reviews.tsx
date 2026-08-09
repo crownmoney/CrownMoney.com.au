@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { 
   Star, 
@@ -18,6 +18,87 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
+// Lazy Video Card Component using IntersectionObserver for optimal mobile performance & fast page speed
+const LazyVideoCard = ({ 
+  title, 
+  url, 
+  description, 
+  author, 
+  idx 
+}: { 
+  title: string; 
+  url: string; 
+  description: string; 
+  author: string; 
+  idx: number; 
+}) => {
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <motion.div
+      ref={containerRef}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: (idx % 3) * 0.1 }}
+      className="bg-gray-50 rounded-3xl shadow-md border border-gray-100 overflow-hidden flex flex-col h-full group"
+    >
+      {/* HTML5 Video Player with Lazy Mounting and preload="none" */}
+      <div className="relative aspect-video bg-black overflow-hidden flex items-center justify-center">
+        {isInView ? (
+          <video
+            src={url}
+            className="w-full h-full object-contain"
+            controls
+            preload="none"
+            playsInline
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gray-900 text-white/70 gap-2">
+            <Video size={36} className="text-gold animate-pulse" />
+            <span className="text-xs font-mono text-gray-400">Click to Load Video</span>
+          </div>
+        )}
+      </div>
+
+      <div className="p-6 flex-grow flex flex-col justify-between bg-white">
+        <div>
+          <h3 className="text-lg font-bold text-primary font-display mb-2 group-hover:text-gold transition-colors">
+            {title}
+          </h3>
+          <p className="text-xs text-gray-500 font-medium mb-3">{author}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
+          <span className="text-gray-400 font-mono">Crown Video Review</span>
+          <span className="text-amber-500 font-bold flex items-center gap-1">
+            <Star size={12} className="fill-current" /> Verified Customer
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export const Reviews = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -268,7 +349,7 @@ export const Reviews = () => {
     }
   ];
 
-  // Rich JSON-LD Structured Data for AI Search & Google Rich Results
+  // Rich JSON-LD Structured Data for AI Search (AEO / AI SEO), SearchGPT, Perplexity & Google Rich Results
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -314,7 +395,29 @@ export const Reviews = () => {
             "text": faq.answer
           }
         }))
-      }
+      },
+      ...allReviews.map(review => ({
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "FinancialProduct",
+          "name": "Crown Money Home Ownership Programme",
+          "provider": {
+            "@type": "Organization",
+            "name": "Crown Money Management"
+          }
+        },
+        "author": {
+          "@type": "Person",
+          "name": review.name
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": review.rating,
+          "bestRating": "5"
+        },
+        "reviewBody": review.text,
+        "name": review.headline
+      }))
     ]
   };
 
@@ -609,11 +712,13 @@ export const Reviews = () => {
                   <Quote className="absolute top-6 right-6 text-gold/10 group-hover:text-gold/20 transition-colors" size={48} />
                   
                   <div>
-                    {/* Header with Avatar & Stars */}
+                    {/* Header with Avatar (Lazy Loaded) & Stars */}
                     <div className="flex items-center gap-4 mb-6">
                       <img
                         src={review.image}
-                        alt={review.name}
+                        alt={`${review.name} Crown Money Review`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-14 h-14 rounded-full object-cover border-2 border-accent shadow"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = `https://picsum.photos/seed/${review.name}/200/200`;
@@ -662,7 +767,7 @@ export const Reviews = () => {
         </div>
       </section>
 
-      {/* Video Testimonials Section */}
+      {/* Video Testimonials Section with Lazy Loaded Video Players */}
       <section className="py-24 bg-white border-t border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -679,44 +784,14 @@ export const Reviews = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {videoTestimonials.slice(0, visibleVideoCount).map((vid, idx) => (
-              <motion.div
+              <LazyVideoCard
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (idx % 3) * 0.1 }}
-                className="bg-gray-50 rounded-3xl shadow-md border border-gray-100 overflow-hidden flex flex-col h-full group"
-              >
-                {/* HTML5 Video Player */}
-                <div className="relative aspect-video bg-black overflow-hidden flex items-center justify-center">
-                  <video
-                    src={vid.url}
-                    className="w-full h-full object-contain"
-                    controls
-                    preload="metadata"
-                    playsInline
-                  />
-                </div>
-
-                <div className="p-6 flex-grow flex flex-col justify-between bg-white">
-                  <div>
-                    <h3 className="text-lg font-bold text-primary font-display mb-2 group-hover:text-gold transition-colors">
-                      {vid.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 font-medium mb-3">{vid.author}</p>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {vid.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
-                    <span className="text-gray-400 font-mono">Crown Video Review</span>
-                    <span className="text-amber-500 font-bold flex items-center gap-1">
-                      <Star size={12} className="fill-current" /> Verified Customer
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
+                idx={idx}
+                title={vid.title}
+                url={vid.url}
+                description={vid.description}
+                author={vid.author}
+              />
             ))}
           </div>
 
