@@ -97,7 +97,12 @@ export const Contact = () => {
       return;
     }
 
-    if (!validateEmail(formState.email)) {
+    if (!formState.email || !formState.email.trim()) {
+      setEmailError('Email address is mandatory');
+      return;
+    }
+
+    if (!validateEmail(formState.email.trim())) {
       setEmailError('Please enter a valid email address');
       return;
     }
@@ -296,12 +301,13 @@ export const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-gray-700">Email</label>
+                      <label className="text-sm font-bold text-gray-700">Email Address <span className="text-red-500">*</span></label>
                       <input 
                         type="email" 
                         required
+                        aria-required="true"
                         className={`w-full px-5 py-4 rounded-xl border ${emailError ? 'border-red-500' : 'border-gray-200'} focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50`}
-                        placeholder="your@email.com"
+                        placeholder="your@email.com (required)"
                         value={formState.email}
                         onChange={(e) => {
                           setFormState({...formState, email: e.target.value});

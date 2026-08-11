@@ -5,6 +5,7 @@ import { getLeadSourceData } from '../utils/urlTracker';
 export const Newsletter = () => {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,7 +17,23 @@ export const Newsletter = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !firstName) return;
+    setErrorMessage('');
+
+    if (!firstName.trim()) {
+      setErrorMessage('Please enter your first name.');
+      return;
+    }
+
+    if (!email.trim()) {
+      setErrorMessage('Email address is mandatory.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
     
     setIsLoading(true);
     try {
@@ -24,8 +41,8 @@ export const Newsletter = () => {
       const response = await fetch('https://hooks.zapier.com/hooks/catch/24598887/up2fobt/', {
         method: 'POST',
         body: JSON.stringify({ 
-          firstName, 
-          email,
+          firstName: firstName.trim(), 
+          email: email.trim(),
           ...sourceData
         }),
       });
@@ -37,9 +54,11 @@ export const Newsletter = () => {
           window.open('https://storage.googleapis.com/crown_money/Website/Resources/20%20Minutes%20Financial%20Health%20Check.pdf', '_blank');
         }, 1500);
       } else {
+        setErrorMessage('Submission failed. Please try again.');
         console.error('Newsletter signup failed');
       }
     } catch (error) {
+      setErrorMessage('An error occurred. Please try again.');
       console.error('Error signing up for newsletter:', error);
     } finally {
       setIsLoading(false);
@@ -84,31 +103,42 @@ export const Newsletter = () => {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                   <div className="flex flex-col sm:flex-row gap-4">
                     <input 
                       type="text" 
-                      placeholder="First Name" 
+                      placeholder="First Name *" 
                       className="flex-grow px-6 py-4 rounded-full border-2 border-primary/5 focus:border-primary outline-none transition-all"
                       required
+                      aria-required="true"
                       value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                        if (errorMessage) setErrorMessage('');
+                      }}
                       disabled={isLoading}
                     />
                     <input 
                       type="email" 
-                      placeholder="Enter your email" 
-                      className="flex-grow px-6 py-4 rounded-full border-2 border-primary/5 focus:border-primary outline-none transition-all"
+                      placeholder="Enter your email * (required)" 
+                      className={`flex-grow px-6 py-4 rounded-full border-2 ${errorMessage ? 'border-red-500' : 'border-primary/5'} focus:border-primary outline-none transition-all`}
                       required
+                      aria-required="true"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (errorMessage) setErrorMessage('');
+                      }}
                       disabled={isLoading}
                     />
                   </div>
+                  {errorMessage && (
+                    <p className="text-red-600 text-xs font-bold px-4">{errorMessage}</p>
+                  )}
                   <button 
                     type="submit"
                     disabled={isLoading}
-                    className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg disabled:opacity-50 w-full sm:w-auto self-start"
+                    className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg disabled:opacity-50 w-full sm:w-auto self-start cursor-pointer"
                   >
                     {isLoading ? 'Signing Up...' : 'Sign Up Now'}
                   </button>

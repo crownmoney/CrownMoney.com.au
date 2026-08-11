@@ -106,6 +106,7 @@ export const About = () => {
       title: "Pre Settlement Team",
       members: [
         { name: "Joel Hannan", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Joel%20H_Headshot_BW.jpeg" },
+        { name: "Chad Laurente", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Chad%20Display%20Photo.jpg" },
         { name: "Jimmy Walker", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
         { name: "Zu Rahman", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Zu_BW.jpg" },
         { name: "Gale Yabut", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/GALE%20YABUT.jpg" },

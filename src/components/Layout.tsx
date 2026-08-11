@@ -703,10 +703,11 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
                     />
                     <input 
                       type="email" 
-                      placeholder="Your Email" 
+                      placeholder="Your Email * (required)" 
                       value={directEmail}
                       onChange={(e) => setDirectEmail(e.target.value)}
                       required
+                      aria-required="true"
                       className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-1.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#D4AF37]"
                     />
                     <input 
@@ -890,9 +891,10 @@ const ExitPopup = () => {
                     type="email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email" 
+                    placeholder="Enter your email * (required)" 
                     className="w-full px-6 py-4 rounded-xl border border-gray-200 outline-none focus:border-primary"
                     required
+                    aria-required="true"
                   />
                   <button className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all">
                     Get My Health Check
