@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare, TrendingUp } from 'lucide-react';
+import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare, TrendingUp, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -983,8 +983,16 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             </button>
             <div className="space-y-6">
               <div className="text-center">
-                <h2 className="text-2xl font-display font-bold text-primary mb-2">Maximum Rates and Fees</h2>
-                <p className="text-sm text-gray-500">Standard schedule of fees</p>
+                <h2 className="text-2xl font-display font-bold text-primary mb-1">Maximum Rates and Fees</h2>
+                <p className="text-sm text-gray-500 mb-2">Standard schedule of fees</p>
+                <a 
+                  href="https://storage.googleapis.com/crown_money/Website/Resources/Origin%20Rates%20(Effective%2011May26)%20-%20HOP.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-gold font-bold underline underline-offset-2 transition-colors"
+                >
+                  Rate Card <ExternalLink size={12} />
+                </a>
               </div>
               
               <div className="space-y-4">
@@ -1021,7 +1029,7 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
 
               <div className="bg-gray-50 p-4 rounded-xl text-[10px] text-gray-400 leading-tight space-y-2">
                 <p>Fees are subject to change and may vary based on specific product selection and individual circumstances.</p>
-                <p>We offer many different custom solutions to help clients achieve their goals. The above maximum rates and fees are applicable to the loans; however, there are many other services available that may be in addition to this rate card.</p>
+                <p>We offer many different custom solutions to help clients achieve their goals. The above maximum rates and fees are applicable to the loans; however, there are many other services available that may be in addition to this <a href="https://storage.googleapis.com/crown_money/Website/Resources/Origin%20Rates%20(Effective%2011May26)%20-%20HOP.pdf" target="_blank" rel="noopener noreferrer" className="underline font-bold text-primary hover:text-gold">rate card</a>.</p>
               </div>
             </div>
           </motion.div>

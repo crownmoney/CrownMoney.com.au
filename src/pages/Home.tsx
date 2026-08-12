@@ -175,7 +175,7 @@ const Hero = () => {
             <span>Australia's Leading Mortgage Reduction Specialists</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold text-primary leading-tight mb-6">
-            Helping Aussie Homeowners Pay Their Mortgage Off in half the time.
+            Helping Aussie Homeowners Pay Their Mortgage Off in Half the Time.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
             Pay off your mortgage twice as fast as the average Aussie and retire debt-free using Crown Money’s proven Money Management System.
@@ -638,6 +638,9 @@ export const Home = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">Use our calculator to estimate your payments and see how much interest you could save with the right strategy.</p>
           </div>
           <MortgageCalculator />
+          <p className="mt-4 text-center text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">
+            *Disclaimer: Calculations provided are estimates for illustrative purposes only and do not constitute a formal loan offer, credit assessment, or financial advice. Actual savings and mortgage payoff timelines depend on individual financial circumstances, lender approval, product selection, interest rates, and ongoing adherence to strategy.
+          </p>
         </div>
       </section>
 
