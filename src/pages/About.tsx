@@ -57,6 +57,7 @@ export const About = () => {
       title: "Financial Strategists",
       members: [
         { name: "Michael Koole", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/MICHAEL%20KOOLE.jpeg" },
+        { name: "Alexi Coffey", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Alexi%20Coffey.jpg" },
         { name: "Reuben Dabrow", role: "Senior Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/reuben%20dabrow.png" },
         { name: "Joel Bate", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOEL%20BATE.jpeg" },
         { name: "Jessica McMath", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jessica%20McMath_Profile%20Picture_BW.png" },
@@ -72,7 +73,6 @@ export const About = () => {
         { name: "Julia Bouy", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julia%20Bouy_BW.png" },
         { name: "Julius", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julius_BW.png" },
         { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
-        { name: "Jess Muir", role: "Financial Strategist", image: "https://ui-avatars.com/api/?name=Jess+Muir&background=F1EAF8&color=2A154B" },
       ]
     },
     {
