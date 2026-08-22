@@ -244,7 +244,7 @@ export const Contact = () => {
                   {/* Inline OnceHub booking calendar widget */}
                   <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-inner mt-4">
                     <div 
-                      data-oh-booking-calendar-id="BKC-Q46L799P62" 
+                      data-oh-booking-calendar-id="BKC-P96YYPDY6X" 
                       style={{ minWidth: '320px', height: '700px' }}
                       className="w-full"
                     />
