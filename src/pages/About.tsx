@@ -91,7 +91,6 @@ export const About = () => {
         { name: "Craig Butler", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Craig.png" },
         { name: "Eden Robinson", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eden.jpg" },
         { name: "Leigh Parmenter", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Leigh%20Corporate%20Square_BW.png" },
-        { name: "Bec Derksen", role: "Client Experience Manager", image: "https://storage.googleapis.com/crown_money/Website/About/People/bec%20derksen.png" },
         { name: "Bianca Del Rosario", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca_BW_2.jpeg" },
         { name: "Nikki Van De Scheur", role: "Client Care Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/nikki%20van%20de%20scheur.jpg" },
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
@@ -107,7 +106,8 @@ export const About = () => {
       members: [
         { name: "Joel Hannan", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Joel%20H_Headshot_BW.jpeg" },
         { name: "Chad Laurente", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Chad%20Display%20Photo.jpg" },
-        { name: "Jimmy Walker", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
+        { name: "Jimmy Walker", role: "Sales Support Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jimmy.png" },
+        { name: "Bec Derksen", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/bec%20derksen.png" },
         { name: "Zu Rahman", role: "Loan Application Concierge", image: "https://storage.googleapis.com/crown_money/Website/About/People/Zu_BW.jpg" },
         { name: "Gale Yabut", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/GALE%20YABUT.jpg" },
         { name: "Kristine Enriquez", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/KRISTINE%20Enriquez.jpeg" },
@@ -115,13 +115,13 @@ export const About = () => {
         { name: "Lyndel Amora", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Lyndel%20Amora.png" },
         { name: "Cess Son", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Cess%20Headshot_BW.jpg" },
         { name: "Klouie Gasper", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Klouie%20Gasper.jpeg" },
+        { name: "Clarissa Cabudbod", role: "Sales Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Headshot_Clarissa_BW.png" },
         { name: "Allona Mayol", role: "Settlements Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Allona%20Mayol.jpeg" },
       ]
     },
     {
       title: "Technology Team",
       members: [
-        { name: "Che Mas", role: "Technology Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Che.jpg" },
         { name: "Vincent Tabayag", role: "Digital Content & Graphic Design", image: "https://storage.googleapis.com/crown_money/Website/About/People/VINCENT%20TABAYAG.png" },
         { name: "Emmanuel Estolas", role: "HubSpot Specialist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Emmanuel%20Estolas.jpg" },
       ]
