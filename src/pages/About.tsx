@@ -74,6 +74,7 @@ export const About = () => {
         { name: "Julius", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julius_BW.png" },
         { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
         { name: "Rob Cradock", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Rob_BW.jpg" },
+        { name: "Tom Gibbons", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tom%20Profile%20Picture_BW.jpeg" },
         { name: "TJ Shiv", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/TJ_BW.jpeg" },
         { name: "River Shaw", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/River%20Shaw_Headshot_Square.jpeg" },
       ]
