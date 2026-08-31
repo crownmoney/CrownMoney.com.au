@@ -77,6 +77,7 @@ export const About = () => {
         { name: "Tom Gibbons", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tom%20Profile%20Picture_BW.jpeg" },
         { name: "TJ Shiv", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/TJ_BW.jpeg" },
         { name: "River Shaw", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/River%20Shaw_Headshot_Square.jpeg" },
+        { name: "Gurtaj Singh", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Gurtaj%20Singh_BW.png" },
       ]
     },
     {
@@ -91,14 +92,16 @@ export const About = () => {
     {
       title: "Post Settlement Team",
       members: [
-        { name: "Adam Santangelo", role: "Client Success Team Leader", image: "https://storage.googleapis.com/crown_money/Website/About/People/Adam_Santangelo_BW.png" },
+        { name: "Adam Santangelo", role: "Post Settlement Team Leader", image: "https://storage.googleapis.com/crown_money/Website/About/People/Adam_Santangelo_BW.png" },
         { name: "Craig Butler", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Craig.png" },
         { name: "Eden Robinson", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eden.jpg" },
         { name: "Leigh Parmenter", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Leigh%20Corporate%20Square_BW.png" },
+        { name: "Jason Baker", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jason%20Baker_BW.jpeg" },
         { name: "Bianca Del Rosario", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca_BW_2.jpeg" },
         { name: "Nikki Van De Scheur", role: "Client Care Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/nikki%20van%20de%20scheur.jpg" },
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
         { name: "Jeanne Horman", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanne%20Horman_BW3.png" },
+        { name: "Amelia Wedding", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Amelia%20Wedding_BW.png" },
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
         { name: "Dinana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
         { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
