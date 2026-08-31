@@ -227,7 +227,7 @@ export const About = () => {
             Australia’s Leading Specialists In Money Management
           </motion.h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We are on a mission to help 5,000 Australian families become mortgage-free and build lasting wealth.
+            We are on a mission to help 5,000 Australian families per year become mortgage-free and build lasting wealth.
           </p>
         </div>
       </section>
