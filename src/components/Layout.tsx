@@ -801,6 +801,7 @@ interface LayoutProps {
 }
 
 const ExitPopup = () => {
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
   const [firstName, setFirstName] = useState('');
@@ -808,6 +809,8 @@ const ExitPopup = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
+    if (location.pathname === '/error') return;
+
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !hasShown) {
         setIsVisible(true);
@@ -817,7 +820,11 @@ const ExitPopup = () => {
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [hasShown]);
+  }, [hasShown, location.pathname]);
+
+  if (location.pathname === '/error') {
+    return null;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
