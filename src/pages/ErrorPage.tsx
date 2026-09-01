@@ -44,28 +44,27 @@ export const ErrorPage = () => {
       const sourceData = getLeadSourceData();
       const payload = {
         email: trimmedEmail,
+        Email: trimmedEmail,
+        email_address: trimmedEmail,
+        emailAddress: trimmedEmail,
         source: 'bank_statement_error_reconnect',
+        page: '/error',
         timestamp: new Date().toISOString(),
-        ...sourceData
+        landing_url: sourceData.landing_url || window.location.href,
+        current_url: sourceData.current_url || window.location.href,
       };
 
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/24598887/4h9kvht/', {
+      const webhookUrl = `https://hooks.zapier.com/hooks/catch/24598887/4h9kvht/?email=${encodeURIComponent(trimmedEmail)}&source=bank_statement_error_reconnect`;
+
+      await fetch(webhookUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify(payload),
       });
 
-      if (response.ok || response.status === 200) {
-        setIsSubmitted(true);
-      } else {
-        // Fallback if status code is unexpected but request completed
-        setIsSubmitted(true);
-      }
+      setIsSubmitted(true);
     } catch (err) {
       console.error('Error submitting reconnection request:', err);
-      // In case of CORS or network variation with Zapier webhooks, still confirm receipt to user
+      // Ensure user receives confirmation even in strict adblocker browser environments
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);
