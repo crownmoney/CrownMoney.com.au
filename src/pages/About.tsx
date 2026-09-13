@@ -71,7 +71,6 @@ export const About = () => {
         { name: "Daniela Marambio", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Daniela.webp" },
         { name: "Kat Daroczy", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kat_BW.png" },
         { name: "Julia Bouy", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julia%20Bouy_BW.png" },
-        { name: "Julius", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julius_BW.png" },
         { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
         { name: "Rob Cradock", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Rob_BW.jpg" },
         { name: "Tom Gibbons", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tom%20Profile%20Picture_BW.jpeg" },
@@ -105,7 +104,8 @@ export const About = () => {
         { name: "Jeanne Horman", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanne%20Horman_BW3.png" },
         { name: "Amelia Wedding", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Amelia%20Wedding_BW.png" },
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
-        { name: "Dinana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
+        { name: "Diana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
+        { name: "Indiana Damasco", role: "Client Care Support", image: "https://ui-avatars.com/api/?name=Indiana+Damasco&background=F1EAF8&color=2A154B" },
         { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
         { name: "Joyce Generale", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOYCE%20GENERALE.jpg" },
       ]
