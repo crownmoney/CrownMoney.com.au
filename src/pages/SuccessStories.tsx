@@ -65,6 +65,11 @@ export const SuccessStories = () => {
 
   const videos = [
     {
+      title: "Kamani & Scott",
+      url: "https://storage.googleapis.com/crown_money/Video%20Testimonials/riverside_edit_-%20kamani%20%26%20scott_crown_money%20(2).mp4",
+      description: "How Crown Money's coaching and money management structure helped Kamani and Scott fast-track their mortgage freedom."
+    },
+    {
       title: "$320,000 Saved in 4 Years",
       url: "https://storage.googleapis.com/crown_money/Video%20Testimonials/320%2C000_in_4_years_(k)_v1%20(720p).mp4",
       description: "A remarkable story of accelerated debt reduction and total financial control."
