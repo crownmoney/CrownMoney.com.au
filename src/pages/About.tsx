@@ -87,7 +87,7 @@ export const About = () => {
         { name: "Richard Recordon", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/richard%20recordon.jpg" },
         { name: "Mathew Wright", role: "Senior Finance Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Mat_BW.jpg" },
         { name: "Natalie Holloway", role: "Mortgage Broker", image: "https://storage.googleapis.com/crown_money/Website/About/People/Natalie%20Holloway_BW.png" },
-        { name: "Megan Dibenedetto", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
+        { name: "Megan Banthorpe", role: "Credit Assessor", image: "https://storage.googleapis.com/crown_money/Website/About/People/Megan%20Dibenedetto.jpeg" },
       ]
     },
     {
