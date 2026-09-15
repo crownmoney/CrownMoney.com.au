@@ -1,4 +1,36 @@
-# Allow all search engine crawlers and AI bots
+# Google Ads Crawlers (Explicitly Allowlisted for Google Ads Quality & Destination Verification)
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: AdsBot-Google-Mobile-Android
+Allow: /
+
+User-agent: AdsBot-Google-Mobile-Apps
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+# Google Search & Inspection Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Allow all search engine crawlers and bots by default
 User-agent: *
 Allow: /
 
@@ -21,12 +53,6 @@ Allow: /
 User-agent: Anthropic-ai
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
 User-agent: Bingbot
 Allow: /
 
@@ -39,5 +65,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Sitemap Location
+# Sitemaps
+Sitemap: https://crownmoney.com.au/sitemap.xml
 Sitemap: https://crown.money/sitemap.xml
+
