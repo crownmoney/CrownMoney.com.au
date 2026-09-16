@@ -77,7 +77,7 @@ export const About = () => {
         { name: "River Shaw", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/River%20Shaw_Headshot_Square.jpeg" },
         { name: "Gurtaj Singh", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Gurtaj%20Singh_BW.png" },
         { name: "Anton Ulu", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Anton_BW.jpg" },
-        { name: "Eve Aulsebrook", role: "Appointment Setter", image: "https://ui-avatars.com/api/?name=Eve+Aulsebrook&background=F1EAF8&color=2A154B" },
+        { name: "Eve Aulsebrook", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eve%20Aulsebrook_BW.png" },
         { name: "Ryan Khamram", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ryan%20Khamram_BW.jpeg" },
       ]
     },
