@@ -69,7 +69,6 @@ export const About = () => {
         { name: "Ellie Pipkin", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ellie%20Pipkin.jpg" },
         { name: "Katherine Daczo", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/KATHERINE%20DACZO.png" },
         { name: "Daniela Marambio", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Daniela.webp" },
-        { name: "Jeanelle Penalosa", role: "Sales Operations Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanelle%20Penalosa_BW.jpeg" },
         { name: "Kat Daroczy", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kat_BW.png" },
         { name: "Julia Bouy", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Julia%20Bouy_BW.png" },
         { name: "Dylan Knight", role: "Financial Strategist", image: "https://storage.googleapis.com/crown_money/Website/About/People/Dylan%20Knight_BW.png" },
@@ -80,6 +79,8 @@ export const About = () => {
         { name: "Anton Ulu", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Anton_BW.jpg" },
         { name: "Eve Aulsebrook", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eve%20Aulsebrook_BW.png" },
         { name: "Ryan Khamram", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ryan%20Khamram_BW.jpeg" },
+        { name: "Jeanelle Penalosa", role: "Sales Operations Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanelle%20Penalosa_BW.jpeg" },
+        { name: "Kim Ornopia", role: "Sales Administration", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kim%20O_BW.png" },
       ]
     },
     {
