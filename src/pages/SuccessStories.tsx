@@ -195,7 +195,7 @@ export const SuccessStories = () => {
         <title>Success Stories | Real Mortgage Reduction Results | Crown Money</title>
         <meta name="description" content="Read real success stories from Crown Money clients who have saved years and hundreds of thousands of dollars on their mortgages. See how Australian families achieve financial freedom." />
         <meta name="keywords" content="mortgage success stories, debt reduction results, client testimonials Crown Money, financial freedom Australia, mortgage reduction case studies" />
-        <link rel="canonical" href="https://crown.money/success-stories" />
+        <link rel="canonical" href="https://crownmoney.com.au/success-stories" />
         <script type="application/ld+json">
           {JSON.stringify(reviewSchema)}
         </script>

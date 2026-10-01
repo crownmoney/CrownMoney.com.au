@@ -40,7 +40,7 @@ export const SEO: React.FC<SEOProps> = ({
   const finalOgDescription = ogDescription || description || 'Pay off your mortgage in half the time, not 30 years. Our proven money management system helps Aussie homeowners save hundreds of thousands in interest.';
   
   const currentPath = location.pathname;
-  const baseDomain = 'https://crown.money';
+  const baseDomain = 'https://crownmoney.com.au';
   const finalOgUrl = ogUrl || `${baseDomain}${currentPath}`;
   const finalCanonicalUrl = canonicalUrl || `${baseDomain}${currentPath}`;
 

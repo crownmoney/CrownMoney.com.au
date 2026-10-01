@@ -162,8 +162,8 @@ export const About = () => {
       {
         "@type": "Organization",
         "name": "Crown Money",
-        "url": "https://crown.money",
-        "logo": "https://crown.money/logo.png"
+        "url": "https://crownmoney.com.au",
+        "logo": "https://crownmoney.com.au/logo.png"
       },
       {
         "@type": "BreadcrumbList",
@@ -172,13 +172,13 @@ export const About = () => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://crown.money"
+            "item": "https://crownmoney.com.au"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "About Us",
-            "item": "https://crown.money/about"
+            "item": "https://crownmoney.com.au/about"
           }
         ]
       },

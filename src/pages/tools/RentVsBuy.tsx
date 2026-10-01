@@ -74,7 +74,7 @@ export const RentVsBuy = () => {
         <title>Rent vs Buy Calculator Australia | Home Ownership Comparison | Crown Money</title>
         <meta name="description" content="Compare renting vs buying in Australia with our advanced calculator. Analyze long-term wealth, maintenance costs, stamp duty, and investment opportunity costs for informed financial planning and mortgage reduction." />
         <meta name="keywords" content="rent vs buy calculator, buy vs rent australia, home ownership vs renting, property investment australia, crown money tools, real estate comparison australia" />
-        <link rel="canonical" href="https://crown.money/tools/rent-vs-buy" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/rent-vs-buy" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -86,13 +86,13 @@ export const RentVsBuy = () => {
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
-                  "url": "https://crown.money"
+                  "url": "https://crownmoney.com.au"
                 }
               },
               {
                 "@type": "WebSite",
                 "name": "Crown Money",
-                "url": "https://crown.money"
+                "url": "https://crownmoney.com.au"
               },
               {
                 "@type": "BreadcrumbList",
@@ -101,19 +101,19 @@ export const RentVsBuy = () => {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://crown.money"
+                    "item": "https://crownmoney.com.au"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Tools",
-                    "item": "https://crown.money/tools"
+                    "item": "https://crownmoney.com.au/tools"
                   },
                   {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Rent vs Buy Calculator",
-                    "item": "https://crown.money/tools/rent-vs-buy"
+                    "item": "https://crownmoney.com.au/tools/rent-vs-buy"
                   }
                 ]
               }

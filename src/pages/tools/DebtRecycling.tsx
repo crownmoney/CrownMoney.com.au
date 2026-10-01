@@ -57,7 +57,7 @@ export const DebtRecycling = () => {
         <title>Debt Recycling Calculator Australia | Tax-Deductible Debt Strategy | Crown Money</title>
         <meta name="description" content="Master debt recycling in Australia with our advanced calculator. Learn how to transform your non-deductible home loan into tax-deductible investment debt for faster wealth building and mortgage reduction." />
         <meta name="keywords" content="debt recycling calculator australia, tax deductible debt, home loan strategy, crown money tools, wealth building australia, mortgage reduction strategy, investment debt" />
-        <link rel="canonical" href="https://crown.money/tools/debt-recycling" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/debt-recycling" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -69,13 +69,13 @@ export const DebtRecycling = () => {
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
-                  "url": "https://crown.money"
+                  "url": "https://crownmoney.com.au"
                 }
               },
               {
                 "@type": "WebSite",
                 "name": "Crown Money",
-                "url": "https://crown.money"
+                "url": "https://crownmoney.com.au"
               },
               {
                 "@type": "BreadcrumbList",
@@ -84,19 +84,19 @@ export const DebtRecycling = () => {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://crown.money"
+                    "item": "https://crownmoney.com.au"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Tools",
-                    "item": "https://crown.money/tools"
+                    "item": "https://crownmoney.com.au/tools"
                   },
                   {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Debt Recycling Calculator",
-                    "item": "https://crown.money/tools/debt-recycling"
+                    "item": "https://crownmoney.com.au/tools/debt-recycling"
                   }
                 ]
               }

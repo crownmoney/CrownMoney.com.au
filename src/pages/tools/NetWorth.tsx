@@ -53,7 +53,7 @@ export const NetWorth = () => {
         <title>Net Worth Calculator Australia | Track Your Wealth | Crown Money</title>
         <meta name="description" content="Calculate your total net worth and analyze your asset allocation in Australia. Our net worth calculator helps you track your journey to financial freedom, wealth building, and mortgage reduction." />
         <meta name="keywords" content="net worth calculator australia, track wealth, asset allocation calculator, crown money tools, financial freedom australia, wealth tracking, personal balance sheet" />
-        <link rel="canonical" href="https://crown.money/tools/net-worth" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/net-worth" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -65,13 +65,13 @@ export const NetWorth = () => {
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
-                  "url": "https://crown.money"
+                  "url": "https://crownmoney.com.au"
                 }
               },
               {
                 "@type": "WebSite",
                 "name": "Crown Money",
-                "url": "https://crown.money"
+                "url": "https://crownmoney.com.au"
               },
               {
                 "@type": "BreadcrumbList",
@@ -80,19 +80,19 @@ export const NetWorth = () => {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://crown.money"
+                    "item": "https://crownmoney.com.au"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Tools",
-                    "item": "https://crown.money/tools"
+                    "item": "https://crownmoney.com.au/tools"
                   },
                   {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Net Worth Calculator",
-                    "item": "https://crown.money/tools/net-worth"
+                    "item": "https://crownmoney.com.au/tools/net-worth"
                   }
                 ]
               }

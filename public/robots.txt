@@ -67,5 +67,4 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://crownmoney.com.au/sitemap.xml
-Sitemap: https://crown.money/sitemap.xml
 

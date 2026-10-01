@@ -158,7 +158,7 @@ export const WishlistImpact = () => {
         <title>Home Loan Withdrawal Impact Calculator | Mortgage Equity Cost | Crown Money</title>
         <meta name="description" content="Calculate the real cost of withdrawing home loan equity for lifestyle purchases like boats or cars. See the impact on your loan term, total interest, and payoff age. Make informed financial decisions with Crown Money." />
         <meta name="keywords" content="home loan withdrawal calculator, mortgage equity withdrawal impact, redraw impact calculator, boat finance vs mortgage, car finance vs mortgage australia, cost of lifestyle debt" />
-        <link rel="canonical" href="https://crown.money/tools/wishlist-impact" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/wishlist-impact" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -170,15 +170,15 @@ export const WishlistImpact = () => {
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
-                  "url": "https://crown.money"
+                  "url": "https://crownmoney.com.au"
                 }
               },
               {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crown.money" },
-                  { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://crown.money/tools" },
-                  { "@type": "ListItem", "position": 3, "name": "Wishlist Impact Calculator", "item": "https://crown.money/tools/wishlist-impact" }
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crownmoney.com.au" },
+                  { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://crownmoney.com.au/tools" },
+                  { "@type": "ListItem", "position": 3, "name": "Wishlist Impact Calculator", "item": "https://crownmoney.com.au/tools/wishlist-impact" }
                 ]
               }
             ]

@@ -52,7 +52,7 @@ export const AuthorProfile = () => {
         <title>{author.name} | {author.role} | Crown Money Australia</title>
         <meta name="description" content={`${author.name} is the ${author.role} at Crown Money Management. ${author.bio.substring(0, 150)}...`} />
         <meta name="keywords" content={`${author.name}, ${author.role}, Crown Money expert, mortgage reduction expert, financial strategy australia, ${author.expertise.join(', ')}`} />
-        <link rel="canonical" href={`https://crown.money/author/${slug}`} />
+        <link rel="canonical" href={`https://crownmoney.com.au/author/${slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -62,7 +62,7 @@ export const AuthorProfile = () => {
             "worksFor": {
               "@type": "Organization",
               "name": "Crown Money",
-              "url": "https://crown.money"
+              "url": "https://crownmoney.com.au"
             },
             "description": author.bio,
             "image": author.image,

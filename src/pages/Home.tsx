@@ -560,8 +560,8 @@ export const Home = () => {
       {
         "@type": "Organization",
         "name": "Crown Money",
-        "url": "https://crown.money",
-        "logo": "https://crown.money/logo.png",
+        "url": "https://crownmoney.com.au",
+        "logo": "https://crownmoney.com.au/logo.png",
         "sameAs": [
           "https://www.facebook.com/crownmoney",
           "https://www.linkedin.com/company/crown-money",
@@ -571,7 +571,7 @@ export const Home = () => {
       {
         "@type": "WebSite",
         "name": "Crown Money",
-        "url": "https://crown.money"
+        "url": "https://crownmoney.com.au"
       },
       {
         "@type": "BreadcrumbList",
@@ -580,7 +580,7 @@ export const Home = () => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://crown.money"
+            "item": "https://crownmoney.com.au"
           }
         ]
       },

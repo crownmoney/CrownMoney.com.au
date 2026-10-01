@@ -361,9 +361,9 @@ export const Reviews = () => {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://crown.money/#organization",
+        "@id": "https://crownmoney.com.au/#organization",
         "name": "Crown Money Management",
-        "url": "https://crown.money",
+        "url": "https://crownmoney.com.au",
         "logo": "https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/header-logo.svg",
         "description": "Australian mortgage reduction specialist providing financial coaching and proprietary loan structuring services since 2004.",
         "telephone": "1300 882 981",
@@ -378,21 +378,21 @@ export const Reviews = () => {
       },
       {
         "@type": "WebPage",
-        "@id": "https://crown.money/reviews#webpage",
-        "url": "https://crown.money/reviews",
+        "@id": "https://crownmoney.com.au/reviews#webpage",
+        "url": "https://crownmoney.com.au/reviews",
         "name": "Crown Money Reviews & Client Testimonials",
         "description": "Read verified 5-star Google reviews and client testimonials for Crown Money Management. See how Australian homeowners pay off their mortgages in half the time.",
         "breadcrumb": {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crown.money" },
-            { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://crown.money/reviews" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://crownmoney.com.au" },
+            { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://crownmoney.com.au/reviews" }
           ]
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://crown.money/reviews#faq",
+        "@id": "https://crownmoney.com.au/reviews#faq",
         "mainEntity": reviewFaqs.map(faq => ({
           "@type": "Question",
           "name": faq.question,
@@ -440,13 +440,13 @@ export const Reviews = () => {
           name="keywords" 
           content="Crown Money reviews, Crown Money Google reviews, Crown Money ratings, Crown Money complaints, Crown Money legitimate, Crown Money Home Ownership Program reviews, Scott Parry reviews, Crown Money Management feedback" 
         />
-        <link rel="canonical" href="https://crown.money/reviews" />
+        <link rel="canonical" href="https://crownmoney.com.au/reviews" />
         
         {/* OpenGraph Tags for Social Sharing & AI Discovery */}
         <meta property="og:title" content="Crown Money Reviews | 5-Star Client Ratings & Testimonials" />
         <meta property="og:description" content="Discover verified client feedback, Google reviews, and real video success stories from Australian families who cut their mortgages in half with Crown Money." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crown.money/reviews" />
+        <meta property="og:url" content="https://crownmoney.com.au/reviews" />
         <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/About/Testimonials/Melanie%20and%20Jeffrey%20.jpg" />
 
         {/* Structured Data Script */}

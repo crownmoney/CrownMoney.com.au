@@ -154,7 +154,7 @@ export const WithdrawalImpact = () => {
         <title>Home Loan Withdrawal Impact Calculator | Redraw & Offset Cost | Crown Money</title>
         <meta name="description" content="Calculate the real cost of withdrawing funds from your home loan redraw or offset account. See the impact on your loan term, total interest, and payoff age." />
         <meta name="keywords" content="home loan withdrawal calculator, redraw impact, offset withdrawal cost, mortgage equity withdrawal, crown money calculators" />
-        <link rel="canonical" href="https://crown.money/tools/withdrawal-impact" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/withdrawal-impact" />
       </Helmet>
 
       {/* Hero Section */}

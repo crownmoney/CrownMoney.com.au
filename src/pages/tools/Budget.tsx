@@ -71,7 +71,7 @@ export const Budget = () => {
         <title>Budget Planner & Monthly Savings Calculator Australia | Crown Money</title>
         <meta name="description" content="Take control of your finances with our interactive budget planner. Track income, expenses, and savings rate to find surplus cash flow for faster mortgage reduction and wealth building in Australia." />
         <meta name="keywords" content="budget planner australia, savings calculator, monthly budget tool, crown money tools, debt reduction strategy, cash flow management, financial planning australia" />
-        <link rel="canonical" href="https://crown.money/tools/budget" />
+        <link rel="canonical" href="https://crownmoney.com.au/tools/budget" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -83,13 +83,13 @@ export const Budget = () => {
                 "brand": {
                   "@type": "Organization",
                   "name": "Crown Money",
-                  "url": "https://crown.money"
+                  "url": "https://crownmoney.com.au"
                 }
               },
               {
                 "@type": "WebSite",
                 "name": "Crown Money",
-                "url": "https://crown.money"
+                "url": "https://crownmoney.com.au"
               },
               {
                 "@type": "BreadcrumbList",
@@ -98,19 +98,19 @@ export const Budget = () => {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://crown.money"
+                    "item": "https://crownmoney.com.au"
                   },
                   {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Tools",
-                    "item": "https://crown.money/tools"
+                    "item": "https://crownmoney.com.au/tools"
                   },
                   {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Budget Planner",
-                    "item": "https://crown.money/tools/budget"
+                    "item": "https://crownmoney.com.au/tools/budget"
                   }
                 ]
               }
