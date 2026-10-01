@@ -79,6 +79,7 @@ export const About = () => {
         { name: "Anton Ulu", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Anton_BW.jpg" },
         { name: "Eve Aulsebrook", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Eve%20Aulsebrook_BW.png" },
         { name: "Ryan Khamram", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/Ryan%20Khamram_BW.jpeg" },
+        { name: "David Burge", role: "Appointment Setter", image: "https://storage.googleapis.com/crown_money/Website/About/People/david%20burge.png" },
         { name: "Jeanelle Penalosa", role: "Sales Operations Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanelle%20Penalosa_BW.jpeg" },
         { name: "Kim Ornopia", role: "Sales Administration", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kim%20O_BW.png" },
       ]
