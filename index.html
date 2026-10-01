@@ -1,6 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Disable HubSpot Chatbot Widget (On the Right) -->
+    <script>
+      window.hsConversationsSettings = {
+        loadImmediately: false
+      };
+      window.hsConversationsOnReady = [
+        function() {
+          if (window.HubSpotConversations && window.HubSpotConversations.widget) {
+            window.HubSpotConversations.widget.remove();
+          }
+        }
+      ];
+      (function() {
+        var removeHubSpotChat = function() {
+          if (window.HubSpotConversations && window.HubSpotConversations.widget) {
+            try { window.HubSpotConversations.widget.remove(); } catch(e) {}
+          }
+          var ids = ['hubspot-messages-iframe-container', 'hs-chat-open'];
+          ids.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.remove();
+          });
+          var iframes = document.querySelectorAll('iframe[src*="hubspot.com/conversations-visitor"], iframe#hubspot-conversations-iframe');
+          iframes.forEach(function(f) {
+            if (f.parentElement) f.parentElement.remove();
+          });
+        };
+        if (typeof window !== 'undefined') {
+          var observer = new MutationObserver(function() {
+            removeHubSpotChat();
+          });
+          if (document.documentElement) {
+            observer.observe(document.documentElement, { childList: true, subtree: true });
+          }
+          window.addEventListener('DOMContentLoaded', removeHubSpotChat);
+          window.addEventListener('load', removeHubSpotChat);
+        }
+      })();
+    </script>
     <!-- Google Tag Manager -->
     <script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://customer.crownmoney.com.au",a="https://load.customer.crownmoney.com.au",i="aevfyxmgb",c="dipyesa=CwNQPy0rWzEyLCFMTSohQxRaX1ZIQBILXwQfFw4IGwoMAhRWGgkbSwMS",g="cookie",v="yikes",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
     <!-- End Google Tag Manager -->

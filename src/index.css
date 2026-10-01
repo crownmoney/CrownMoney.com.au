@@ -39,3 +39,22 @@
 .markdown-body p {
   @apply mb-2 last:mb-0;
 }
+
+/* Hide and disable HubSpot chatbot widget on the right */
+#hubspot-messages-iframe-container,
+#hubspot-conversations-iframe,
+.hs-messages-widget-open,
+iframe[src*="hubspot.com/conversations-visitor"],
+#hs-chat-open,
+div[id*="hubspot-messages"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -99999 !important;
+}
