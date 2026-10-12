@@ -107,6 +107,7 @@ export const About = () => {
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
         { name: "Jeanne Horman", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanne%20Horman_BW3.png" },
         { name: "Amelia Wedding", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Amelia%20Wedding_BW.png" },
+        { name: "Angela Leng", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Angela%20Leng_BW.jpg" },
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
         { name: "Diana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
         { name: "Indiana Damasco", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Indiana_BW.jpg" },
