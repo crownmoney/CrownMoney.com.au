@@ -84,6 +84,7 @@ export const About = () => {
         { name: "David Burge", role: "Financial Associate", image: "https://storage.googleapis.com/crown_money/Website/About/People/david%20burge.png" },
         { name: "Chris Wu", role: "Financial Associate", image: "https://storage.googleapis.com/crown_money/Website/About/People/Chris%20Wu_BW.jpg" },
         { name: "Luke Batten", role: "Financial Associate", image: "https://storage.googleapis.com/crown_money/Website/About/People/Luke%20Batten_BW.png" },
+        { name: "Tristan Sulter", role: "Financial Associate", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tristan%20Sulter_BW.png" },
         { name: "Jeanelle Penalosa", role: "Sales Operations Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanelle%20Penalosa_BW.jpeg" },
         { name: "Kim Ornopia", role: "Sales Administration", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kim%20O_BW.png" },
       ]
