@@ -87,6 +87,7 @@ export const About = () => {
         { name: "Tristan Sulter", role: "Financial Associate", image: "https://storage.googleapis.com/crown_money/Website/About/People/Tristan%20Sulter_BW.png" },
         { name: "Jeanelle Penalosa", role: "Sales Operations Assistant", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanelle%20Penalosa_BW.jpeg" },
         { name: "Kim Ornopia", role: "Sales Administration", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kim%20O_BW.png" },
+        { name: "Key Cadungog", role: "Sales VA", image: "https://storage.googleapis.com/crown_money/Website/About/People/Key_BW.jpg" },
       ]
     },
     {
@@ -115,6 +116,7 @@ export const About = () => {
         { name: "Grace Rosario", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Grace.jpg" },
         { name: "Diana Argamosa", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Diana%20Argamosa_Heashot%20BW.jpeg" },
         { name: "Indiana Damasco", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Indiana_BW.jpg" },
+        { name: "Judah Rivera", role: "Client Care Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Judah-Rivera-photo_BW.jpg" },
         { name: "Maria Gabinete", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Maria.jpg" },
         { name: "Joyce Generale", role: "Client Success Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/JOYCE%20GENERALE.jpg" },
       ]
