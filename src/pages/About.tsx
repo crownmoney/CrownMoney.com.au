@@ -109,6 +109,7 @@ export const About = () => {
         { name: "Kate Gower-Brown", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Kate%20Gower-Brown_BW.jpg" },
         { name: "Karen Redfern", role: "Financial Coach", image: "https://storage.googleapis.com/crown_money/Website/About/People/Karen%20Redfern_2.png" },
         { name: "Bianca Del Rosario", role: "FSFL Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/Bianca_BW_2.jpeg" },
+        { name: "Karla Laurente", role: "FSFL Support", image: "https://storage.googleapis.com/crown_money/Website/About/People/Karla_BW.jpeg" },
         { name: "Nikki Van De Scheur", role: "Client Care Coordinator", image: "https://storage.googleapis.com/crown_money/Website/About/People/nikki%20van%20de%20scheur.jpg" },
         { name: "Silette Kroon", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Silette%20Kroon.png" },
         { name: "Jeanne Horman", role: "Client Care Officer", image: "https://storage.googleapis.com/crown_money/Website/About/People/Jeanne%20Horman_BW3.png" },
