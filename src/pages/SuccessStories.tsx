@@ -316,7 +316,7 @@ export const SuccessStories = () => {
                     </p>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-xs text-gray-400 font-mono">
+                    <span className="text-xs text-gray-600 font-mono">
                       Crown Success Video
                     </span>
                     <span className="text-xs text-gold font-bold flex items-center gap-1">
