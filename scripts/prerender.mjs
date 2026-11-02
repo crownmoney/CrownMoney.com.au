@@ -13,7 +13,8 @@ const dist = path.join(root, 'dist');
 const ssrDir = path.join(root, 'dist-ssr');
 const SITE_URL = 'https://crownmoney.com.au';
 
-const { render, PAGES } = await import(pathToFileURL(path.join(ssrDir, 'entry-server.js')).href);
+const { render, PAGES, preloadAllPages } = await import(pathToFileURL(path.join(ssrDir, 'entry-server.js')).href);
+await preloadAllPages();
 
 const template = fs
   .readFileSync(path.join(dist, 'index.html'), 'utf8')
@@ -46,9 +47,27 @@ function splitHead(html) {
   return { head: marked.join('\n    '), body: rest };
 }
 
-function renderPage(url) {
+// Vite manifest: lets each page preload its own JS chunk alongside the main bundle.
+const manifestPath = path.join(dist, '.vite', 'manifest.json');
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+function chunkPreloads(source) {
+  const files = new Set();
+  const visit = (key) => {
+    const entry = manifest[key];
+    if (!entry || entry.isEntry || files.has(entry.file)) return;
+    files.add(entry.file);
+    (entry.imports || []).forEach(visit);
+  };
+  if (source) visit(source);
+  return [...files].map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`).join('\n    ');
+}
+
+function renderPage(url, source) {
   const { html } = render(url);
-  const { head, body } = splitHead(html);
+  const split = splitHead(html);
+  const preloads = chunkPreloads(source);
+  const head = preloads ? `${split.head}\n    ${preloads}` : split.head;
+  const body = split.body;
   return template
     .replace('</head>', `    ${head}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
@@ -74,7 +93,7 @@ function writeRoute(url, html) {
 }
 
 for (const [url, meta] of Object.entries(PAGES)) {
-  const html = renderPage(url);
+  const html = renderPage(url, meta.source);
   check(url, html, meta);
   writeRoute(url, html);
 }
@@ -110,6 +129,7 @@ fs.writeFileSync(
 );
 
 fs.rmSync(ssrDir, { recursive: true, force: true });
+fs.rmSync(path.join(dist, '.vite'), { recursive: true, force: true });
 
 console.log(`Pre-rendered ${Object.keys(PAGES).length} pages + 404, sitemap with ${urls.length} URLs.`);
 if (warnings.length) {

@@ -172,16 +172,19 @@ export const PAGES: Record<string, PageMeta> = {
     description:
       'Find out if you could pay off your mortgage in half the time with a free strategy session from Crown Money.',
     noindex: true,
+    source: 'src/pages/PayOffMortgage.tsx',
   },
   '/completed': {
     title: 'Statement Shared Successfully | Crown Money',
     description: 'Your bank statement has been shared with Crown Money.',
     noindex: true,
+    source: 'src/pages/Completed.tsx',
   },
   '/error': {
     title: 'Bank Statement Connection Issue | Crown Money',
     description: 'We could not connect your bank statement. Please try again.',
     noindex: true,
+    source: 'src/pages/ErrorPage.tsx',
   },
 };
 

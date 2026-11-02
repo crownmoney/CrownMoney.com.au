@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Award, Trophy, Star } from 'lucide-react';
 
 const highlightedAward = {
@@ -58,7 +58,7 @@ export const Awards = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10 text-left">
             <div className="w-48 h-48 md:w-56 md:h-56 flex-shrink-0 bg-primary/5 rounded-2xl p-4 flex items-center justify-center border border-gray-100">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={highlightedAward.image} 
                 alt={`${highlightedAward.title}`} 
                 className="max-h-full max-w-full object-contain"
@@ -98,13 +98,13 @@ export const Awards = () => {
                   transition={{ delay: idx * 0.05 }}
                   className="flex flex-col items-center justify-center bg-white p-4 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-44 cursor-pointer"
                 >
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={award} 
                     alt={`${name} - Crown Money Win`} 
                     className="h-28 w-auto object-contain hover:scale-110 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mt-2 text-center truncate w-full">
+                  <span className="text-xs text-gray-500 font-bold uppercase mt-2 text-center truncate w-full">
                     Winner
                   </span>
                 </motion.div>
@@ -131,13 +131,13 @@ export const Awards = () => {
                   transition={{ delay: idx * 0.05 }}
                   className="flex flex-col items-center justify-center bg-white p-4 rounded-2xl border border-gray-100 shadow-sm h-44"
                 >
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={award} 
                     alt={`${name} - Crown Money Award Finalist`} 
                     className="h-28 w-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mt-2 text-center truncate w-full">
+                  <span className="text-xs text-gray-500 font-bold uppercase mt-2 text-center truncate w-full">
                     Finalist
                   </span>
                 </motion.div>

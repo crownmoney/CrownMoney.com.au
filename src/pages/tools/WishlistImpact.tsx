@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Home, 
@@ -223,11 +223,11 @@ export const WishlistImpact = () => {
                       </button>
                     </label>
                     {activeTooltip === 'principal' && (
-                      <div className="absolute z-20 bottom-full left-0 mb-2 p-2 bg-gray-800 text-white text-[10px] rounded shadow-lg w-48">
+                      <div className="absolute z-20 bottom-full left-0 mb-2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg w-48">
                         The current principal balance remaining on your home loan.
                       </div>
                     )}
-                    <input 
+                    <input aria-label="Current Amount Owing ($)" 
                       type="number" 
                       value={principal} 
                       onChange={(e) => setPrincipal(Number(e.target.value))} 
@@ -238,7 +238,7 @@ export const WishlistImpact = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Interest Rate (%)</label>
-                      <input 
+                      <input aria-label="Interest Rate (%)" 
                         type="number" 
                         step="0.01" 
                         value={interestRate} 
@@ -248,7 +248,7 @@ export const WishlistImpact = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Remaining Term (Yrs)</label>
-                      <input 
+                      <input aria-label="Remaining Term (Yrs)" 
                         type="number" 
                         value={remainingTerm} 
                         onChange={(e) => setRemainingTerm(Number(e.target.value))} 
@@ -259,7 +259,7 @@ export const WishlistImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Your Current Age</label>
-                    <input 
+                    <input aria-label="Your Current Age" 
                       type="number" 
                       value={currentAge} 
                       onChange={(e) => setCurrentAge(Number(e.target.value))} 
@@ -269,14 +269,14 @@ export const WishlistImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Monthly Repayment ($)</label>
-                    <input 
+                    <input aria-label="Monthly Repayment ($)" 
                       type="number" 
                       placeholder={`Min: $${Math.round(results.actualRepayment)}`}
                       value={currentRepayment || ''} 
                       onChange={(e) => setCurrentRepayment(Number(e.target.value))} 
                       className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold text-primary placeholder:font-normal" 
                     />
-                    <p className="text-[10px] text-gray-400 mt-1 italic">Leave blank to use minimum required repayment.</p>
+                    <p className="text-xs text-gray-500 mt-1 italic">Leave blank to use minimum required repayment.</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export const WishlistImpact = () => {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Item Name</label>
-                    <input 
+                    <input aria-label="Item Name" 
                       type="text" 
                       value={itemName} 
                       onChange={(e) => setItemName(e.target.value)} 
@@ -301,7 +301,7 @@ export const WishlistImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Purchase Price ($)</label>
-                    <input 
+                    <input aria-label="Purchase Price ($)" 
                       type="number" 
                       value={purchaseCost} 
                       onChange={(e) => setPurchaseCost(Number(e.target.value))} 
@@ -312,7 +312,7 @@ export const WishlistImpact = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Initial Extras ($)</label>
-                      <input 
+                      <input aria-label="Initial Extras ($)" 
                         type="number" 
                         value={additionalCosts} 
                         onChange={(e) => setAdditionalCosts(Number(e.target.value))} 
@@ -321,7 +321,7 @@ export const WishlistImpact = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Annual Upkeep ($)</label>
-                      <input 
+                      <input aria-label="Annual Upkeep ($)" 
                         type="number" 
                         value={maintenanceCost} 
                         onChange={(e) => setMaintenanceCost(Number(e.target.value))} 
@@ -343,7 +343,7 @@ export const WishlistImpact = () => {
                       <h3 className="text-3xl font-display font-bold text-primary mb-2">The Real Cost of your {itemName}</h3>
                       <p className="text-gray-500">Comparing your current loan path vs adding lifestyle debt.</p>
                     </div>
-                    <div className="bg-red-50 text-red-600 px-6 py-3 rounded-2xl flex items-center font-bold">
+                    <div className="bg-red-50 text-red-700 px-6 py-3 rounded-2xl flex items-center font-bold">
                       <AlertTriangle size={20} className="mr-2" />
                       Financial Impact Detected
                     </div>
@@ -354,33 +354,33 @@ export const WishlistImpact = () => {
                       <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                         <DollarSign className="text-primary" size={24} />
                       </div>
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Extra Interest Paid</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Extra Interest Paid</p>
                       <p className="text-3xl font-display font-bold text-primary">
                         {results.neverPaidOff ? 'Infinite' : `$${Math.round(results.interestImpact).toLocaleString()}`}
                       </p>
-                      <p className="text-[10px] text-gray-400 mt-2">Over the life of the loan</p>
+                      <p className="text-xs text-gray-500 mt-2">Over the life of the loan</p>
                     </div>
 
                     <div className="bg-gray-50 p-8 rounded-3xl text-center border border-gray-100">
                       <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                         <Clock className="text-primary" size={24} />
                       </div>
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Extra Loan Time</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Extra Loan Time</p>
                       <p className="text-3xl font-display font-bold text-primary">
                         {results.neverPaidOff ? 'Forever' : `${results.termImpactYears} Years`}
                       </p>
-                      <p className="text-[10px] text-gray-400 mt-2">Added to your mortgage</p>
+                      <p className="text-xs text-gray-500 mt-2">Added to your mortgage</p>
                     </div>
 
                     <div className="bg-gray-50 p-8 rounded-3xl text-center border border-gray-100">
                       <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4">
                         <TrendingUp className="text-primary" size={24} />
                       </div>
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">New Payoff Age</p>
-                      <p className="text-3xl font-display font-bold text-gold">
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">New Payoff Age</p>
+                      <p className="text-3xl font-display font-bold text-gold-dark">
                         {results.neverPaidOff ? '99+' : results.newPayoffAge}
                       </p>
-                      <p className="text-[10px] text-gray-400 mt-2">vs current age {results.currentPayoffAge}</p>
+                      <p className="text-xs text-gray-500 mt-2">vs current age {results.currentPayoffAge}</p>
                     </div>
                   </div>
 
@@ -434,7 +434,7 @@ export const WishlistImpact = () => {
                             </div>
                           </div>
                         ))}
-                        <div className="flex justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <div className="flex justify-between text-xs text-gray-500 font-bold uppercase tracking-widest">
                           <span>Age {currentAge}</span>
                           <span>Age 100</span>
                         </div>

@@ -5,6 +5,7 @@
   --color-accent: #F1EAF8;
   --color-gold: #D4AF37;
   --color-gold-hover: #B8962E;
+  --color-gold-dark: #7D5F10; /* gold text on light backgrounds (WCAG AA) */
   
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;

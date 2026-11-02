@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { useLazyElfsight } from '../utils/useLazyElfsight';
+import { motion } from '../utils/motion';
 import { 
   Star, 
   Search, 
@@ -105,16 +106,7 @@ export const Reviews = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [visibleVideoCount, setVisibleVideoCount] = useState<number>(6);
 
-  useEffect(() => {
-    // Dynamically inject the Elfsight script for Google Reviews if not present
-    const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://elfsightcdn.com/platform.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
+  const reviewsWidgetRef = useLazyElfsight<HTMLDivElement>();
 
   // Comprehensive list of client reviews & case studies
   const allReviews = [
@@ -570,12 +562,12 @@ export const Reviews = () => {
               </div>
 
               {/* 2 & 1 Stars */}
-              <div className="flex items-center gap-3 text-xs font-medium text-gray-600 opacity-60">
+              <div className="flex items-center gap-3 text-xs font-medium text-gray-600">
                 <span className="w-12 text-right">2 & 1 Star</span>
                 <div className="flex-1 bg-gray-100 h-3 rounded-full overflow-hidden">
                   <div className="bg-gray-300 h-full rounded-full w-[0%]" />
                 </div>
-                <span className="w-10 text-gray-400">0%</span>
+                <span className="w-10 text-gray-500">0%</span>
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gray-100 mt-4">
@@ -612,7 +604,7 @@ export const Reviews = () => {
           </div>
           <div className="bg-gray-50 p-6 md:p-8 rounded-3xl shadow-lg border border-gray-100">
             {/* Elfsight Google Reviews Widget Container */}
-            <div className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
+            <div ref={reviewsWidgetRef} className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
           </div>
         </div>
       </section>
@@ -740,7 +732,7 @@ export const Reviews = () => {
                       <span className="text-sm font-display font-bold text-primary">{review.highlight}</span>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 text-[11px]">
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 text-xs">
                       {review.tags.map((tag, i) => (
                         <span key={i} className="bg-gray-100 text-gray-600 px-2.5 py-0.5 rounded-md font-medium">
                           #{tag}

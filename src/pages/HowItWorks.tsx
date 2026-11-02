@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Phone, FileText, Settings, TrendingUp, CheckCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -48,7 +48,7 @@ export const HowItWorks = () => {
       "position": idx + 1,
       "name": step.title,
       "text": step.desc,
-      "image": step.image
+      "image": step.image.startsWith('/') ? `https://crownmoney.com.au${step.image}` : step.image
     }))
   };
 
@@ -64,7 +64,7 @@ export const HowItWorks = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-primary mb-6">
-              How Our <span className="text-gold">Mortgage Reduction</span> System Works
+              How Our <span className="text-gold-dark">Mortgage Reduction</span> System Works
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               We don't just give you a loan. We give you a strategy and the coaching to ensure you actually pay it off.
@@ -75,9 +75,9 @@ export const HowItWorks = () => {
           </div>
           <div className="relative">
             <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-              <iframe 
+              <iframe loading="lazy" 
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/vAKiVus_r7k" 
+                src="https://www.youtube-nocookie.com/embed/vAKiVus_r7k" 
                 title="How Crown Money Works" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -122,7 +122,7 @@ export const HowItWorks = () => {
                 </div>
                 <div className="w-full md:w-1/2">
                   <div className="bg-crown-lavender rounded-3xl p-4 aspect-square flex items-center justify-center">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={step.image} 
                       alt={`Crown Money Process Step: ${step.title} - ${step.desc.substring(0, 60)}...`} 
                       className="rounded-2xl shadow-xl w-full h-full object-cover"
@@ -140,7 +140,7 @@ export const HowItWorks = () => {
       <section className="py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 relative">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://storage.googleapis.com/crown_money/Website/Images/Wealth%20Tracking%20Dashboard_Crown%20Money.png" 
               alt="Crown Money Wealth Tracking Dashboard - Real-time mortgage balance and net worth visualisation" 
               className="rounded-3xl shadow-2xl border-4 border-white/10"
@@ -167,7 +167,7 @@ export const HowItWorks = () => {
               </li>
             </ul>
             <div className="pt-6">
-              <Link to="/contact" className="bg-gold text-white px-8 py-4 rounded-full font-bold hover:bg-gold-hover transition-all inline-block">
+              <Link to="/contact" className="bg-gold text-primary px-8 py-4 rounded-full font-bold hover:bg-gold-hover transition-all inline-block">
                 Get Your Personal Dashboard
               </Link>
             </div>

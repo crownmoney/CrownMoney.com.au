@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { AlertCircle, Send, CheckCircle2, Phone, Mail, ArrowRight, ShieldCheck, Lock, RefreshCw, Sparkles } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getLeadSourceData } from '../utils/urlTracker';

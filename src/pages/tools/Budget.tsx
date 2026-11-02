@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Calculator, ArrowRight, Info, TrendingUp, DollarSign, PieChart as PieChartIcon, Wallet, Plus, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -136,8 +136,9 @@ export const Budget = () => {
                     Monthly Income
                   </h2>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">$</span>
                     <input 
+                      aria-label="Monthly income"
                       type="number" 
                       value={income} 
                       onChange={(e) => setIncome(Number(e.target.value))}
@@ -152,13 +153,14 @@ export const Budget = () => {
                     <div key={expense.id} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-2xl group">
                       <div className="flex-1">
                         <p className="font-bold text-primary">{expense.name}</p>
-                        <p className="text-xs text-gray-400 uppercase font-bold">{expense.category}</p>
+                        <p className="text-xs text-gray-500 uppercase font-bold">{expense.category}</p>
                       </div>
                       <div className="text-right">
                         <p className="font-bold text-primary">${expense.amount.toLocaleString()}</p>
                       </div>
                       <button 
                         onClick={() => removeExpense(expense.id)}
+                        aria-label={`Remove ${expense.name}`}
                         className="p-2 text-gray-300 hover:text-red-500 transition-colors"
                       >
                         <Trash2 size={18} />
@@ -171,6 +173,7 @@ export const Budget = () => {
                   <h4 className="font-bold text-primary mb-4">Add New Expense</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input 
+                      aria-label="Expense name"
                       type="text" 
                       placeholder="Expense Name"
                       value={newItem.name}
@@ -178,8 +181,9 @@ export const Budget = () => {
                       className="p-3 rounded-xl border border-gray-200 outline-none"
                     />
                     <div className="relative">
-                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">$</span>
                       <input 
+                        aria-label="Expense amount"
                         type="number" 
                         placeholder="Amount"
                         value={newItem.amount || ''}
@@ -188,6 +192,7 @@ export const Budget = () => {
                       />
                     </div>
                     <select 
+                      aria-label="Expense category"
                       value={newItem.category}
                       onChange={(e) => setNewItem({...newItem, category: e.target.value})}
                       className="p-3 rounded-xl border border-gray-200 outline-none bg-white"

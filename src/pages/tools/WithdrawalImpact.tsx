@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { 
   Home, 
   Calculator, 
@@ -185,7 +185,7 @@ export const WithdrawalImpact = () => {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Current Balance Owing ($)</label>
-                    <input 
+                    <input aria-label="Current Balance Owing ($)" 
                       type="number" 
                       value={principal} 
                       onChange={(e) => setPrincipal(Number(e.target.value))} 
@@ -196,7 +196,7 @@ export const WithdrawalImpact = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Interest Rate (%)</label>
-                      <input 
+                      <input aria-label="Interest Rate (%)" 
                         type="number" 
                         step="0.01" 
                         value={interestRate} 
@@ -206,7 +206,7 @@ export const WithdrawalImpact = () => {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Remaining Term (Yrs)</label>
-                      <input 
+                      <input aria-label="Remaining Term (Yrs)" 
                         type="number" 
                         value={remainingTerm} 
                         onChange={(e) => setRemainingTerm(Number(e.target.value))} 
@@ -217,7 +217,7 @@ export const WithdrawalImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Your Current Age</label>
-                    <input 
+                    <input aria-label="Your Current Age" 
                       type="number" 
                       value={currentAge} 
                       onChange={(e) => setCurrentAge(Number(e.target.value))} 
@@ -227,7 +227,7 @@ export const WithdrawalImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Monthly Repayment ($)</label>
-                    <input 
+                    <input aria-label="Monthly Repayment ($)" 
                       type="number" 
                       placeholder={`Min: $${Math.round(results.actualRepayment)}`}
                       value={currentRepayment || ''} 
@@ -247,7 +247,7 @@ export const WithdrawalImpact = () => {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Reason for Withdrawal</label>
-                    <input 
+                    <input aria-label="Reason for Withdrawal" 
                       type="text" 
                       value={withdrawalReason} 
                       onChange={(e) => setWithdrawalReason(e.target.value)} 
@@ -257,7 +257,7 @@ export const WithdrawalImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Withdrawal Amount ($)</label>
-                    <input 
+                    <input aria-label="Withdrawal Amount ($)" 
                       type="number" 
                       value={withdrawalAmount} 
                       onChange={(e) => setWithdrawalAmount(Number(e.target.value))} 
@@ -267,13 +267,13 @@ export const WithdrawalImpact = () => {
 
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Ongoing Annual Cost ($)</label>
-                    <input 
+                    <input aria-label="Ongoing Annual Cost ($)" 
                       type="number" 
                       value={ongoingCost} 
                       onChange={(e) => setOngoingCost(Number(e.target.value))} 
                       className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold text-primary" 
                     />
-                    <p className="text-[10px] text-gray-400 mt-1 italic">e.g. Maintenance, insurance, or running costs.</p>
+                    <p className="text-xs text-gray-500 mt-1 italic">e.g. Maintenance, insurance, or running costs.</p>
                   </div>
                 </div>
               </div>
@@ -293,22 +293,22 @@ export const WithdrawalImpact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <div className="bg-gray-50 p-8 rounded-3xl text-center border border-gray-100">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Extra Interest Paid</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Extra Interest Paid</p>
                       <p className="text-3xl font-display font-bold text-primary">
                         {results.neverPaidOff ? 'Infinite' : `$${Math.round(results.interestImpact).toLocaleString()}`}
                       </p>
                     </div>
 
                     <div className="bg-gray-50 p-8 rounded-3xl text-center border border-gray-100">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Extra Loan Time</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Extra Loan Time</p>
                       <p className="text-3xl font-display font-bold text-primary">
                         {results.neverPaidOff ? 'Forever' : `${results.termImpactYears} Years`}
                       </p>
                     </div>
 
                     <div className="bg-gray-50 p-8 rounded-3xl text-center border border-gray-100">
-                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">New Payoff Age</p>
-                      <p className="text-3xl font-display font-bold text-gold">
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">New Payoff Age</p>
+                      <p className="text-3xl font-display font-bold text-gold-dark">
                         {results.neverPaidOff ? '99+' : results.newPayoffAge}
                       </p>
                     </div>

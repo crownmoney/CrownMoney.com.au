@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 
 const logos = [
   "https://storage.googleapis.com/crown_money/Trust%20Signals/7%20today%20tonight%20logo.png",
@@ -23,7 +23,7 @@ export const TrustSignals = () => {
   return (
     <section className="py-16 bg-white overflow-hidden border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
-        <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">As Seen On & Featured In</p>
+        <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">As Seen On & Featured In</p>
       </div>
       <div className="relative flex overflow-x-hidden group">
         <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
@@ -43,7 +43,7 @@ export const TrustSignals = () => {
             const logoName = logo.split('/').pop()?.replace(/%20/g, ' ').replace(/\.[^/.]+$/, '') || 'Media Logo';
             return (
               <div key={idx} className="mx-10 md:mx-14 flex items-center justify-center bg-white p-8 rounded-3xl shadow-sm border border-gray-100 min-w-[260px] h-36 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={logo} 
                   alt={`${logoName} - Featured in Crown Money Media`} 
                   className="max-h-full max-w-full object-contain"

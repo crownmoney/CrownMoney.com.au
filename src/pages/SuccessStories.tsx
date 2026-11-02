@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { useLazyElfsight } from '../utils/useLazyElfsight';
+import { motion } from '../utils/motion';
 import { Star, ArrowRight, Quote, TrendingDown, Calendar, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -7,16 +8,7 @@ import { Helmet } from 'react-helmet-async';
 export const SuccessStories = () => {
   const [visibleCount, setVisibleCount] = useState(6);
 
-  useEffect(() => {
-    // Dynamically inject the Elfsight script for Google Reviews
-    const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://elfsightcdn.com/platform.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
+  const reviewsWidgetRef = useLazyElfsight<HTMLDivElement>();
 
   const stories = [
     {
@@ -224,7 +216,7 @@ export const SuccessStories = () => {
           </div>
           <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-gray-100">
             {/* Elfsight Google Reviews Widget */}
-            <div className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
+            <div ref={reviewsWidgetRef} className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
           </div>
         </div>
       </section>
@@ -251,7 +243,7 @@ export const SuccessStories = () => {
                 className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col h-full"
               >
                 <div className="relative h-64">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={story.image} 
                     alt={story.name} 
                     className="w-full h-full object-cover"
@@ -260,7 +252,7 @@ export const SuccessStories = () => {
                     }}
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-4 right-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="absolute top-4 right-4 bg-gold text-primary px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     {story.result}
                   </div>
                 </div>
@@ -309,7 +301,7 @@ export const SuccessStories = () => {
                     src={video.url}
                     className="w-full h-full object-contain"
                     controls
-                    preload="metadata"
+                    preload="none"
                     playsInline
                   />
                 </div>

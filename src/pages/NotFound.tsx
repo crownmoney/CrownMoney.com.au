@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Home, AlertTriangle, ArrowRight } from 'lucide-react';
 
 export const NotFound = () => {

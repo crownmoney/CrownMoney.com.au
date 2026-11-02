@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Calculator, ArrowRight, Info, TrendingUp, DollarSign, PieChart as PieChartIcon, Wallet, Landmark, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -122,7 +122,7 @@ export const NetWorth = () => {
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
                         {key.replace(/([A-Z])/g, ' $1')} ($)
                       </label>
-                      <input 
+                      <input aria-label={`${key.replace(/([A-Z])/g, ' $1')} ($)`} 
                         type="number" 
                         value={assets[key]} 
                         onChange={(e) => setAssets({...assets, [key]: Number(e.target.value)})} 
@@ -144,7 +144,7 @@ export const NetWorth = () => {
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">
                         {key.replace(/([A-Z])/g, ' $1')} ($)
                       </label>
-                      <input 
+                      <input aria-label={`${key.replace(/([A-Z])/g, ' $1')} ($)`} 
                         type="number" 
                         value={liabilities[key]} 
                         onChange={(e) => setLiabilities({...liabilities, [key]: Number(e.target.value)})} 
@@ -197,7 +197,7 @@ export const NetWorth = () => {
                       </div>
                       <div className="pt-6 border-t border-primary/10">
                         <p className="text-sm text-gray-600 mb-1">Net Worth</p>
-                        <p className="text-4xl font-display font-bold text-gold">${results.netWorth.toLocaleString()}</p>
+                        <p className="text-4xl font-display font-bold text-gold-dark">${results.netWorth.toLocaleString()}</p>
                       </div>
                     </div>
                   </div>

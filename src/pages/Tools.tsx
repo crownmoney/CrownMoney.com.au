@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { Calculator, TrendingUp, Home, DollarSign, Percent, PieChart, ArrowRight, Info, CheckCircle, RefreshCw, Briefcase, Wallet, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PieChart as RePieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
@@ -19,7 +19,7 @@ const ToolCard = ({ icon: Icon, title, description, onClick, active }: any) => (
     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${active ? 'bg-white/10' : 'bg-accent'}`}>
       <Icon size={24} />
     </div>
-    <h3 className="text-lg font-bold mb-2">{title}</h3>
+    <h2 className="text-lg font-bold mb-2">{title}</h2>
     <p className={`text-sm ${active ? 'text-gray-300' : 'text-gray-500'}`}>{description}</p>
   </button>
 );
@@ -28,14 +28,14 @@ const InputField = ({ label, value, onChange, type = "number", prefix, suffix }:
   <div className="space-y-2">
     <label className="text-sm font-bold text-gray-700">{label}</label>
     <div className="relative">
-      {prefix && <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">{prefix}</span>}
-      <input 
+      {prefix && <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">{prefix}</span>}
+      <input aria-label={`${label}`} 
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={`w-full py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all outline-none font-bold ${prefix ? 'pl-10' : 'pl-4'} ${suffix ? 'pr-10' : 'pr-4'}`}
       />
-      {suffix && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">{suffix}</span>}
+      {suffix && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">{suffix}</span>}
     </div>
   </div>
 );
@@ -93,7 +93,7 @@ const MortgageRepaymentCalc = () => {
               <button
                 key={f}
                 onClick={() => setFrequency(f)}
-                className={`py-2 rounded-xl font-bold text-sm capitalize transition-all ${frequency === f ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+                className={`py-2 rounded-xl font-bold text-sm capitalize transition-all ${frequency === f ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               >
                 {f}
               </button>
@@ -132,11 +132,11 @@ const MortgageRepaymentCalc = () => {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded-2xl shadow-sm">
-            <p className="text-xs text-gray-400 font-bold uppercase mb-1">Total Interest</p>
+            <p className="text-xs text-gray-500 font-bold uppercase mb-1">Total Interest</p>
             <p className="text-lg font-bold text-primary">${Math.round(results.totalInterest).toLocaleString()}</p>
           </div>
           <div className="bg-white p-4 rounded-2xl shadow-sm">
-            <p className="text-xs text-gray-400 font-bold uppercase mb-1">Total Repayment</p>
+            <p className="text-xs text-gray-500 font-bold uppercase mb-1">Total Repayment</p>
             <p className="text-lg font-bold text-primary">${Math.round(results.totalRepayment).toLocaleString()}</p>
           </div>
         </div>
@@ -198,7 +198,7 @@ const ExtraRepaymentCalc = () => {
               <button
                 key={f}
                 onClick={() => setFrequency(f)}
-                className={`py-2 rounded-xl font-bold text-sm capitalize transition-all ${frequency === f ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+                className={`py-2 rounded-xl font-bold text-sm capitalize transition-all ${frequency === f ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               >
                 {f}
               </button>
@@ -216,7 +216,7 @@ const ExtraRepaymentCalc = () => {
         <div className="bg-white p-8 rounded-3xl shadow-xl text-center">
           <TrendingUp className="text-gold mx-auto mb-4" size={48} />
           <p className="text-lg font-bold text-primary mb-2">You could be mortgage-free</p>
-          <p className="text-4xl font-display font-bold text-gold">{results.yearsSaved.toFixed(1)} Years Sooner</p>
+          <p className="text-4xl font-display font-bold text-gold-dark">{results.yearsSaved.toFixed(1)} Years Sooner</p>
         </div>
 
         <p className="text-sm text-center text-gray-600 italic">
@@ -300,7 +300,7 @@ const StampDutyCalc = () => {
         <InputField label="Property Purchase Price" value={propertyValue} onChange={setPropertyValue} prefix="$" />
         <div className="space-y-2">
           <label className="text-sm font-bold text-gray-700">State</label>
-          <select 
+          <select aria-label="State" 
             value={state}
             onChange={(e) => setState(e.target.value)}
             className="w-full py-3 px-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all outline-none font-bold bg-white"
@@ -466,7 +466,7 @@ export const Tools = () => {
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-3">{tool.title}</h3>
                 <p className="text-gray-500 text-sm mb-6">{tool.description}</p>
-                <div className="flex items-center text-gold font-bold text-sm group-hover:translate-x-2 transition-transform">
+                <div className="flex items-center text-gold-dark font-bold text-sm group-hover:translate-x-2 transition-transform">
                   <span>Open Tool</span>
                   <ArrowRight size={16} className="ml-2" />
                 </div>

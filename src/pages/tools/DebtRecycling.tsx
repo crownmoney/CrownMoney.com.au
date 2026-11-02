@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Calculator, ArrowRight, Info, TrendingUp, DollarSign, RefreshCw, BarChart as BarChartIcon, LineChart as LineChartIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -123,20 +123,20 @@ export const DebtRecycling = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Mortgage Balance ($)</label>
-                    <input type="number" value={mortgageBalance} onChange={(e) => setMortgageBalance(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Mortgage Balance ($)" type="number" value={mortgageBalance} onChange={(e) => setMortgageBalance(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Annual Recycle Amount ($)</label>
-                    <input type="number" value={annualRecycleAmount} onChange={(e) => setAnnualRecycleAmount(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Annual Recycle Amount ($)" type="number" value={annualRecycleAmount} onChange={(e) => setAnnualRecycleAmount(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Interest Rate (%)</label>
-                      <input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                      <input aria-label="Interest Rate (%)" type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Tax Rate (%)</label>
-                      <input type="number" value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                      <input aria-label="Tax Rate (%)" type="number" value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                     </div>
                   </div>
                 </div>
@@ -150,11 +150,11 @@ export const DebtRecycling = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Expected Return (%)</label>
-                    <input type="number" step="0.1" value={investmentReturn} onChange={(e) => setInvestmentReturn(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Expected Return (%)" type="number" step="0.1" value={investmentReturn} onChange={(e) => setInvestmentReturn(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Strategy Duration (Years)</label>
-                    <input type="number" value={years} onChange={(e) => setYears(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Strategy Duration (Years)" type="number" value={years} onChange={(e) => setYears(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                 </div>
               </div>
@@ -189,17 +189,17 @@ export const DebtRecycling = () => {
                       </div>
                       <div>
                         <p className="text-gray-600 text-sm">Final Investment Value</p>
-                        <p className="text-3xl font-display font-bold text-gold">${Math.round(results.finalInvestment).toLocaleString()}</p>
+                        <p className="text-3xl font-display font-bold text-gold-dark">${Math.round(results.finalInvestment).toLocaleString()}</p>
                       </div>
                     </div>
                   </div>
                   <div className="space-y-6">
                     <div className="p-6 bg-gray-50 rounded-2xl">
-                      <p className="text-xs font-bold text-gray-400 uppercase mb-1">Final Deductible Debt</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase mb-1">Final Deductible Debt</p>
                       <p className="text-xl font-bold text-primary">${Math.round(results.finalDeductible).toLocaleString()}</p>
                     </div>
                     <div className="p-6 bg-gray-50 rounded-2xl">
-                      <p className="text-xs font-bold text-gray-400 uppercase mb-1">Final Non-Deductible Debt</p>
+                      <p className="text-xs font-bold text-gray-500 uppercase mb-1">Final Non-Deductible Debt</p>
                       <p className="text-xl font-bold text-primary">${Math.round(results.finalNonDeductible).toLocaleString()}</p>
                     </div>
                   </div>

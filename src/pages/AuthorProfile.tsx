@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Linkedin, Twitter, Mail, ArrowLeft, Award, BookOpen, MessageSquare } from 'lucide-react';
 
@@ -78,7 +78,7 @@ export const AuthorProfile = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="w-48 h-48 md:w-64 md:h-64 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl flex-shrink-0"
             >
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={author.image} 
                 alt={author.name} 
                 className="w-full h-full object-cover"
@@ -89,9 +89,9 @@ export const AuthorProfile = () => {
               <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">{author.name}</h1>
               <p className="text-xl text-gold font-bold mb-6">{author.role}</p>
               <div className="flex justify-center md:justify-start space-x-4">
-                <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Linkedin size={20} /></a>
-                <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Twitter size={20} /></a>
-                <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Mail size={20} /></a>
+                <a href="https://www.linkedin.com/company/crown-money" target="_blank" rel="noopener noreferrer" aria-label="Crown Money on LinkedIn" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Linkedin size={20} /></a>
+                <a href="https://twitter.com/Crown_Money" target="_blank" rel="noopener noreferrer" aria-label="Crown Money on X (Twitter)" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Twitter size={20} /></a>
+                <a href="mailto:admin@crown.money" aria-label="Email Crown Money" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Mail size={20} /></a>
               </div>
             </div>
           </div>

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, ChevronRight, FileText, Send, MessageSquare, TrendingUp, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import { getLeadSourceData } from '../utils/urlTracker';
 import { SEO } from './SEO';
+
+// Markdown rendering is only needed once the chat is used; keep it out of the main bundle.
+const ChatMarkdown = lazy(() => import('./ChatMarkdown'));
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -68,11 +69,11 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="https://www.facebook.com/CrownMoneyManagement" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Facebook size={16} /></a>
-            <a href="https://www.instagram.com/crownmoneyofficial/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Instagram size={16} /></a>
-            <a href="https://twitter.com/Crown_Money" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Twitter size={16} /></a>
-            <a href="https://www.linkedin.com/company/crown-money" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Linkedin size={16} /></a>
-            <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Youtube size={16} /></a>
+            <a href="https://www.facebook.com/CrownMoneyManagement" aria-label="Crown Money on Facebook" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Facebook size={16} /></a>
+            <a href="https://www.instagram.com/crownmoneyofficial/" aria-label="Crown Money on Instagram" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Instagram size={16} /></a>
+            <a href="https://twitter.com/Crown_Money" aria-label="Crown Money on X (Twitter)" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Twitter size={16} /></a>
+            <a href="https://www.linkedin.com/company/crown-money" aria-label="Crown Money on LinkedIn" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Linkedin size={16} /></a>
+            <a href="https://www.youtube.com/@crownmoneyAU" aria-label="Crown Money on YouTube" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Youtube size={16} /></a>
           </div>
         </div>
       </div>
@@ -161,7 +162,7 @@ const Header = ({ onChatToggle, onBookToggle }: { onChatToggle: () => void; onBo
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="lg:hidden text-primary" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="lg:hidden text-primary" aria-label={isMenuOpen ? "Close menu" : "Open menu"} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -250,7 +251,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="space-y-6">
           <Link to="/">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/Crown%20Money%20Cropped%20Logo.png" 
               alt="Crown Money" 
               className="h-16 w-auto"
@@ -278,7 +279,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
         </div>
 
         <div>
-          <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Quick Links</h4>
+          <h2 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Quick Links</h2>
           <ul className="space-y-3 text-sm text-gray-300">
             <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
             <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
@@ -301,7 +302,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
         </div>
 
         <div>
-          <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Legal</h4>
+          <h2 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Legal</h2>
           <ul className="space-y-3 text-sm text-gray-300">
             <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             <li>
@@ -314,13 +315,13 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
         </div>
 
         <div>
-          <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Follow Us</h4>
+          <h2 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Follow Us</h2>
           <div className="flex space-x-4 mb-8">
-            <a href="https://www.facebook.com/CrownMoneyManagement" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Facebook size={20} /></a>
-            <a href="https://www.instagram.com/crownmoneyofficial/" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Instagram size={20} /></a>
-            <a href="https://twitter.com/Crown_Money" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Twitter size={20} /></a>
-            <a href="https://www.linkedin.com/company/crown-money" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Linkedin size={20} /></a>
-            <a href="https://www.youtube.com/@crownmoneyAU" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
+            <a href="https://www.facebook.com/CrownMoneyManagement" aria-label="Crown Money on Facebook" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Facebook size={20} /></a>
+            <a href="https://www.instagram.com/crownmoneyofficial/" aria-label="Crown Money on Instagram" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Instagram size={20} /></a>
+            <a href="https://twitter.com/Crown_Money" aria-label="Crown Money on X (Twitter)" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Twitter size={20} /></a>
+            <a href="https://www.linkedin.com/company/crown-money" aria-label="Crown Money on LinkedIn" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Linkedin size={20} /></a>
+            <a href="https://www.youtube.com/@crownmoneyAU" aria-label="Crown Money on YouTube" target="_blank" rel="noopener noreferrer" className="bg-white/10 p-3 rounded-full hover:bg-gold transition-all"><Youtube size={20} /></a>
           </div>
           <p className="text-xs text-gray-400 mb-4">
             Crown Lending Pty Ltd ACL Number – 388 279 | Crown Lending ACN – 119 504 862 | MFAA Member
@@ -342,7 +343,7 @@ const Footer = ({ onBookToggle, onRatesToggle }: { onBookToggle: () => void; onR
       </div>
       
       <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10">
-        <p className="text-[10px] text-gray-400 leading-relaxed uppercase">
+        <p className="text-xs text-gray-400 leading-relaxed uppercase">
           THIS INFORMATION IS GENERAL IN NATURE AND DOES NOT TAKE INTO ACCOUNT YOUR PERSONAL FINANCIAL SITUATION. IT IS FOR EDUCATIONAL PURPOSES ONLY, AND DOES NOT CONSTITUTE FORMAL FINANCIAL OR PERSONAL ADVICE. YOU SHOULD CONSIDER THE APPROPRIATENESS OF THE ADVICE TO YOUR OWN SITUATION AND NEEDS BEFORE TAKING ANY ACTION. IT SHOULD NOT BE RELIED UPON FOR THE PURPOSES OF ENTERING INTO ANY LEGAL OR FINANCIAL COMMITMENTS.
         </p>
       </div>
@@ -672,7 +673,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
             )}
 
             <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50">
-              <div className="bg-amber-50 border border-amber-100 p-3 rounded-xl text-[10px] text-amber-800 leading-tight mb-2">
+              <div className="bg-amber-50 border border-amber-100 p-3 rounded-xl text-xs text-amber-800 leading-tight mb-2">
                 DISCLAIMER: This AI assistant provides general information only and is not a substitute for professional financial advice. For personalised guidance, please book a call with our experts.
               </div>
               {messages.map((msg, idx) => (
@@ -683,9 +684,9 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
                   )}>
                     {msg.isBot ? (
                       <div className="markdown-body">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                           {msg.text}
-                        </ReactMarkdown>
+                        <Suspense fallback={<p className="whitespace-pre-wrap">{msg.text}</p>}>
+                          <ChatMarkdown text={msg.text} />
+                        </Suspense>
                       </div>
                     ) : (
                       msg.text
@@ -699,7 +700,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
                     <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.2s]"></div>
                     <div className="w-2 h-2 bg-primary/30 rounded-full animate-bounce [animation-delay:0.4s]"></div>
-                    <span className="text-[10px] text-gray-400 ml-2">Thinking...</span>
+                    <span className="text-xs text-gray-400 ml-2">Thinking...</span>
                   </div>
                 </div>
               )}
@@ -722,6 +723,7 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
       </AnimatePresence>
       <button 
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close chat" : "Chat with Crown Money"}
         className="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
       >
         {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
@@ -968,7 +970,7 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-4 rounded-xl text-[10px] text-gray-400 leading-tight space-y-2">
+              <div className="bg-gray-50 p-4 rounded-xl text-xs text-gray-400 leading-tight space-y-2">
                 <p>Fees are subject to change and may vary based on specific product selection and individual circumstances.</p>
                 <p>We offer many different custom solutions to help clients achieve their goals. The above maximum rates and fees are applicable to the loans; however, there are many other services available that may be in addition to this <a href="https://storage.googleapis.com/crown_money/Website/Resources/Origin%20Rates%20(Effective%2011May26)%20-%20HOP.pdf" target="_blank" rel="noopener noreferrer" className="underline font-bold text-primary hover:text-gold">rate card</a>.</p>
               </div>

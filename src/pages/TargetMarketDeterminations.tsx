@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { FileText, Download, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Newsletter } from '../components/Newsletter';

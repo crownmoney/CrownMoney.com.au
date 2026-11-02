@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { MortgageCalculator } from '../components/MortgageCalculator';
 import { ShieldCheck, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';

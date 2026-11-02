@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { Users, Target, History, Award, CheckCircle, Linkedin, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { clsx, type ClassValue } from 'clsx';
@@ -242,7 +242,7 @@ export const About = () => {
       {/* Awards Banner */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="https://storage.googleapis.com/crown_money/Website/About/Other/The-Better-Business-Awards.png" 
             alt="Crown Money Team receiving the Better Business Awards for excellence in finance" 
             className="w-full h-auto rounded-3xl shadow-lg"
@@ -266,19 +266,19 @@ export const About = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://storage.googleapis.com/crown_money/Website/About/People/Scott_Parry_BW.jpg" 
               alt="Scott Parry - Founder and CEO of Crown Money Management, Australian Mortgage Reduction Specialist" 
               className="rounded-3xl shadow-2xl"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute -bottom-6 -right-6 bg-gold text-white p-8 rounded-2xl shadow-xl hidden md:block">
+            <div className="absolute -bottom-6 -right-6 bg-gold text-primary p-8 rounded-2xl shadow-xl hidden md:block">
               <p className="text-4xl font-display font-bold">2004</p>
               <p className="text-sm font-medium">Year Founded</p>
             </div>
           </div>
           <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 text-gold font-bold uppercase tracking-widest text-sm">
+            <div className="inline-flex items-center space-x-2 text-gold-dark font-bold uppercase tracking-widest text-sm">
               <History size={16} />
               <span>Our Story</span>
             </div>
@@ -334,7 +334,7 @@ export const About = () => {
                       onClick={() => member.bio && setSelectedMember(member)}
                     >
                       <div className="relative overflow-hidden rounded-3xl mb-4 aspect-square bg-gray-100">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src={member.image} 
                           alt={member.name} 
                           className={cn("w-full h-full object-cover transition-transform duration-500 group-hover:scale-110", member.objectPosition || "object-center")}
@@ -399,7 +399,7 @@ export const About = () => {
             </div>
           </div>
           <div className="max-w-4xl mx-auto">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://storage.googleapis.com/crown_money/Awards/2026_Better_Business_Award.jpeg" 
               alt="The Better Business Awards 2026" 
               className="rounded-3xl shadow-2xl w-full"
@@ -443,7 +443,7 @@ export const About = () => {
               </button>
               <div className="flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 aspect-square md:aspect-auto">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={selectedMember.image} 
                     alt={selectedMember.name} 
                     className={cn("w-full h-full object-cover", selectedMember.objectPosition || "object-center")}
