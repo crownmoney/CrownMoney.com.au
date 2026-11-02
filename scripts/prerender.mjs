@@ -66,7 +66,9 @@ function check(url, html, meta) {
 }
 
 function writeRoute(url, html) {
-  const file = url === '/' ? path.join(dist, 'index.html') : path.join(dist, url, 'index.html');
+  // /about -> about.html so Netlify serves /about directly (dir/index.html would
+  // 301 to /about/, conflicting with the slash-less canonical URLs).
+  const file = url === '/' ? path.join(dist, 'index.html') : path.join(dist, `${url}.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);
 }
