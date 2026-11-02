@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [

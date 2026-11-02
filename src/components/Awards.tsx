@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Award, Trophy, Star } from 'lucide-react';
 
 const highlightedAward = {

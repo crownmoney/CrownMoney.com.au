@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { NotFound } from './pages/NotFound';
 import { initUrlTracker } from './utils/urlTracker';
 import { lazyPage } from './utils/lazyPage';
+import { enableEntranceAnimations } from './utils/motion';
 
 // Each page is its own JS chunk; see utils/lazyPage.tsx and main.tsx.
 const Home = lazyPage(() => import('./pages/Home').then((m) => ({ default: m.Home })));
@@ -68,6 +69,8 @@ const ScrollToTop = () => {
 export default function App() {
   useEffect(() => {
     initUrlTracker();
+    // Hydration is done: animate content that appears from here on.
+    enableEntranceAnimations();
   }, []);
 
   return (

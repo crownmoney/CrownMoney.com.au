@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Home, 

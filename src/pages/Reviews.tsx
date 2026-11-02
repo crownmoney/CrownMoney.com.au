@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { useLazyElfsight } from '../utils/useLazyElfsight';
+import { motion } from '../utils/motion';
 import { 
   Star, 
   Search, 
@@ -105,16 +106,7 @@ export const Reviews = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [visibleVideoCount, setVisibleVideoCount] = useState<number>(6);
 
-  useEffect(() => {
-    // Dynamically inject the Elfsight script for Google Reviews if not present
-    const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://elfsightcdn.com/platform.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
+  const reviewsWidgetRef = useLazyElfsight<HTMLDivElement>();
 
   // Comprehensive list of client reviews & case studies
   const allReviews = [
@@ -612,7 +604,7 @@ export const Reviews = () => {
           </div>
           <div className="bg-gray-50 p-6 md:p-8 rounded-3xl shadow-lg border border-gray-100">
             {/* Elfsight Google Reviews Widget Container */}
-            <div className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
+            <div ref={reviewsWidgetRef} className="elfsight-app-c912648e-ee80-4fa9-aad8-dd9c4c6145fa" data-elfsight-app-lazy></div>
           </div>
         </div>
       </section>

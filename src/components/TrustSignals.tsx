@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 
 const logos = [
   "https://storage.googleapis.com/crown_money/Trust%20Signals/7%20today%20tonight%20logo.png",

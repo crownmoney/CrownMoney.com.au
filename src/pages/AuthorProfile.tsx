@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Linkedin, Twitter, Mail, ArrowLeft, Award, BookOpen, MessageSquare } from 'lucide-react';
 

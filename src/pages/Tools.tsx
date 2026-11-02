@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from '../utils/motion';
 import { Calculator, TrendingUp, Home, DollarSign, Percent, PieChart, ArrowRight, Info, CheckCircle, RefreshCw, Briefcase, Wallet, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PieChart as RePieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';

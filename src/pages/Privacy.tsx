@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../utils/motion';
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const Privacy = () => {

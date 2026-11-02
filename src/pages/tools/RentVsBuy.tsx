@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
+import { motion } from '../../utils/motion';
 import { Helmet } from 'react-helmet-async';
 import { Home, Calculator, ArrowRight, Info, TrendingUp, DollarSign, PieChart, BarChart as BarChartIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
