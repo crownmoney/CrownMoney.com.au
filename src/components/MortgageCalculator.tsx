@@ -57,6 +57,7 @@ export const MortgageCalculator = () => {
               </div>
               <input 
                 type="range" 
+                aria-label="Loan Amount"
                 min="50000" 
                 max="2000000" 
                 step="10000"
@@ -76,6 +77,7 @@ export const MortgageCalculator = () => {
               </div>
               <input 
                 type="range" 
+                aria-label="Interest Rate"
                 min="1" 
                 max="15" 
                 step="0.1"
@@ -95,6 +97,7 @@ export const MortgageCalculator = () => {
               </div>
               <input 
                 type="range" 
+                aria-label="Loan Term"
                 min="5" 
                 max="30" 
                 step="1"

@@ -16,3 +16,4 @@ export function render(url: string) {
 }
 
 export { PAGES } from './seo/pages';
+export { preloadAllPages } from './utils/lazyPage';

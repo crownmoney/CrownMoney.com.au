@@ -2,7 +2,7 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App.tsx';
+import App, { preloadRoute } from './App.tsx';
 import './index.css';
 
 // Pages are pre-rendered to static HTML at build time (see scripts/prerender.mjs)
@@ -11,7 +11,7 @@ import './index.css';
 document.head.querySelectorAll('[data-prerender]').forEach((el) => el.remove());
 
 const root = document.getElementById('root')!;
-createRoot(root).render(
+preloadRoute(window.location.pathname).finally(() => createRoot(root).render(
   <StrictMode>
     <HelmetProvider>
       <BrowserRouter>
@@ -19,4 +19,4 @@ createRoot(root).render(
       </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,
-);
+));

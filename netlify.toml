@@ -9,6 +9,9 @@
 # there is no SPA catch-all. Unknown URLs fall through to dist/404.html, which
 # Netlify serves with a real 404 status.
 
+[images]
+  remote_images = ["https://storage\\.googleapis\\.com/crown_money/.*"]
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

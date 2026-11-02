@@ -140,28 +140,28 @@ export const RentVsBuy = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Weekly Rent ($)</label>
-                    <input type="number" value={rent} onChange={(e) => setRent(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Weekly Rent ($)" type="number" value={rent} onChange={(e) => setRent(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Property Price ($)</label>
-                    <input type="number" value={propertyPrice} onChange={(e) => setPropertyPrice(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Property Price ($)" type="number" value={propertyPrice} onChange={(e) => setPropertyPrice(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Deposit ($)</label>
-                    <input type="number" value={deposit} onChange={(e) => setDeposit(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Deposit ($)" type="number" value={deposit} onChange={(e) => setDeposit(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Stamp Duty & Initial Costs ($)</label>
-                    <input type="number" value={stampDuty} onChange={(e) => setStampDuty(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Stamp Duty & Initial Costs ($)" type="number" value={stampDuty} onChange={(e) => setStampDuty(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Interest Rate (%)</label>
-                      <input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                      <input aria-label="Interest Rate (%)" type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Growth Rate (%)</label>
-                      <input type="number" step="0.1" value={growthRate} onChange={(e) => setGrowthRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                      <input aria-label="Growth Rate (%)" type="number" step="0.1" value={growthRate} onChange={(e) => setGrowthRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                     </div>
                   </div>
                 </div>
@@ -175,19 +175,19 @@ export const RentVsBuy = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Annual Maintenance (%)</label>
-                    <input type="number" step="0.1" value={maintenance} onChange={(e) => setMaintenance(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Annual Maintenance (%)" type="number" step="0.1" value={maintenance} onChange={(e) => setMaintenance(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Annual Rates ($)</label>
-                    <input type="number" value={rates} onChange={(e) => setRates(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Annual Rates ($)" type="number" value={rates} onChange={(e) => setRates(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Opportunity Cost (%)</label>
-                    <input type="number" step="0.1" value={opportunityCostRate} onChange={(e) => setOpportunityCostRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
+                    <input aria-label="Opportunity Cost (%)" type="number" step="0.1" value={opportunityCostRate} onChange={(e) => setOpportunityCostRate(Number(e.target.value))} className="w-full p-3 rounded-xl border border-gray-200 focus:border-primary outline-none font-bold" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Comparison Period: {years} Years</label>
-                    <input type="range" min="1" max="30" value={years} onChange={(e) => setYears(Number(e.target.value))} className="w-full accent-gold" />
+                    <input aria-label={`Comparison Period: ${years} Years`} type="range" min="1" max="30" value={years} onChange={(e) => setYears(Number(e.target.value))} className="w-full accent-gold" />
                   </div>
                 </div>
               </div>
@@ -220,7 +220,7 @@ export const RentVsBuy = () => {
                       </div>
                       <div>
                         <p className="text-gray-600 text-sm">Estimated Wealth (Renting)</p>
-                        <p className="text-3xl font-display font-bold text-gold">${Math.round(results.netWealthRent).toLocaleString()}</p>
+                        <p className="text-3xl font-display font-bold text-gold-dark">${Math.round(results.netWealthRent).toLocaleString()}</p>
                       </div>
                       <div className="pt-6 border-t border-primary/10">
                         <p className="text-lg font-bold text-primary">
@@ -235,16 +235,16 @@ export const RentVsBuy = () => {
 
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-6 bg-gray-50 rounded-2xl">
-                    <p className="text-xs font-bold text-gray-400 uppercase mb-1">Total Rent Paid</p>
+                    <p className="text-xs font-bold text-gray-500 uppercase mb-1">Total Rent Paid</p>
                     <p className="text-xl font-bold text-primary">${Math.round(results.totalRent).toLocaleString()}</p>
                   </div>
                   <div className="p-6 bg-gray-50 rounded-2xl">
-                    <p className="text-xs font-bold text-gray-400 uppercase mb-1">Total Buying Costs</p>
+                    <p className="text-xs font-bold text-gray-500 uppercase mb-1">Total Buying Costs</p>
                     <p className="text-xl font-bold text-primary">${Math.round(results.buyingCosts).toLocaleString()}</p>
                   </div>
                   <div className="p-6 bg-gray-50 rounded-2xl">
-                    <p className="text-xs font-bold text-gray-400 uppercase mb-1">Property Value</p>
-                    <p className="text-xl font-bold text-gold">${Math.round(results.propertyValue).toLocaleString()}</p>
+                    <p className="text-xs font-bold text-gray-500 uppercase mb-1">Property Value</p>
+                    <p className="text-xl font-bold text-gold-dark">${Math.round(results.propertyValue).toLocaleString()}</p>
                   </div>
                 </div>
 

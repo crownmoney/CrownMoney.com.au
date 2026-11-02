@@ -41,4 +41,6 @@
 - [Redraw & Offset Withdrawal Calculator](https://crownmoney.com.au/tools/withdrawal-impact): Shows the extra interest and loan term from withdrawing redraw or offset funds.
 - [Wishlist Calculator](https://crownmoney.com.au/tools/wishlist-impact): Shows the long-term cost of funding lifestyle purchases (cars, boats, holidays) from home loan equity.
 - [Target Market Determinations](https://crownmoney.com.au/target-market-determinations): Product target market determinations.
+- [Scott Parry, Founder & CEO](https://crownmoney.com.au/author/scott-parry): Profile of Crown Money's founder.
+- [Craig Parry, Co-Founder & Director](https://crownmoney.com.au/author/craig-parry): Profile of Crown Money's co-founder.
 - [Privacy Policy](https://crownmoney.com.au/privacy)

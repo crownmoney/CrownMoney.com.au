@@ -185,7 +185,7 @@ export const PayOffMortgage = () => {
               {/* Attention Grabber Indicator / Bouncing Pointer Arrow with gold accent */}
               <div className="absolute -top-7 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none w-max">
                 <motion.div 
-                  className="bg-gradient-to-r from-[#D4AF37] to-amber-500 text-[#2A154B] text-[11px] font-extrabold px-4 py-1.5 rounded-full shadow-lg border border-white/50 flex items-center gap-1.5 uppercase tracking-wide"
+                  className="bg-gradient-to-r from-[#D4AF37] to-amber-500 text-[#2A154B] text-xs font-extrabold px-4 py-1.5 rounded-full shadow-lg border border-white/50 flex items-center gap-1.5 uppercase tracking-wide"
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -211,7 +211,7 @@ export const PayOffMortgage = () => {
                 </div>
               </div>
               
-              <div className="text-[11px] md:text-xs text-gray-300 font-medium pt-3 flex items-center justify-center lg:justify-start gap-1.5">
+              <div className="text-xs md:text-xs text-gray-300 font-medium pt-3 flex items-center justify-center lg:justify-start gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
                 <span>All details are held 100% private & secure. This will not impact your credit file.</span>
               </div>
@@ -224,7 +224,7 @@ export const PayOffMortgage = () => {
       {/* 4. Elegant "As Seen On & Featured In" Infinite Scrolling section */}
       <section id="trust-featured-in" className="bg-white py-12 border-b border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 text-center mb-8">
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest font-mono">AS FEATURED ON & IN REGULAR PUBLICATIONS</p>
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-widest font-mono">AS FEATURED ON & IN REGULAR PUBLICATIONS</p>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
@@ -244,7 +244,7 @@ export const PayOffMortgage = () => {
               const name = logo.split('/').pop()?.replace(/%20/g, ' ').replace(/\.[^/.]+$/, '') || 'Media Logo';
               return (
                 <div key={idx} className="mx-8 md:mx-12 flex-shrink-0 flex items-center justify-center p-4 bg-gray-50/40 rounded-2xl border border-gray-100 h-16 w-40 hover:bg-gray-50 transition-colors">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={logo} 
                     alt={name} 
                     className="max-h-10 max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300"
@@ -264,7 +264,7 @@ export const PayOffMortgage = () => {
       <section id="awards-reco" className="bg-gray-50 py-20 px-4 border-b border-gray-100">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase bg-[#D4AF37]/15 px-3.5 py-1.5 rounded-full">
+            <span className="text-gold-dark text-xs font-bold tracking-widest uppercase bg-[#D4AF37]/15 px-3.5 py-1.5 rounded-full">
               INDUSTRY LEADERSHIP
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-black text-[#2A154B] leading-tight">
@@ -278,7 +278,7 @@ export const PayOffMortgage = () => {
           {/* Highlighted major 2026 Winner Better Business Award */}
           <div className="max-w-3xl mx-auto bg-white rounded-3xl p-6 md:p-8 shadow-xl border-2 border-[#D4AF37]/35 flex flex-col md:flex-row items-center gap-8 text-left">
             <div className="w-36 h-36 md:w-44 md:h-44 flex-shrink-0 bg-[#2A154B]/5 rounded-2xl p-4 flex items-center justify-center border border-gray-100">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://storage.googleapis.com/crown_money/Website/About/Awards%20Won/BBA26_Winners_SA_Best%20Customer%20Service%20(Office).png" 
                 alt="2026 Better Business Awards Winner SA Best Customer Service" 
                 className="max-h-full max-w-full object-contain"
@@ -322,8 +322,8 @@ export const PayOffMortgage = () => {
                 }
               ].map((item, idx) => (
                 <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-150 shadow-sm flex flex-col items-center justify-center text-center space-y-3 hover:shadow-md transition">
-                  <img src={item.img} alt={item.title} className="h-20 w-auto object-contain hover:scale-115 transition duration-300" referrerPolicy="no-referrer" />
-                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wide">{item.title}</span>
+                  <img loading="lazy" decoding="async" src={item.img} alt={item.title} className="h-20 w-auto object-contain hover:scale-115 transition duration-300" referrerPolicy="no-referrer" />
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">{item.title}</span>
                 </div>
               ))}
             </div>
@@ -380,10 +380,10 @@ export const PayOffMortgage = () => {
               >
                 {/* 9:16 portrait style for Shorts */}
                 <div className="aspect-[9/16] w-full bg-black/40 rounded-2xl overflow-hidden shadow-lg border border-white/5 relative">
-                  <iframe 
+                  <iframe loading="lazy" 
                     width="100%" 
                     height="100%" 
-                    src={`https://www.youtube.com/embed/${video.id}`}
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}`}
                     title={video.title}
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -392,9 +392,9 @@ export const PayOffMortgage = () => {
                   ></iframe>
                 </div>
                 <div className="mt-4 space-y-1 px-1">
-                  <h4 className="text-white font-bold font-display text-sm md:text-md">
+                  <h3 className="text-white font-bold font-display text-sm md:text-md">
                     {video.title}
-                  </h4>
+                  </h3>
                   <p className="text-gray-400 text-xs">
                     {video.desc}
                   </p>
@@ -437,9 +437,9 @@ export const PayOffMortgage = () => {
                     </p>
                   </div>
                   <div className="pt-6 mt-6 border-t border-gray-100 text-center space-y-2">
-                    <h4 className="text-[#2A154B] font-bold font-display text-base">
+                    <h3 className="text-[#2A154B] font-bold font-display text-base">
                       - {item.author}
-                    </h4>
+                    </h3>
                     <div className="flex justify-center text-[#D4AF37]">
                       {[...Array(item.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current text-[#D4AF37]" />
@@ -460,7 +460,7 @@ export const PayOffMortgage = () => {
           
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-3">
-              <span className="text-xs font-bold text-[#D4AF37] tracking-wider uppercase block">
+              <span className="text-xs font-bold text-gold-dark tracking-wider uppercase block">
                 ALIGNED PERFORMANCE CO-DESIGN
               </span>
               <h2 className="text-3xl md:text-5xl font-display font-black text-[#2A154B] leading-tight">
@@ -491,7 +491,7 @@ export const PayOffMortgage = () => {
                     <CheckCircle className="w-5 h-5 fill-current text-white text-[#D4AF37]" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-display font-bold text-base text-[#2A154B]">{perk.title}</h4>
+                    <h3 className="font-display font-bold text-base text-[#2A154B]">{perk.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{perk.body}</p>
                   </div>
                 </div>
@@ -501,7 +501,7 @@ export const PayOffMortgage = () => {
 
           <div className="lg:col-span-6">
             <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-gray-100 shadow-2xl bg-gray-55">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://storage.googleapis.com/crown_money/Website/About/Other/The-Better-Business-Awards.png" 
                 alt="Crown Money Team receiving the Better Business Awards for excellence in finance" 
                 className="w-full h-auto object-cover"
@@ -521,7 +521,7 @@ export const PayOffMortgage = () => {
       <section id="faqs" className="bg-[#FAF9FC] py-20 px-4">
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="text-center space-y-4">
-            <span className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase bg-[#D4AF37]/10 px-3.5 py-1.5 rounded-full">
+            <span className="text-gold-dark text-xs font-bold tracking-widest uppercase bg-[#D4AF37]/10 px-3.5 py-1.5 rounded-full">
               GENERAL INFORMATION & FAQ
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-black text-[#2A154B] leading-tight">
@@ -588,12 +588,12 @@ export const PayOffMortgage = () => {
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="flex flex-col items-center gap-6">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/header-logo.svg" 
               alt="Crown Money" 
               className="h-10 w-auto filter brightness-0 invert opacity-65"
             />
-            <div className="flex flex-wrap justify-center gap-6 text-[10px] md:text-xs font-semibold uppercase tracking-wider text-gray-500">
+            <div className="flex flex-wrap justify-center gap-6 text-xs md:text-xs font-semibold uppercase tracking-wider text-gray-400">
               <span>MFAA Member</span>
               <span>•</span>
               <span>ACL 388 279</span>
@@ -602,7 +602,7 @@ export const PayOffMortgage = () => {
             </div>
           </div>
 
-          <div className="text-[11px] leading-relaxed text-gray-500 space-y-4 pt-8 border-t border-white/5 max-w-4xl mx-auto text-center">
+          <div className="text-xs leading-relaxed text-gray-400 space-y-4 pt-8 border-t border-white/5 max-w-4xl mx-auto text-center">
             <p>
               <strong>Compliance Disclaimer:</strong> Financial services represented here are configured under Crown Money Management Pty Ltd (ACN 119 504 862, ACL Number 388 279). Any representation of savings is calculated pursuant to historical audit samples and individual eligibility. This does not constitute legal, tax, or investment advice. Feel free to obtain independent guidance relevant to your specific personal household circumstances.
             </p>
@@ -617,7 +617,7 @@ export const PayOffMortgage = () => {
               <Link to="/target-market-determinations" className="hover:underline">TMD</Link>
             </div>
 
-            <p className="text-gray-600 text-[11px] pt-4">
+            <p className="text-gray-400 text-xs pt-4">
               &copy; {new Date().getFullYear()} Crown Money Management. All rights reserved. Built with 12-Month Guarantee security.
             </p>
           </div>

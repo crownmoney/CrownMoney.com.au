@@ -251,7 +251,7 @@ export const SuccessStories = () => {
                 className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col h-full"
               >
                 <div className="relative h-64">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={story.image} 
                     alt={story.name} 
                     className="w-full h-full object-cover"
@@ -260,7 +260,7 @@ export const SuccessStories = () => {
                     }}
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-4 right-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="absolute top-4 right-4 bg-gold text-primary px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     {story.result}
                   </div>
                 </div>
@@ -309,7 +309,7 @@ export const SuccessStories = () => {
                     src={video.url}
                     className="w-full h-full object-contain"
                     controls
-                    preload="metadata"
+                    preload="none"
                     playsInline
                   />
                 </div>

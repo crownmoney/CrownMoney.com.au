@@ -285,7 +285,7 @@ export const Contact = () => {
 
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">First Name</label>
-                      <input 
+                      <input aria-label="First Name" 
                         type="text" 
                         required
                         className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -296,7 +296,7 @@ export const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Email Address <span className="text-red-500">*</span></label>
-                      <input 
+                      <input aria-label="Email Address" 
                         type="email" 
                         required
                         aria-required="true"
@@ -312,7 +312,7 @@ export const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Mobile</label>
-                      <input 
+                      <input aria-label="Mobile" 
                         type="tel" 
                         required
                         className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -323,7 +323,7 @@ export const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Postcode</label>
-                      <input 
+                      <input aria-label="Postcode" 
                         type="text" 
                         required
                         className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -335,7 +335,7 @@ export const Contact = () => {
                     <div className="space-y-2 relative">
                       <label className="text-sm font-bold text-gray-700">How did you hear about us?</label>
                       <div className="relative">
-                        <select 
+                        <select aria-label="How did you hear about us?" 
                           required
                           className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50 appearance-none cursor-pointer"
                           value={formState.howDidYouHear}
@@ -365,7 +365,7 @@ export const Contact = () => {
                         className="space-y-2"
                       >
                         <label className="text-sm font-bold text-gray-700">Who referred you?</label>
-                        <input 
+                        <input aria-label="Who referred you?" 
                           type="text" 
                           required
                           className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -383,7 +383,7 @@ export const Contact = () => {
                         className="space-y-2"
                       >
                         <label className="text-sm font-bold text-gray-700">Please specify</label>
-                        <input 
+                        <input aria-label="Please specify" 
                           type="text" 
                           required
                           className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -401,7 +401,7 @@ export const Contact = () => {
                         className="space-y-2"
                       >
                         <label className="text-sm font-bold text-gray-700">Existing Client Details</label>
-                        <input 
+                        <input aria-label="Existing Client Details" 
                           type="text" 
                           required
                           className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none bg-gray-50/50"
@@ -414,7 +414,7 @@ export const Contact = () => {
 
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-700">Message (Optional)</label>
-                      <textarea 
+                      <textarea aria-label="Message (Optional)" 
                         rows={4}
                         className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none resize-none bg-gray-50/50"
                         placeholder="How can we help?"
