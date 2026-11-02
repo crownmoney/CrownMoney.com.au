@@ -104,7 +104,7 @@ export const Awards = () => {
                     className="h-28 w-auto object-contain hover:scale-110 transition-transform duration-300"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-xs text-gray-500 font-bold uppercase mt-2 text-center truncate w-full">
+                  <span className="text-xs text-gray-600 font-bold uppercase mt-2 text-center truncate w-full">
                     Winner
                   </span>
                 </motion.div>
@@ -137,7 +137,7 @@ export const Awards = () => {
                     className="h-28 w-auto object-contain"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="text-xs text-gray-500 font-bold uppercase mt-2 text-center truncate w-full">
+                  <span className="text-xs text-gray-600 font-bold uppercase mt-2 text-center truncate w-full">
                     Finalist
                   </span>
                 </motion.div>

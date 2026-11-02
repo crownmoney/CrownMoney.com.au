@@ -91,8 +91,8 @@ const LazyVideoCard = ({
         </div>
 
         <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
-          <span className="text-gray-400 font-mono">Crown Video Review</span>
-          <span className="text-amber-500 font-bold flex items-center gap-1">
+          <span className="text-gray-600 font-mono">Crown Video Review</span>
+          <span className="text-amber-700 font-bold flex items-center gap-1">
             <Star size={12} className="fill-current" /> Verified Customer
           </span>
         </div>
