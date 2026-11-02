@@ -319,7 +319,7 @@ export const SuccessStories = () => {
                     <span className="text-xs text-gray-600 font-mono">
                       Crown Success Video
                     </span>
-                    <span className="text-xs text-gold font-bold flex items-center gap-1">
+                    <span className="text-xs text-gold-dark font-bold flex items-center gap-1">
                       <Star size={12} className="fill-current" /> Verified Result
                     </span>
                   </div>
