@@ -1,16 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle, ArrowRight, Phone, Mail } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 export const Completed = () => {
   return (
     <div className="pt-28 pb-24 bg-gray-50 min-h-screen flex items-center justify-center">
-      <Helmet>
-        <title>Statement Shared Successfully | Crown Money</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
       
       <div className="max-w-xl w-full mx-4">
         <motion.div 

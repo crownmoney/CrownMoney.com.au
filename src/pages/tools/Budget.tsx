@@ -68,10 +68,6 @@ export const Budget = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Budget Planner & Monthly Savings Calculator Australia | Crown Money</title>
-        <meta name="description" content="Take control of your finances with our interactive budget planner. Track income, expenses, and savings rate to find surplus cash flow for faster mortgage reduction and wealth building in Australia." />
-        <meta name="keywords" content="budget planner australia, savings calculator, monthly budget tool, crown money tools, debt reduction strategy, cash flow management, financial planning australia" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools/budget" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

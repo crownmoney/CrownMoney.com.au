@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { Phone, FileText, Settings, TrendingUp, CheckCircle, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { SEO } from '../components/SEO';
 
 import { Newsletter } from '../components/Newsletter';
 
@@ -55,13 +54,6 @@ export const HowItWorks = () => {
 
   return (
     <div className="pt-10">
-      <SEO
-        title="How It Works | Crown Money's 4-Step Mortgage Reduction Strategy"
-        description="Discover the Crown Money 4-step process to financial freedom. From discovery calls to custom mortgage strategies and ongoing coaching, we help you pay off your home loan faster."
-        keywords="debt reduction process, mortgage reduction strategy, financial coaching Australia, how to pay off mortgage fast, Crown Money process, wealth tracking dashboard, mortgage structure optimisation"
-        ogTitle="How It Works | The Crown Money Mortgage Reduction Process"
-        ogDescription="Our proven 4-step system helps you pay off your mortgage in half the time. See how we combine strategy, implementation, and coaching."
-      />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(howToSchema)}
@@ -72,7 +64,7 @@ export const HowItWorks = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-primary mb-6">
-              A Proven System For <span className="text-gold">Financial Freedom</span>
+              How Our <span className="text-gold">Mortgage Reduction</span> System Works
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               We don't just give you a loan. We give you a strategy and the coaching to ensure you actually pay it off.

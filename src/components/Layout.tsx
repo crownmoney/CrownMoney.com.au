@@ -4,10 +4,10 @@ import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Twitter, Menu, X, 
 import { motion, AnimatePresence } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { GoogleGenAI } from "@google/genai";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getLeadSourceData } from '../utils/urlTracker';
+import { SEO } from './SEO';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -575,84 +575,18 @@ const Chatbot = ({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: bool
     setIsLoading(true);
 
     try {
-      const genAI = new GoogleGenAI({ 
-        apiKey: process.env.GEMINI_API_KEY || "",
+      // The Claude API call runs server-side (netlify/functions/chat.mts) so the
+      // API key never reaches the browser.
+      const history = newMessages.slice(-12).map(m => ({ role: m.isBot ? 'assistant' : 'user', text: m.text }));
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
       });
-      const model = "gemini-3-flash-preview";
-      
-      const systemPrompt = `You are a professional, helpful, and trustworthy AI assistant for Crown Money, an Australian financial strategy company. 
-          Crown Money specialises in debt reduction and wealth building. 
-          
-          Key Services & Concepts:
-          - Mortgage reduction strategies that help homeowners pay off their 30-year mortgage in half the time.
-          - Financial coaching and tracking through a proprietary dashboard.
-          - Optimising mortgage structures to work for the homeowner, not the bank.
-          - Wealth building and investment property strategy.
-          - The Passive Income Plan (PIP): Uses debt recycling to turn home equity into passive income, converting bad debt into tax-deductible good debt. Contact fsfl@crown.money for more.
-          
-          General Information & FAQ:
-          - Reviews: 
-            - Google: g.page/CrownMoney (Click Reviews > Leave a Review)
-            - Facebook: https://www.facebook.com/CrownMoneyManagement/reviews/
-            - Trustpilot: https://www.trustpilot.com/review/crownmoneymanagement.com.au/location/melbourne
-          - Depositing Cash: Deposit into everyday account, then transfer to home loan BSB/Account OR email clientcare@crown.money to arrange direct debit.
-          - Phone Banking (Origin): App available for iOS (App Store) and Android (Play Store). Search for "Origin Mortgages Mobile Access". Note: Redraws cannot be done via app; email redraws@crown.money.
-          - Lost Superannuation: Log in to myGov, link to ATO, access "Super" section to search.
-          - Licensing: Crown Money holds an Australian Credit Licence (ACL). Operated by Crown Lending Pty Ltd, ACL Number 388 279, ACN 119 504 862. [View Licence PDF](https://storage.googleapis.com/crown_money/Website/License%20%26%20Legal/Crown%20Lending%20ASIC%20ACL.pdf).
-          
-          Support & Operations:
-          - 90 Day Review: Speak to your Financial Strategist or email coaches@crown.money.
-          - Loan Discharge: Email discharge@crown.money. Process takes 3-4 weeks. Important: Redirect income and stop direct debits before discharge.
-          - Change Redraw Account: Email clientcare@crown.money for a DDR form.
-          - Employer Payments: Provide BSB and Account details from your settlement email.
-          - Redraw Requests: Use the new digital [Redraw Request Form](https://share-ap1.hsforms.com/1mytJWX7yTRm1UX14zx7qzw35dvz?utm_source=hs_email&utm_medium=email&_hsenc=p2ANqtz-9uYGRQK4ihl_3eu3gN8sBoob4VWgvvrqaVyssvXHDV1lvYsSO4Yd4TPAXXfq3X8LFycy0Z&__hstc=163423779.5aafa6ba179ddc334514772a1ed6dd7e.1775083658539.1775083658539.1775083658539.1&__hssc=163423779.1.1775083658540&__hsfp=d16f20985dd1fa1d4eb1884d25292ed8). Redraws are no longer via email. Watch this [step-by-step video](https://hello.crownmoneymanagement.com.au/share/hubspotvideo/312935213533?utm_source=hs_email&utm_medium=email&_hsenc=p2ANqtz-9uYGRQK4ihl_3eu3gN8sBoob4VWgvvrqaVyssvXHDV1lvYsSO4Yd4TPAXXfq3X8LFycy0Z&hsLang=en&__hstc=163423779.5aafa6ba179ddc334514772a1ed6dd7e.1775083658539.1775083658539.1775083658539.1&__hssc=163423779.1.1775083658540&__hsfp=d16f20985dd1fa1d4eb1884d25292ed8&_gl=1*1a00a9b*_gcl_au*MTExMjI1MDczNi4xNzc1MDgzNjU4) to see how it works.
-          - Adding Redraw Form to Home Screen:
-            - iPhone: Open form > Share icon > Add to Home Screen.
-            - Android: Open form > Three dots > Add to Home Screen / Install App.
-          - Redraw Timing: Processed same day if before cutoff (Advantedge: 10:45am, Origin/Well Nigh: 12:45pm AEST). Funds usually available after 6pm.
-          - Account Login: 
-            - Origin: Call 1300 767 023 for access. Login: https://online.originmms.com.au/ib/crown
-            - Well Nigh: Issued at settlement. Login: https://crownmoney.emms.net.au/security/login
-          - Third-Party Transfers: Not allowed for Advantedge/Well Nigh. Origin allows via Redraw Request Form + phone confirmation.
-          - BSB Numbers:
-            - Advantedge: 083-545 (NAB)
-            - Well Nigh: 037-842 (Westpac)
-            - Origin: 636-380 (Indue/Columbus Capital)
-          
-          Your goal is to help homeowners understand these concepts and actively prompt them to book a free strategy call by visiting the contact page at /contact. Once they submit their details, they will be redirected to the booking system.
+      if (!res.ok) throw new Error(`Chat request failed: ${res.status}`);
+      const data: { reply?: string } = await res.json();
+      const responseText = data.reply || "I'm sorry, I couldn't generate a response. Please try again or book a call with our team!";
 
-          If the user shares their name, email, or phone number in the chat, acknowledge them warmly and mention that we have received them and our specialists will be in touch shortly. If any of these are missing (e.g. they only gave an email but no phone number), kindly ask them for the missing details so we can connect with them.
-          
-          Guidelines:
-          - Be concise, professional, and friendly.
-          - Use standard Markdown for links to make them clickable.
-          - Avoid using markdown symbols like * or # for headers or lists unless necessary for clarity.
-          - If asked about specific rates or products, explain that a personalised strategy session is needed to provide accurate information for their situation.
-          - Always mention the free strategy call as the next logical step.`;
-
-      const chat = genAI.chats.create({
-        model: model,
-        config: {
-          systemInstruction: systemPrompt,
-        },
-      });
-
-      // Include history context (last 10 messages)
-      const history = messages.slice(-10).map(m => ({
-        role: m.isBot ? "model" : "user",
-        parts: [{ text: m.text }]
-      }));
-
-      const result = await genAI.models.generateContent({
-        model: model,
-        contents: [...history, { role: "user", parts: [{ text: userMsg }] }],
-        config: {
-          systemInstruction: systemPrompt
-        }
-      });
-
-      const responseText = result.text || "I'm sorry, I couldn't generate a response. Please try again or book a call with our team!";
-      
       setMessages(prev => [...prev, { text: responseText, isBot: true }]);
     } catch (error) {
       console.error("Chatbot error:", error);
@@ -1046,7 +980,6 @@ const RatesAndFeesModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =
   );
 };
 
-import { Helmet } from 'react-helmet-async';
 
 export const Layout = ({ children }: LayoutProps) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -1061,9 +994,7 @@ export const Layout = ({ children }: LayoutProps) => {
   if (isLandingPage) {
     return (
       <div className="min-h-screen flex flex-col bg-white">
-        <Helmet>
-          <link rel="icon" type="image/png" href="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/favicon.png" />
-        </Helmet>
+        <SEO />
         <main className="flex-grow">
           {children}
         </main>
@@ -1073,9 +1004,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Helmet>
-        <link rel="icon" type="image/png" href="https://storage.googleapis.com/crown_money/Logo%20%26%20Icon/favicon.png" />
-      </Helmet>
+      <SEO />
       <Header 
         onChatToggle={() => setIsChatOpen(!isChatOpen)} 
         onBookToggle={() => navigate('/contact')}

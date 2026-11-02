@@ -50,10 +50,6 @@ export const NetWorth = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Net Worth Calculator Australia | Track Your Wealth | Crown Money</title>
-        <meta name="description" content="Calculate your total net worth and analyze your asset allocation in Australia. Our net worth calculator helps you track your journey to financial freedom, wealth building, and mortgage reduction." />
-        <meta name="keywords" content="net worth calculator australia, track wealth, asset allocation calculator, crown money tools, financial freedom australia, wealth tracking, personal balance sheet" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools/net-worth" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

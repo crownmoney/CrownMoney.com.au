@@ -392,10 +392,6 @@ export const Tools = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Financial Calculators & Mortgage Tools Australia | Crown Money</title>
-        <meta name="description" content="Explore our suite of financial tools and calculators designed for Australians. From mortgage reduction to debt recycling, budget planning, and wishlist impact, Crown Money helps you take control of your wealth." />
-        <meta name="keywords" content="mortgage calculator australia, rent vs buy calculator, negative gearing calculator, debt recycling calculator, net worth calculator, mortgage reduction tools" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools" />
         <script type="application/ld+json">
           {JSON.stringify(toolsSchema)}
         </script>

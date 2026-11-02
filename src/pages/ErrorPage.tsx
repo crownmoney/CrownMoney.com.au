@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertCircle, Send, CheckCircle2, Phone, Mail, ArrowRight, ShieldCheck, Lock, RefreshCw, Sparkles } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getLeadSourceData } from '../utils/urlTracker';
 
@@ -73,10 +72,6 @@ export const ErrorPage = () => {
 
   return (
     <div className="pt-28 pb-24 bg-gray-50 min-h-screen flex items-center justify-center">
-      <Helmet>
-        <title>Bank Statement Connection Issue | Crown Money</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
       
       <div className="max-w-xl w-full mx-4">
         <motion.div 

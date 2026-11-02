@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, Phone, Mail, MapPin, CheckCircle, MessageSquare, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-import { SEO } from '../components/SEO';
 import { getLeadSourceData } from '../utils/urlTracker';
 
 const formatPhoneForOnceHub = (phone: string): string => {
@@ -147,11 +146,6 @@ export const Contact = () => {
 
   return (
     <div className="pt-10">
-      <SEO
-        title="Contact Us | Book Your Free Mortgage Strategy Call"
-        description="Contact Crown Money Management today. Book your free strategy call, send an enquiry, or find our contact details. We're here to help you achieve financial freedom and pay off your mortgage faster."
-        keywords="contact Crown Money, book strategy call, mortgage broker contact, financial advice Australia, debt reduction consultation, mortgage reduction experts"
-      />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(contactSchema)}
@@ -160,7 +154,7 @@ export const Contact = () => {
       {/* Hero */}
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Get In Touch</h1>
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Book a Free Mortgage Strategy Call</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to start your journey to mortgage freedom? Our team is here to help.
           </p>

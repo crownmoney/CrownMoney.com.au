@@ -1,17 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 export const Privacy = () => {
   return (
     <div className="pt-20 pb-24 bg-white">
-      <Helmet>
-        <title>Privacy Policy | Crown Money Management Australia</title>
-        <meta name="description" content="Read the Crown Money Management privacy policy. Learn how we collect, use, and protect your personal and credit information in accordance with Australian Privacy Principles." />
-        <meta name="keywords" content="privacy policy, data protection, Crown Money privacy, Australian privacy principles, credit reporting policy, personal information security" />
-        <link rel="canonical" href="https://crownmoney.com.au/privacy" />
-      </Helmet>
       <div className="max-w-4xl mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

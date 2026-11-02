@@ -155,10 +155,6 @@ export const WishlistImpact = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Home Loan Withdrawal Impact Calculator | Mortgage Equity Cost | Crown Money</title>
-        <meta name="description" content="Calculate the real cost of withdrawing home loan equity for lifestyle purchases like boats or cars. See the impact on your loan term, total interest, and payoff age. Make informed financial decisions with Crown Money." />
-        <meta name="keywords" content="home loan withdrawal calculator, mortgage equity withdrawal impact, redraw impact calculator, boat finance vs mortgage, car finance vs mortgage australia, cost of lifestyle debt" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools/wishlist-impact" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -198,7 +194,7 @@ export const WishlistImpact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Home Loan Withdrawal Impact Calculator</h1>
+            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Wishlist Impact Calculator: The Real Cost of Big Purchases</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               See the true cost of "wants" vs "needs". Calculate how using your home loan to buy lifestyle items affects your financial freedom.
             </p>

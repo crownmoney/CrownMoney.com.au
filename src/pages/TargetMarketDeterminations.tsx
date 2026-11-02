@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { FileText, Download, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Newsletter } from '../components/Newsletter';
 import { Testimonials } from '../components/Testimonials';
 
@@ -57,12 +56,6 @@ const archivedTMDs = [
 const TargetMarketDeterminations = () => {
   return (
     <div className="bg-white">
-      <Helmet>
-        <title>Target Market Determinations (TMD) | Crown Money Australia</title>
-        <meta name="description" content="Access Crown Money Management's Target Market Determinations (TMDs) to understand which of our financial products, including home loans and SMSF products, are appropriate for your needs." />
-        <meta name="keywords" content="Target Market Determinations, TMD, Crown Money products, financial product suitability Australia, mortgage TMD, SMSF TMD, financial compliance" />
-        <link rel="canonical" href="https://crownmoney.com.au/target-market-determinations" />
-      </Helmet>
       {/* Hero Section */}
       <section className="bg-primary py-20 text-white">
         <div className="max-w-7xl mx-auto px-4">
