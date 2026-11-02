@@ -71,10 +71,6 @@ export const RentVsBuy = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Rent vs Buy Calculator Australia | Home Ownership Comparison | Crown Money</title>
-        <meta name="description" content="Compare renting vs buying in Australia with our advanced calculator. Analyze long-term wealth, maintenance costs, stamp duty, and investment opportunity costs for informed financial planning and mortgage reduction." />
-        <meta name="keywords" content="rent vs buy calculator, buy vs rent australia, home ownership vs renting, property investment australia, crown money tools, real estate comparison australia" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools/rent-vs-buy" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

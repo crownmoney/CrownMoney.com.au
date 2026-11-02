@@ -431,24 +431,6 @@ export const Reviews = () => {
     <div className="pt-10 bg-white min-h-screen">
       {/* SEO / Meta Tags */}
       <Helmet>
-        <title>Crown Money Reviews | 5-Star Client Ratings & Testimonials</title>
-        <meta 
-          name="description" 
-          content="Read authentic Crown Money reviews, 5-star Google ratings, and video testimonials from Australian homeowners. See how Crown Money Management helps clients pay off home loans up to 15 years faster." 
-        />
-        <meta 
-          name="keywords" 
-          content="Crown Money reviews, Crown Money Google reviews, Crown Money ratings, Crown Money complaints, Crown Money legitimate, Crown Money Home Ownership Program reviews, Scott Parry reviews, Crown Money Management feedback" 
-        />
-        <link rel="canonical" href="https://crownmoney.com.au/reviews" />
-        
-        {/* OpenGraph Tags for Social Sharing & AI Discovery */}
-        <meta property="og:title" content="Crown Money Reviews | 5-Star Client Ratings & Testimonials" />
-        <meta property="og:description" content="Discover verified client feedback, Google reviews, and real video success stories from Australian families who cut their mortgages in half with Crown Money." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://crownmoney.com.au/reviews" />
-        <meta property="og:image" content="https://storage.googleapis.com/crown_money/Website/About/Testimonials/Melanie%20and%20Jeffrey%20.jpg" />
-
         {/* Structured Data Script */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

@@ -192,10 +192,6 @@ export const SuccessStories = () => {
   return (
     <div className="pt-10">
       <Helmet>
-        <title>Success Stories | Real Mortgage Reduction Results | Crown Money</title>
-        <meta name="description" content="Read real success stories from Crown Money clients who have saved years and hundreds of thousands of dollars on their mortgages. See how Australian families achieve financial freedom." />
-        <meta name="keywords" content="mortgage success stories, debt reduction results, client testimonials Crown Money, financial freedom Australia, mortgage reduction case studies" />
-        <link rel="canonical" href="https://crownmoney.com.au/success-stories" />
         <script type="application/ld+json">
           {JSON.stringify(reviewSchema)}
         </script>
@@ -204,7 +200,8 @@ export const SuccessStories = () => {
       {/* Hero */}
       <section className="bg-primary text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Real Australians. Real Results.</h1>
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Mortgage Reduction Success Stories</h1>
+          <p className="text-2xl md:text-3xl font-display font-bold text-gold mb-6">Real Australians. Real Results.</p>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             See how our clients are transforming their financial lives and achieving mortgage freedom years ahead of schedule.
           </p>

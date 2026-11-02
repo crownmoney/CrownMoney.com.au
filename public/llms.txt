@@ -27,9 +27,18 @@
 
 ## Key Pages & Information Resources
 - [Home Page](https://crownmoney.com.au/): Overview of mortgage reduction and coaching services.
-- [Client Reviews](https://crownmoney.com.au/reviews): 5-star Google reviews, verified video testimonials, and FAQ schema.
+- [Client Reviews](https://crownmoney.com.au/reviews): Google reviews and video testimonials from clients.
 - [Success Stories](https://crownmoney.com.au/success-stories): In-depth case studies of Australian families becoming debt-free.
 - [How It Works](https://crownmoney.com.au/how-it-works): Detailed explanation of loan restructuring and financial coaching.
 - [Calculators & Tools](https://crownmoney.com.au/tools): Mortgage reduction and cash-flow projection calculators.
 - [Mortgage Reduction Calculator](https://crownmoney.com.au/mortgage-reduction-calculator): Interactive tool to calculate mortgage payoff timeline.
 - [Book a Strategy Session](https://crownmoney.com.au/contact): Contact form to schedule a consultation with a financial personal trainer.
+- [About Crown Money](https://crownmoney.com.au/about): Company history, leadership team and credentials.
+- [Rent vs Buy Calculator](https://crownmoney.com.au/tools/rent-vs-buy): Compares renting and buying a home in Australia, including stamp duty and opportunity cost.
+- [Net Worth Calculator](https://crownmoney.com.au/tools/net-worth): Totals assets and liabilities to calculate net worth.
+- [Debt Recycling Calculator](https://crownmoney.com.au/tools/debt-recycling): Models converting non-deductible home loan debt into tax-deductible investment debt.
+- [Budget Planner](https://crownmoney.com.au/tools/budget): Monthly income, expenses and savings-rate planner.
+- [Redraw & Offset Withdrawal Calculator](https://crownmoney.com.au/tools/withdrawal-impact): Shows the extra interest and loan term from withdrawing redraw or offset funds.
+- [Wishlist Calculator](https://crownmoney.com.au/tools/wishlist-impact): Shows the long-term cost of funding lifestyle purchases (cars, boats, holidays) from home loan equity.
+- [Target Market Determinations](https://crownmoney.com.au/target-market-determinations): Product target market determinations.
+- [Privacy Policy](https://crownmoney.com.au/privacy)

@@ -9,10 +9,6 @@ export const CalculatorLanding = () => {
   return (
     <div className="pt-20">
       <Helmet>
-        <title>Mortgage Reduction Calculator | Pay Off Your Home Faster | Crown Money</title>
-        <meta name="description" content="Use our advanced mortgage reduction calculator to see how much interest you can save and how many years you can shave off your home loan with Crown Money's Home Ownership Programme." />
-        <meta name="keywords" content="mortgage reduction calculator, pay off home loan faster, mortgage savings calculator, interest reduction calculator, Crown Money HOP, home ownership programme australia" />
-        <link rel="canonical" href="https://crownmoney.com.au/mortgage-reduction-calculator" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

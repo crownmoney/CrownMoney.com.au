@@ -54,10 +54,6 @@ export const DebtRecycling = () => {
   return (
     <div className="pt-0 pb-20">
       <Helmet>
-        <title>Debt Recycling Calculator Australia | Tax-Deductible Debt Strategy | Crown Money</title>
-        <meta name="description" content="Master debt recycling in Australia with our advanced calculator. Learn how to transform your non-deductible home loan into tax-deductible investment debt for faster wealth building and mortgage reduction." />
-        <meta name="keywords" content="debt recycling calculator australia, tax deductible debt, home loan strategy, crown money tools, wealth building australia, mortgage reduction strategy, investment debt" />
-        <link rel="canonical" href="https://crownmoney.com.au/tools/debt-recycling" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

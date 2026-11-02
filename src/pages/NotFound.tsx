@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Home, AlertTriangle, ArrowRight } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 export const NotFound = () => {
   const navigate = useNavigate();
@@ -25,10 +24,6 @@ export const NotFound = () => {
 
   return (
     <div className="pt-28 pb-24 bg-gray-50 min-h-screen flex items-center justify-center">
-      <Helmet>
-        <title>Page Not Found | Crown Money</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
 
       <div className="max-w-md w-full mx-4">
         <motion.div
