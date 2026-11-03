@@ -26,6 +26,9 @@ const WithdrawalImpact = lazyPage(() => import('./pages/tools/WithdrawalImpact')
 const PayOffMortgage = lazyPage(() => import('./pages/PayOffMortgage').then((m) => ({ default: m.PayOffMortgage })));
 const Completed = lazyPage(() => import('./pages/Completed').then((m) => ({ default: m.Completed })));
 const ErrorPage = lazyPage(() => import('./pages/ErrorPage').then((m) => ({ default: m.ErrorPage })));
+const StoryPage = lazyPage(() => import('./pages/StoryPage').then((m) => ({ default: m.StoryPage })));
+const Guides = lazyPage(() => import('./pages/Guides').then((m) => ({ default: m.Guides })));
+const GuidePage = lazyPage(() => import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })));
 const Reviews = lazyPage(() => import('./pages/Reviews').then((m) => ({ default: m.Reviews })));
 
 const ROUTES = [
@@ -33,6 +36,9 @@ const ROUTES = [
   { path: '/about', Page: About },
   { path: '/how-it-works', Page: HowItWorks },
   { path: '/success-stories', Page: SuccessStories },
+  { path: '/success-stories/:slug', Page: StoryPage },
+  { path: '/guides', Page: Guides },
+  { path: '/guides/:slug', Page: GuidePage },
   { path: '/contact', Page: Contact },
   { path: '/pay-off-mortgage', Page: PayOffMortgage },
   { path: '/tools', Page: Tools },

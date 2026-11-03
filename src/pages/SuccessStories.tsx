@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLazyElfsight } from '../utils/useLazyElfsight';
+import { STORIES } from '../content/stories';
 import { motion } from '../utils/motion';
 import { Star, ArrowRight, Quote, TrendingDown, Calendar, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -197,6 +198,34 @@ export const SuccessStories = () => {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             See how our clients are transforming their financial lives and achieving mortgage freedom years ahead of schedule.
           </p>
+        </div>
+      </section>
+
+      {/* Individual client stories */}
+      <section className="py-20 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">Client Stories in Their Own Words</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Real Crown Money clients share how much they paid off, how long it took and what changed along the way.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {STORIES.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/success-stories/${s.slug}`}
+                className="group flex flex-col bg-gray-50 border border-gray-100 rounded-3xl p-6 hover:shadow-lg transition-shadow"
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">{s.name}</p>
+                <h3 className="text-xl font-display font-bold text-primary mb-3 group-hover:underline">{s.headline}</h3>
+                <p className="text-gray-600 text-sm flex-grow">{s.summary}</p>
+                <span className="mt-4 inline-flex items-center text-sm font-bold text-gold-dark">
+                  Read the story <ArrowRight size={14} className="ml-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,3 +1,6 @@
+import { STORIES } from '../content/stories';
+import { GUIDES } from '../content/guides';
+
 // Single source of truth for every page's SEO metadata.
 // Used by the <SEO> component (rendered once in Layout), the build-time
 // pre-renderer and the sitemap generator. Keep titles <= 60 characters and
@@ -187,6 +190,40 @@ export const PAGES: Record<string, PageMeta> = {
     source: 'src/pages/ErrorPage.tsx',
   },
 };
+
+// One page per client story (src/content/stories.ts).
+for (const story of STORIES) {
+  PAGES[`/success-stories/${story.slug}`] = {
+    title: story.seoTitle,
+    description: story.description,
+    priority: 0.7,
+    changefreq: 'yearly',
+    source: 'src/content/stories.ts',
+  };
+}
+
+// Guides (src/content/guides.ts). Drafts are noindex and stay out of the
+// sitemap until reviewed; the hub stays noindex until one guide is published.
+const anyGuidePublished = GUIDES.some((g) => !g.draft);
+PAGES['/guides'] = {
+  title: 'Home Loan & Money Guides for Australians | Crown Money',
+  description:
+    'Plain-English guides on paying off your mortgage sooner, offset accounts, extra repayments and managing household money in Australia.',
+  noindex: !anyGuidePublished,
+  priority: 0.8,
+  changefreq: 'weekly',
+  source: 'src/content/guides.ts',
+};
+for (const guide of GUIDES) {
+  PAGES[`/guides/${guide.slug}`] = {
+    title: guide.seoTitle,
+    description: guide.description,
+    noindex: guide.draft,
+    priority: 0.8,
+    changefreq: 'monthly',
+    source: 'src/content/guides.ts',
+  };
+}
 
 export const NOT_FOUND_META: PageMeta = {
   title: 'Page Not Found | Crown Money',
