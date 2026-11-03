@@ -128,6 +128,22 @@ fs.writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`,
 );
 
+// llms.txt: append generated sections (client stories, guides) so AI tools
+// see every content page without hand-editing the file.
+const llmsPath = path.join(dist, 'llms.txt');
+if (fs.existsSync(llmsPath)) {
+  const section = (heading, prefix) => {
+    const rows = Object.entries(PAGES)
+      .filter(([url, m]) => url.startsWith(prefix) && !m.noindex)
+      .map(([url, m]) => `- [${m.title.split(' | ')[0]}](${SITE_URL}${url}): ${m.description}`);
+    return rows.length ? `\n## ${heading}\n${rows.join('\n')}\n` : '';
+  };
+  fs.appendFileSync(
+    llmsPath,
+    section('Client Success Stories', '/success-stories/') + section('Guides', '/guides/'),
+  );
+}
+
 fs.rmSync(ssrDir, { recursive: true, force: true });
 fs.rmSync(path.join(dist, '.vite'), { recursive: true, force: true });
 
